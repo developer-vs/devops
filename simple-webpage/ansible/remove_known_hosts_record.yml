@@ -1,0 +1,17 @@
+---
+- name: Remove last host key from known_hosts
+  hosts: localhost
+  tasks:
+    - name: Get last line from known_hosts
+      ansible.builtin.shell:
+        cmd: "tail -n 1 ~/.ssh/known_hosts"
+      register: last_known_hosts_line
+      ignore_errors: yes
+
+    - name: Remove last SSH host key from known_hosts
+      ansible.builtin.lineinfile:
+        path: "{{ ansible_env.HOME }}/.ssh/known_hosts"
+        state: absent
+        line: "{{ last_known_hosts_line.stdout }}"
+      when: last_known_hosts_line.stdout | length > 0
+
