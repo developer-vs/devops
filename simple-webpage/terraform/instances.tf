@@ -4,7 +4,6 @@ resource "aws_instance" "ubuntu_img_2204" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.simple-webpage.id]
   key_name               = aws_key_pair.public_key_simple_webpage.key_name
-  iam_instance_profile   = aws_iam_instance_profile.simple_webpage_profile.name
 
   tags = {
     Name    = "Simple Webpage"
