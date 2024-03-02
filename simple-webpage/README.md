@@ -24,3 +24,5 @@ provider "aws" {
   region  = "us-east-1"
 }
 ```
+
+Get the Jenkins pipelines from the scripts folder.
