@@ -1,0 +1,48 @@
+---
+- name: Accept SSH key confirmation securely
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Confirm SSH key
+      expect:
+        # The ssh-keyscan utility is used to retrieve the SSH public key of a remote host
+        # The -H option with ssh-keyscan, it hashes the output, making it suitable for adding to the known_hosts file.
+        # Tt fetches the SSH public key of the remote host specified by {{ ansible_host }} and prints it in a format 
+        # that can be added directly to the known_hosts file.
+        # Ansible will use the default known_hosts file location, which is typically ~/.ssh/known_hosts
+        command: ssh-keyscan -H {{ ansible_host }}
+        responses:
+          "(?i)Are you sure you want to continue connecting (yes/no/[fingerprint])? ": "yes\n"
+
+
+- name: Configure Apache server and deploy HTML file
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start Apache service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+        
+    - name: Get external IP address using AWS metadata
+      command: "curl -s http://169.254.169.254/latest/meta-data/public-ipv4"
+      register: curl_response
+      changed_when: false  # Mark the task as non-changing
+
+    - name: Deploy HTML file
+      template:
+        src: ../website/index.html.j2  # Adjust the path to your Jinja2 template
+        dest: /var/www/html/index.html
+      vars:
+        external_ip: "{{ curl_response.stdout | trim }}"
+

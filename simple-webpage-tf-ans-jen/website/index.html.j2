@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to a server running on Apache</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsC7gchJF91t1M/5O6PDp7NuvfIe0lyFXmu3gjFv/wfs0pHHN9oDtW2MOicA2uAI" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #A1B0FF;
+    }
+    .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <h1 class="text-center mb-5">Welcome to a server running on Apache</h1>
+        <p class="lead">External IP address: {{ external_ip }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-2lGtHbh2jpqfN/RB8pOvU9A+v8k+5BRCQXfE2RfITfXgTBMX1twghnv5ZjIEZWFm" crossorigin="anonymous"></script>
+</body>
+</html>
+
