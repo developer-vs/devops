@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {        
-        stage('Ansible Playbook Apply') {
+        stage('Terraform destroy state') {
             steps {
                 script {
                     dir("../simple-webpage-deploy/simple-webpage/scripts") {
@@ -32,6 +32,9 @@ pipeline {
         stage('Clean Up "simple-webpage-destroy" project') {
             steps {
                 dir("../simple-webpage-destroy") {
+                    deleteDir()
+                }
+                dir("../simple-webpage-deploy@tmp") {
                     deleteDir()
                 }
             }
