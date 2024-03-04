@@ -19,7 +19,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "nodejs_apps_bucket" {
-  bucket = "nodejs_apps-terraform-bucket"
+  bucket = "nodejs-apps-terraform-bucket"
   
   tags = {
     Name        = "NodejsAppsBucket"
@@ -85,7 +85,7 @@ resource "null_resource" "generate_backend" {
       terraform {
         backend "s3" {
           bucket = "${aws_s3_bucket.nodejs_apps_bucket.bucket}"
-          key    = "nodejs_apps/setup_s3/terraform.tfstate"
+          key    = "setup_s3/terraform.tfstate"
           region = "${var.region}"
         }
       }

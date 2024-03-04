@@ -6,7 +6,8 @@ terraform init
 
 # Run terraform apply for main.tf
 echo "Applying main.tf..."
-terraform apply -auto-approve
+terraform plan -out=terraform.tfplan
+terraform apply "terraform.tfplan"
 
 # Check if backend.tf exists
 echo "Waiting for backend.tf file to be created..."

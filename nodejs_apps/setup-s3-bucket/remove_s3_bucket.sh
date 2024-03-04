@@ -57,5 +57,5 @@ fi
 
 # Remove backend.tf, Terraform configuration files, and state files
 echo "Removing backend.tf, Terraform files, and state files..."
-rm -rf backend.tf *.tfvars *.tfstate* .terraform .terraform.lock.hcl
+rm -rf backend.tf *.tfvars *.tfstate* .terraform .terraform.lock.hcl terraform.tfplan
 
