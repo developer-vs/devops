@@ -1,69 +1,75 @@
 pipeline {
     agent any
-
-    parameters {
-        string(name: 'ACTION', defaultValue: 'abort', description: 'Action to take')
-    }
-
-    tools {
-        terraform 'tf1.6'
-    }
-
-    environment {
-        GIT_REPO = 'git@github.com:LocalCoding/DevOps_Jan_24.git'
-        GIT_CREDENTIALS = 'jenkins_access_to_git'
-        TF_DIRECTORY = 'Lesson_14_Jenkins_pipelines_NodeJS_Apps/project_setup_files/terraform'
-    }
-
-    stages {
-
-        stage('Clone Git repo') {
-            steps {
-                checkout scm: [
-                    $class: 'GitSCM',
-                    branches: [[name: 'main']],
-                    userRemoteConfigs: [[
-                        url: "${GIT_REPO}",
-                        credentialsId: "${GIT_CREDENTIALS}"
-                    ]]
-                ]
-            }
-        }
-
-        stage('Terraform Init & Plan') {
-            steps {
-                dir("${TF_DIRECTORY}") {
-                    sh '''
-                    terraform init -input=false
-                    terraform plan -destroy -out=terraform_destroy.tfplan
-                    '''
-                }
-            }
-        }
-
-        stage('User Approval') {
+    
+    stages {        
+        stage('Terraform destroy nodejs app') {
             steps {
                 script {
-                    timeout(time: 5, unit: 'MINUTES') {
-                        def userInput = input(
-                            id: 'userInput', 
-                            message: 'Choose to proceed with the build:', 
-                            parameters: [choice(name: 'Proceed?', choices: ['yes', 'abort'], description: 'Proceed or Abort')]
-                        )
-                        if (userInput == 'abort') {
-                            error('Build was aborted by the user.')
+                    dir("project_setup_files/scripts") {
+                        sh 'ls -l'
+                        
+                        // Check if tf-cleanup.sh file exists before attempting to change permissions
+                        if (fileExists('tf-cleanup.sh')) {
+                            sh 'chmod +x tf-cleanup.sh' // Ensure script is executable
+                            sh './tf-cleanup.sh' // Execute the script
+                        } else {
+                            echo "Error: tf-cleanup.sh file not found."
+                            // You can choose to exit the stage here or handle the error accordingly
+                        }
+                    }
+                    dir("project_setup_files/terraform") {
+                        sh 'ls -l'
+                        
+                        // Check if remove_s3_bucket.sh file exists before attempting to change permissions
+                        if (fileExists('remove_s3_bucket.sh')) {
+                            sh 'chmod +x remove_s3_bucket.sh' // Ensure script is executable
+                            sh './remove_s3_bucket.sh' // Execute the script
+                        } else {
+                            echo "Error: remove_s3_bucket.sh file not found."
+                            // You can choose to exit the stage here or handle the error accordingly
                         }
                     }
                 }
             }
         }
-
-        stage('Terraform Apply') {
+        
+        stage('Terraform destroy S3 bucket') {
             steps {
-                dir("${TF_DIRECTORY}") {
-                    sh 'terraform apply -input=false terraform_destroy.tfplan'
+                script {
+                    dir("setup-s3-bucket") {
+                        sh 'ls -l'
+                        
+                        // Check if remove_s3_bucket.sh file exists before attempting to change permissions
+                        if (fileExists('remove_s3_bucket.sh')) {
+                            sh 'chmod +x remove_s3_bucket.sh' // Ensure script is executable
+                            sh './remove_s3_bucket.sh' // Execute the script
+                        } else {
+                            echo "Error: remove_s3_bucket.sh file not found."
+                            // You can choose to exit the stage here or handle the error accordingly
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Clean Up "dadjokes-deploy" project') {
+            steps {
+                dir("../dadjokes-deploy") {
+                    deleteDir()
+                }
+                dir("../dadjokes-deploy@tmp") {
+                    deleteDir()
+                }
+            }
+        }
+        
+        stage('Clean Up "dadjokes-destroy" project') {
+            steps {
+                dir("../dadjokes-destroy") {
+                    deleteDir()
                 }
             }
         }
     }
 }
+

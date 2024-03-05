@@ -9,9 +9,9 @@ pipeline {
     environment {
         GIT_REPO =          'git@github.com:developer-vs/devops.git'
         GIT_CREDENTIALS =   'Github'
-        ANSIBLE_DIRECTORY = '$WORKSPACE/dadjokes-deploy/project_setup_files/ansible'
-        TF_DIRECTORY =      '$WORKSPACE/dadjokes-deploy/project_setup_files/terraform'
-        TF_DIRECTORY_S3 =   '$WORKSPACE/dadjokes-deploy/setup-s3-bucket'
+        TF_DIRECTORY_S3 =   'nodejs_apps/setup-s3-bucket'
+        TF_DIRECTORY =      'nodejs_apps/project_setup_files/terraform'
+        ANSIBLE_DIRECTORY = 'nodejs_apps/project_setup_files/ansible'
     }
 
     stages {
@@ -20,11 +20,11 @@ pipeline {
                 deleteDir()
                 checkout([$class: 'GitSCM',
                   branches: [[name: 'main']],
-						userRemoteConfigs: [[
-                      	credentialsId: "${GIT_CREDENTIALS}",
-                      	url: "${GIT_REPO}"]],
-                      	extensions: [[$class: 'SparseCheckoutPaths',
-                            		sparseCheckoutPaths: [[path: 'nodejs_apps']]]]])
+                        userRemoteConfigs: [[
+                        credentialsId: "${GIT_CREDENTIALS}",
+                        url: "${GIT_REPO}"]],
+                        extensions: [[$class: 'SparseCheckoutPaths',
+                                    sparseCheckoutPaths: [[path: 'nodejs_apps']]]]])
             }
         }
 
@@ -44,7 +44,7 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Terraform Setup DadJokes Project') {
             steps {
                 script {
@@ -55,7 +55,7 @@ pipeline {
                 }
             }
         }
-
+        
         stage('User Approval for Terraform') {
             steps {
                 script {
@@ -72,15 +72,15 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Terraform Apply') {
             steps {
                 dir("${TF_DIRECTORY}") {
-                    sh 'terraform apply -auto-approve terraform.tfplan'
+                    sh 'terraform apply "terraform.tfplan"'
                 }
             }
         }
-
+        
         stage('Get Instance IP') {
             steps {
                 dir("${TF_DIRECTORY}") {
@@ -95,7 +95,7 @@ pipeline {
                 sh 'ansible --version'
             }
         }
-
+        
         stage('User Approval for Ansible') {
             steps {
                 script {
@@ -113,7 +113,7 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Run Ansible for the DadJokes App') {
             steps {
                 dir("${ANSIBLE_DIRECTORY}") {
