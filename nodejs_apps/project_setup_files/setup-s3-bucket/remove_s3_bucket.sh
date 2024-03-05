@@ -17,7 +17,6 @@ state_key=$(grep -E 'key[[:space:]]+= "setup_s3/terraform.tfstate"' main.tf | aw
 echo "Bucket Name: $bucket_name"
 echo "Key Value: $state_key"
 
-
 # Check if bucket name is not empty
 if [ -n "$bucket_name" ]; then
 
