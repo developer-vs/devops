@@ -14,3 +14,4 @@ resource "aws_instance" "nodejs-apps-server" {
   provisioner "local-exec" {
     command = "../scripts/update_hosts.sh '${aws_instance.nodejs-apps-server.public_ip}'"
   }
+}
