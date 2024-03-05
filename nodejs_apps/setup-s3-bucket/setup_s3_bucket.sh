@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Extract bucket name from main.tf
+bucket_name=$(grep -E 'resource "aws_s3_bucket" "nodejs_apps_bucket"' main.tf -A 2 | grep "bucket =" | awk -F '"' '{print $2}')
+
+# Check if the bucket already exists
+echo "Checking if the bucket $bucket_name already exists..."
+if aws s3api head-bucket --bucket "$bucket_name" 2>/dev/null; then
+    echo "Bucket already exists. Skipping creation."
+    exit 0
+fi
+
 # Run terraform init
 echo "Initializing Terraform..."
 terraform init
