@@ -4,6 +4,8 @@
 
 Keep your AWS credentials in a secret place.
 
+[Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+
 An AWS configuration file, typically located at:
 
 `~/.aws/credentials`
