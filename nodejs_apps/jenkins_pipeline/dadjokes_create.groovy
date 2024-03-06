@@ -9,7 +9,7 @@ pipeline {
     environment {
         GIT_REPO =          'git@github.com:developer-vs/devops.git'
         GIT_CREDENTIALS =   'Github'
-        TF_DIRECTORY_S3 =   'nodejs_apps/setup-s3-bucket'
+        TF_DIRECTORY_S3 =   'nodejs_apps/project_setup_files/setup-s3-bucket'
         TF_DIRECTORY =      'nodejs_apps/project_setup_files/terraform'
         ANSIBLE_DIRECTORY = 'nodejs_apps/project_setup_files/ansible'
     }
@@ -103,14 +103,13 @@ pipeline {
                         def userConfirmation = input(
                             id: 'ConfirmAnsibleRun',
                             message: 'Proceed with Ansible playbook execution?',
-                            parameters: [choice(name: 'Confirm', choices: ['yes', 'no'], description: 'Confirm to run Ansible without timeout')],
-                            defaultValue: 'yes'
+                            parameters: [choice(name: 'Confirm', choices: ['yes', 'no'], description: 'Confirm to run Ansible without timeout', defaultValue: 'yes')]
                         )
                         if (userConfirmation == 'no') {
                             error('Ansible playbook execution was aborted by the user.')
                         }
                     }
-                }
+                 }
             }
         }
         
