@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Extract bucket name from main.tf
+bucket_name=$(grep -E 'resource "aws_s3_bucket" "nodejs_apps_bucket"' main.tf -A 2 | grep "bucket =" | awk -F '"' '{print $2}')
+
+# Check if the bucket already exists
+echo "Checking if the bucket $bucket_name already exists..."
+if aws s3api head-bucket --bucket "$bucket_name" 2>/dev/null; then
+    echo "Bucket already exists. Skipping creation."
+    exit 0
+fi
+
+# Run terraform init
+echo "Initializing Terraform..."
+terraform init
+
+# Run terraform apply for main.tf
+echo "Applying main.tf..."
+terraform plan -out=terraform.tfplan
+terraform apply "terraform.tfplan"
+
+# Check if backend.tf exists
+echo "Waiting for backend.tf file to be created..."
+while [ ! -f "backend.tf" ]; do
+    echo "backend.tf file not found. Waiting..."
+    sleep 5
+done
+
+echo "backend.tf found. Initializing Terraform with backend configuration..."
+# Initialize Terraform with backend configuration if backend.tf exists
+# Automatically respond with "yes" when prompted
+echo "yes" | terraform init
+
+# Check if terraform init was successful
+if [ $? -ne 0 ]; then
+    echo "Terraform init failed. Please check and resolve any errors."
+    exit 1
+fi
+
+echo "Terraform initialization completed."
+

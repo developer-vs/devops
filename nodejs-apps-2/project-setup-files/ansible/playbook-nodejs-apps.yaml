@@ -1,0 +1,83 @@
+---
+- name: Accept SSH key confirmation securely
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Confirm SSH key
+      expect:
+        command: ssh-keyscan -H {{ ansible_host }}
+        responses:
+          "(?i)Are you sure you want to continue connecting (yes/no/[fingerprint])? ": "yes\n"
+
+- name: Install and Run NodeJS Apps
+  hosts: all
+  become: true
+  vars:
+    node_version: "16.x"
+    apps:
+      - name: "battleships"
+        directory: "/opt/battleships_app"
+        entry_point: "server.js"
+        domain: "dummy_domain_name"
+        port: 3000
+      - name: "dadjokes"
+        directory: "/opt/dadjokes_app"
+        entry_point: "server.js"
+        domain: "dummy_domain_name"
+        port: 3001
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install NodeSource Node.js v{{ node_version }} repo
+      shell: curl -fsSL https://deb.nodesource.com/setup_{{ node_version }} | sudo -E bash -
+
+    - name: Install Node.js
+      apt:
+        name: nodejs
+        state: latest
+
+    - name: Install PM2 with NPM
+      npm:
+        name: pm2
+        global: yes
+      notify: 
+        - save pm2 state
+
+    - name: Set PM2 to start on boot
+      shell: pm2 startup systemd -u ubuntu --hp /home/ubuntu
+      when: ansible_service_mgr == "systemd"
+
+    - name: Deploy applications to the remote server
+      block:
+        - name: Copy application code to the remote server
+          copy:
+            src: "../../{{ item.name }}"
+            dest: "{{ item.directory }}"
+            owner: ubuntu
+            group: ubuntu
+            mode: '0755'
+          loop: "{{ apps }}"
+          loop_control:
+            label: "{{ item.name }}"
+
+        - name: Install Node.js application dependencies
+          shell: cd "{{ item.directory }}/{{ item.name }}" && npm install
+          loop: "{{ apps }}"
+          loop_control:
+            label: "{{ item.name }}"
+
+        - name: Start or restart the application using PM2
+          ansible.builtin.command:
+            cmd: pm2 start {{ item.entry_point }} --name "{{ item.name }}" -f
+            chdir: "{{ item.directory }}/{{ item.name }}"
+          loop: "{{ apps }}"
+          loop_control:
+            label: "{{ item.name }}"
+  handlers:
+    - name: save pm2 state
+      shell: pm2 save
+
