@@ -1,8 +1,8 @@
 resource "aws_instance" "nodejs-apps-server" {
   ami                    = "ami-0c7217cdde317cfec" # Ubuntu server 22.04
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.nodejs-apps-sg.id]
-  key_name               = aws_key_pair.public_key_nodejs-apps.key_name
+  vpc_security_group_ids = [aws_security_group.nodejs_apps_sg.id]
+  key_name               = aws_key_pair.public_key_nodejs_apps.key_name
 
   tags = {
     Name    = "Node_JS_Apps"
