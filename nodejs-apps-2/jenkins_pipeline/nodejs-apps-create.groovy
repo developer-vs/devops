@@ -24,7 +24,7 @@ pipeline {
                         credentialsId: "${GIT_CREDENTIALS}",
                         url: "${GIT_REPO}"]],
                         extensions: [[$class: 'SparseCheckoutPaths',
-                                    sparseCheckoutPaths: [[path: 'nodejs-apps']]]]])
+                                    sparseCheckoutPaths: [[path: 'nodejs-apps-2']]]]])
             }
         }
 

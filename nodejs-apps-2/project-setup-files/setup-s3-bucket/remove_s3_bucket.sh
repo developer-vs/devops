@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path to the backend.tf file
-backend_file="backend.tf"
+backend_file="main.tf"
 
 # Check if backend file exists
 if [ ! -f "$backend_file" ]; then
@@ -42,17 +42,15 @@ if [ -n "$bucket_name" ]; then
   		echo "$remaining_objects"
 	fi
 
-
 	# Delete the S3 bucket
 	echo "Deleting the S3 bucket..."
-	aws s3api delete-bucket --bucket $bucket_name
+	# aws s3api delete-bucket --bucket $bucket_name
 
 	# echo "Bucket deleted successfully."
 	
 else
     echo "Bucket name is empty. Nothing to delete."
 fi
-
 
 # Remove backend.tf, Terraform configuration files, and state files
 echo "Removing backend.tf, Terraform files, and state files..."

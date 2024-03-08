@@ -9,14 +9,13 @@ if [ ! -f "$backend_file" ]; then
     exit 1
 fi
 
-# Extract the bucket name and key value using grep and cut
-bucket_name=$(grep -E '^\s*bucket\s*=' "$backend_file" | cut -d '"' -f 2 | tr -d '[:space:]')
-state_key=$(grep -E '^\s*key\s*=' "$backend_file" | cut -d '"' -f 2 | tr -d '[:space:]')
+# Extract bucket name and key from main.tf
+bucket_name=$(grep -E 'resource "aws_s3_bucket" "nodejs_apps_bucket"' main.tf -A 2 | grep "bucket =" | awk -F '"' '{print $2}')
+state_key=$(grep -E 'key[[:space:]]+= "setup_s3/terraform.tfstate"' main.tf | awk -F '"' '{print $2}')
 
 # Print the extracted bucket name and key value for verification
 echo "Bucket Name: $bucket_name"
 echo "Key Value: $state_key"
-
 
 # Check if bucket name is not empty
 if [ -n "$bucket_name" ]; then
@@ -41,13 +40,19 @@ if [ -n "$bucket_name" ]; then
 	else
   		echo "Bucket is not empty. Remaining objects:"
   		echo "$remaining_objects"
-	fi	
+	fi
+
+	# Delete the S3 bucket
+	echo "Deleting the S3 bucket..."
+	# aws s3api delete-bucket --bucket $bucket_name
+
+	# echo "Bucket deleted successfully."
+	
 else
     echo "Bucket name is empty. Nothing to delete."
 fi
 
-
 # Remove backend.tf, Terraform configuration files, and state files
 echo "Removing backend.tf, Terraform files, and state files..."
-rm -rf *.tfvars *.tfstate* .terraform .terraform.lock.hcl terraform.tfplan
+rm -rf backend.tf *.tfvars *.tfstate* .terraform .terraform.lock.hcl terraform.tfplan
 

@@ -5,7 +5,7 @@ pipeline {
         stage('Destroy Nodejs Apps Terraform state') {
             steps {
                 script {
-                    dir("../nodejs-apps-deploy/nodejs-apps-2/project-setup-files/scripts") {
+                    dir("../nodejs-apps-deploy/nodejs-apps-2/project-setup-files/terraform") {
                         sh 'ls -l'
                         
                         // Check if tf-cleanup.sh file exists before attempting to change permissions
@@ -22,7 +22,7 @@ pipeline {
             }
         }
         
-        stage('Remove Nodejs app Terraform state from bucket') {
+        stage('Remove saved Nodejs Apps Terraform state from S3 bucket') {
             steps {
                 script {
                     dir("../nodejs-apps-deploy/nodejs-apps-2/project-setup-files/terraform") {
@@ -41,8 +41,8 @@ pipeline {
                 }
             }
         }
-        
-        stage('Destroy Terraform S3 bucket') {
+
+        stage('Remove saved S3 Setup Bucket state from S3 bucket') {
             steps {
                 script {
                     dir("../nodejs-apps-deploy/nodejs-apps-2/project-setup-files/setup-s3-bucket") {
@@ -61,6 +61,47 @@ pipeline {
                 }
             }
         }
+        
+        stage('Destroy S3 Setup Terraform state') {
+    steps {
+        script {
+            dir("../nodejs-apps-deploy/nodejs-apps-2/project-setup-files/setup-s3-bucket") {
+                sh 'ls -l'
+                
+                // Initialize Terraform
+                sh 'terraform init'
+
+                // Destroy infrastructure with auto-approval
+                sh 'terraform destroy -auto-approve || true'
+
+                // Clean up Terraform-related files
+                echo "Removing Terraform-related files..."
+                sh 'rm -f terraform.tfstate terraform.tfstate.backup .terraform.lock.hcl tfplan terraform.tfplan'
+                sh 'rm -rf .terraform/'
+            }
+        }
+    }
+}
+
+        
+       stage('Destroy S3 bucket') {
+    steps {
+        script {
+            dir("../nodejs-apps-deploy/nodejs-apps-2/project-setup-files/setup-s3-bucket") {
+                def bucketName = sh(script: "grep -E 'resource \"aws_s3_bucket\" \"nodejs_apps_bucket\"' main.tf -A 2 | grep \"bucket =\" | awk -F '\"' '{print \$2}'", 
+                                    returnStdout: true).trim()
+
+                if (bucketName) {
+                    sh "aws s3api delete-bucket --bucket $bucketName"
+                } else {
+                    echo "Error: Unable to extract bucket name from main.tf."
+                    error("Unable to extract bucket name from main.tf.")
+                }
+            }
+        }
+    }
+}
+
         
         stage('Clean Up "nodejs-apps-deploy" project') {
             steps {
