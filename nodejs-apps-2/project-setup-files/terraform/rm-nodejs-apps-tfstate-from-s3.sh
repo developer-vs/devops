@@ -9,9 +9,9 @@ if [ ! -f "$backend_file" ]; then
     exit 1
 fi
 
-# Extract bucket name and key from main.tf
-bucket_name=$(grep -E 'resource "aws_s3_bucket" "nodejs_apps_bucket"' main.tf -A 2 | grep "bucket =" | awk -F '"' '{print $2}')
-state_key=$(grep -E 'key[[:space:]]+= "setup_s3/terraform.tfstate"' main.tf | awk -F '"' '{print $2}')
+# Extract bucket name and key from backend.tf
+bucket_name=$(grep -E 'bucket[[:space:]]+= "[^"]+"' backend.tf | awk -F '"' '{print $2}')
+state_key=$(grep -E 'key[[:space:]]+= "[^"]+"' backend.tf | awk -F '"' '{print $2}')
 
 # Print the extracted bucket name and key value for verification
 echo "Bucket Name: $bucket_name"
@@ -54,5 +54,5 @@ fi
 
 # Remove backend.tf, Terraform configuration files, and state files
 echo "Removing backend.tf, Terraform files, and state files..."
-rm -rf backend.tf *.tfvars *.tfstate* .terraform .terraform.lock.hcl terraform.tfplan
+rm -rf *.tfvars *.tfstate* .terraform .terraform.lock.hcl terraform.tfplan
 
