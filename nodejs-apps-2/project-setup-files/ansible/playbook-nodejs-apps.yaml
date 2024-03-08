@@ -40,10 +40,12 @@
         name: nodejs
         state: latest
 
-    - name: Install PM2 with NPM
-      npm:
-        name: pm2
-        global: yes
+    - name: Install PM2 with NPM for the specified user
+      become: yes
+      become_user: ubuntu  # Replace 'ubuntu' with your desired non-root user
+      shell: npm install pm2
+      args:
+        creates: /home/ubuntu/.npm-global/lib/node_modules/pm2/pm2
       notify: 
         - save pm2 state
 
@@ -70,13 +72,16 @@
           loop_control:
             label: "{{ item.name }}"
 
-        - name: Start or restart the application using PM2
+        - name: Start or restart the application using PM2 as the specified user
           ansible.builtin.command:
             cmd: pm2 start {{ item.entry_point }} --name "{{ item.name }}" -f
             chdir: "{{ item.directory }}/{{ item.name }}"
           loop: "{{ apps }}"
           loop_control:
             label: "{{ item.name }}"
+          become: true
+          become_user: ubuntu  # Replace 'ubuntu' with your desired non-root user
+
   handlers:
     - name: save pm2 state
       shell: pm2 save
