@@ -28,12 +28,12 @@ pipeline {
                     dir("../nodejs-apps-deploy/nodejs-apps-2/project-setup-files/terraform") {
                         sh 'ls -l'
                         
-                        // Check if remove_s3_bucket.sh file exists before attempting to change permissions
-                        if (fileExists('remove_s3_bucket.sh')) {
-                            sh 'chmod +x remove_s3_bucket.sh' // Ensure script is executable
-                            sh './remove_s3_bucket.sh' // Execute the script
+                        // Check if rm-nodejs-apps-tfstate-from-s3.sh file exists before attempting to change permissions
+                        if (fileExists('rm-nodejs-apps-tfstate-from-s3.sh')) {
+                            sh 'chmod +x rm-nodejs-apps-tfstate-from-s3.sh' // Ensure script is executable
+                            sh './rm-nodejs-apps-tfstate-from-s3.sh' // Execute the script
                         } else {
-                            echo "Error: remove_s3_bucket.sh file not found."
+                            echo "Error: rm-nodejs-apps-tfstate-from-s3.sh file not found."
                             // You can choose to exit the stage here or handle the error accordingly
                             exit 0
                         }
