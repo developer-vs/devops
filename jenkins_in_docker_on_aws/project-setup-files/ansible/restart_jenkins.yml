@@ -1,0 +1,38 @@
+---
+- name: Accept SSH key confirmation securely
+  hosts: ec2
+  gather_facts: no
+  tasks:
+    - name: Confirm SSH key
+      expect:
+        command: ssh-keyscan -H {{ ansible_host }}
+        responses:
+          "(?i)Are you sure you want to continue connecting (yes/no/[fingerprint])? ": "yes\n"
+
+    - name: Ensure known_hosts file exists
+      stat:
+        path: "/home/ubuntu/jenkins_data/.ssh/known_hosts"
+      register: known_hosts_file
+
+    - name: Execute ssh-keyscan command
+      shell: ssh-keyscan -t ed25519 github.com > jenkins_data/.ssh/known_hosts
+      args:
+        chdir: "/home/ubuntu"
+      when: known_hosts_file.stat.exists
+
+    - name: Find the container ID of the Jenkins Docker container
+      shell: docker ps -qf "name=jenkins-plugins"
+      register: container_id_output
+      changed_when: false  # Mark this task as non-changing
+
+    - name: Check if Jenkins container is running
+      fail:
+        msg: "Jenkins container is not running."
+      when: container_id_output.stdout == ''
+
+    - name: Stop and start the Jenkins Docker container
+      shell: |
+        docker stop {{ container_id_output.stdout }}
+        docker start {{ container_id_output.stdout }}
+      when: container_id_output.stdout != ''
+
