@@ -1,0 +1,81 @@
+---
+- name: Accept SSH key confirmation securely
+  hosts: ec2
+  gather_facts: no
+  tasks:
+    - name: Confirm SSH key
+      expect:
+        command: ssh-keyscan -H {{ ansible_host }}
+        responses:
+          "(?i)Are you sure you want to continue connecting (yes/no/[fingerprint])? ": "yes\n"
+
+    - name: Copy jenkins_setup folder to remote host
+      copy:
+        src: ../docker/
+        dest: /home/ubuntu/
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+        
+    - name: Set ownership and permissions for jenkins_data directory
+      file:
+        path: /home/ubuntu/jenkins_data
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+    
+    - name: Create .ssh directory
+      file:
+        path: /home/ubuntu/jenkins_data/.ssh
+        state: directory
+        mode: "0700"  # Set appropriate permissions for the .ssh directory
+
+    - name: Create known_hosts file
+      file:
+        path: /home/ubuntu/jenkins_data/.ssh/known_hosts
+        state: touch
+        mode: "0600"  # Set appropriate permissions for the known_hosts file
+        
+    - name: Stop and remove existing Jenkins container if it's running
+      become: yes
+      command: docker rm -f jenkins-plugins
+      ignore_errors: yes
+
+    - name: Remove jenkins-plugins Docker image if it exists
+      become: yes
+      command: docker rmi -f jenkins-plugins:v1
+      ignore_errors: yes
+
+    - name: Build Docker container
+      command: docker build -t jenkins-plugins:v1 /home/ubuntu/jenkins_setup/
+
+    - name: Read Jenkins admin credentials from file
+      delegate_to: localhost
+      shell: |
+        while IFS='=' read -r key value; do
+          key="${key%"${key##*[![:space:]]}"}"   # Remove leading whitespace
+          value="${value#"${value%%[![:space:]]*}"}"   # Remove leading whitespace
+          if [ "$key" = "user" ]; then
+            echo "JENKINS_ADMIN_ID=$value"
+          elif [ "$key" = "pass" ]; then
+            echo "JENKINS_ADMIN_PASSWORD=$value"
+          fi
+        done < jenkins_credentials.txt
+      args:
+        executable: /bin/bash
+      register: credentials_output
+
+    - name: Set Jenkins admin credentials as facts
+      set_fact:
+        JENKINS_ADMIN_ID: "{{ credentials_output.stdout_lines[0].split('=')[1] }}"
+        JENKINS_ADMIN_PASSWORD: "{{ credentials_output.stdout_lines[1].split('=')[1] }}"
+      when: credentials_output is succeeded
+
+    - name: Run Docker container
+      command: docker run --name jenkins-plugins -d \
+        -p 8080:8080 -p 50000:50000 \
+        -v /home/ubuntu/jenkins_data:/var/jenkins_home \
+        --env JENKINS_ADMIN_ID="{{ JENKINS_ADMIN_ID }}" \
+        --env JENKINS_ADMIN_PASSWORD="{{ JENKINS_ADMIN_PASSWORD }}" \
+        jenkins-plugins:v1
+
