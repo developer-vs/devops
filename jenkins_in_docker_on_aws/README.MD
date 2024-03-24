@@ -1,10 +1,13 @@
 **Start Project**
 
+Use Jenkins playbook for this
 1. **terraform_s3**: `setup_s3_bucket.sh`
 2. **terraform**: `setup-project.sh`
 3. **ansible**: `deploy-docker.yml`
 4. **ansible**: `deploy-jenkins.yml`
-5. **ansible**: `/copy_jenkins_files_to_ec2.sh` 
+
+Run these scripts from the mapping folder on local host. 
+5. **ansible**: `/copy_jenkins_files_to_ec2.sh`
 6. **ansible**: `restart_jenkins.yml`
 
 A. Reload Configuration from Disk: 
@@ -20,6 +23,29 @@ C. Add SSH key from `id_ed25519` to the Github plugin.
 1. **terraform**: `rm-jenkins-server-tfstate.sh`
 2. **terraform**: `rm-s3-jenkins-server-tfstate.sh`
 3. **terraform_s3**: `echo "y" | remove_s3_bucket.sh`
+
+
+You can configure credentials by running "aws configure"
+
+An AWS configuration file, typically located at:
+
+`~/.aws/credentials`
+
+The file should look like this:
+
+```plaintext
+[default]
+aws_access_key_id = YOUR_ACCESS_KEY
+aws_secret_access_key = YOUR_SECRET_KEY
+```
+
+Configuration file – The credentials and config file are updated when you run the command "aws configure" 
+The config file is located at ~/.aws/config   
+
+On Docker
+/root/.aws
+
+
 
 **rsync** is a powerful command-line utility used for syncing files and directories either locally or between two different systems. 
 
