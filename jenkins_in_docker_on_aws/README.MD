@@ -14,7 +14,7 @@ After running the playbooks, execute the following scripts from the mapping fold
 **Additional Instructions:**
 - **A. Reload Configuration from Disk:** Navigate to "Manage Jenkins" > "Reload Configuration from Disk" in the Jenkins dashboard to force a reload of job configurations from the filesystem.
 - **B. Update Jenkins Login:** After login, ensure to update Jenkins login and password.
-- **C. Add SSH Key:** Add the SSH key from `id_ed25519` to the Github plugin.
+- **C. Add SSH Key:** Add the SSH key from `id_ed25519` to the Github plugin. Navigate to Jenkins > Manage Jenkins > Manage Credentials, then locate the credential with ID Github and copy the private key from /var/jenkins_home/.ssh/id_ed25519 file.
 
 **Destroy Project**
 
