@@ -9,9 +9,4 @@ resource "aws_instance" "jenkins-server" {
     Owner   = ""
     Project = "Jenkins Server running with Jenkins, Terraform, and Ansible."
   }
-  
-  # Add an IP of the instance to the file hosts.ini to use by Ansible
-  provisioner "local-exec" {
-    command = "./update_hosts.sh '${aws_instance.jenkins-server.public_ip}'"
-  }
 }

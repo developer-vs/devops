@@ -1,13 +1,18 @@
 #!/bin/bash
 
-# Define the path to the backend.tf file
+# Define file paths
 backend_file="backend.tf"
+ansible_dir="../ansible"
+terraform_dir="../terraform"
+
+# Function to handle errors
+handle_error() {
+    echo "Error: $1"
+    exit 1
+}
 
 # Check if backend file exists
-if [ ! -f "$backend_file" ]; then
-    echo "Error: $backend_file not found."
-    exit 1
-fi
+[ -f "$backend_file" ] || handle_error "$backend_file not found."
 
 # Extract bucket name from backend.tf
 bucket_name=$(grep -E 'bucket[[:space:]]+= "[^"]+"' "$backend_file" | awk -F '"' '{print $2}')
@@ -17,16 +22,12 @@ echo "Bucket Name: $bucket_name"
 
 # Check if the bucket already exists
 echo "Checking if the required bucket $bucket_name exists..."
-if aws s3api head-bucket --bucket "$bucket_name" 2>/dev/null; then
-    echo "Bucket exists."
-else
-    echo "Bucket $bucket_name does not exist or you do not have permission to access it."
-    exit 1
-fi
+aws s3api head-bucket --bucket "$bucket_name" >/dev/null 2>&1 || handle_error "Bucket $bucket_name does not exist or you do not have permission to access it."
 
 # Run Terraform
 echo "Running Terraform..."
-terraform init || { echo "Terraform initialization failed."; exit 1; }
+cd "$terraform_dir" || handle_error "Failed to change directory to $terraform_dir."
+terraform init || handle_error "Terraform initialization failed."
 terraform apply -auto-approve -no-color || { echo "Terraform apply failed. Rolling back changes..."; terraform destroy -auto-approve -no-color; exit 1; }
 
 # Get the instance ID from Terraform state file
@@ -41,7 +42,7 @@ while true; do
         break
     else
         echo "Instance is not yet running. Waiting..."
-        sleep 10 # Wait for 10 seconds before checking again
+        sleep 10
     fi
 done
 
@@ -53,15 +54,23 @@ while [ ! -f "jenkins-server.pem" ]; do
 done
 echo "SSH key file created."
 
-# Fix SSH connection error by waiting for few seconds
-sleep 5
-
 # Output the web address of the Jenkins server
-terraform output web-address-jenkins-server | sed 's/"//g' > ../ansible/instance_ip.txt
+terraform output web-address-jenkins-server | sed 's/"//g' > "$ansible_dir/instance_ip.txt"
 
 # Output the Jenkins server IP address
 echo "Jenkins server IP address:"
-cat ../ansible/instance_ip.txt
+cat "$ansible_dir/instance_ip.txt"
+
+# Define the path for the hosts.ini file
+hosts_file="$ansible_dir/hosts.ini"
+
+# Ensure hosts.ini exists and add instance IP address
+if [ ! -f "$hosts_file" ]; then
+    touch "$hosts_file" || handle_error "Failed to create $hosts_file."
+fi
+echo "[ec2]" >> "$hosts_file" || handle_error "Failed to update $hosts_file."
+instance_ip=$(sed 's/"//g' "$ansible_dir/instance_ip.txt")
+echo "$instance_ip" >> "$hosts_file" || handle_error "Failed to update $hosts_file."
 
 echo "Terraform initialization completed."
 
