@@ -31,7 +31,7 @@ pipeline {
         
         stage('Setup S3 Bucket') {
             steps {
-                dir("${TF_DIRECTORY_S3") {
+                dir("${TF_DIRECTORY_S3}") {
                     script {
                         sh './setup_s3_bucket.sh'                        
                     }
