@@ -2,10 +2,8 @@ pipeline {
     agent any
     
     environment {
-        GIT_REPO = 'git@github.com:developer-vs/devops.git'
-        GIT_CREDENTIALS = 'Github'
-        TF_DIRECTORY_S3 = 'project-setup-files/terraform_s3'
-        TF_DIRECTORY = 'project-setup-files/terraform'
+        TF_DIRECTORY_S3 =   '../jenkins-aws-deploy/jenkins_in_docker_on_aws/project-setup-files/terraform_s3'
+        TF_DIRECTORY =      '../jenkins-aws-deploy/jenkins_in_docker_on_aws/project-setup-files/terraform'
     }
     
     stages {
@@ -35,15 +33,23 @@ pipeline {
         
         stage('Clean Up "jenkins-aws-deploy" project') {
             steps {
-                deleteDir(dir: "../jenkins-aws-deploy")
-                deleteDir(dir: "../jenkins-aws-deploy@tmp")
+                dir("../jenkins-aws-deploy") {
+                    deleteDir()
+                }
+                dir("../jenkins-aws-deploy@tmp") {
+                    deleteDir()
+                }
             }
         }
         
         stage('Clean Up "jenkins-aws-destroy" project') {
             steps {
-                deleteDir(dir: "../jenkins-aws-destroy")
-                deleteDir(dir: "../jenkins-aws-destroy@tmp")
+                dir("../jenkins-aws-destroy") {
+                    deleteDir()
+                }
+                dir("../jenkins-aws-destroy@tmp") {
+                    deleteDir()
+                }
             }
         }
     }

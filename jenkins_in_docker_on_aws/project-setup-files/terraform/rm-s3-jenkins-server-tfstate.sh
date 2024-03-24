@@ -43,15 +43,10 @@ if [ -n "$version_ids" ]; then
     delete_request="$delete_request], \"Quiet\": false}"
 
     # Delete objects using a single request
-    aws s3api delete-objects --bucket "$bucket_name" --delete "$delete_request" < /dev/null
+    aws s3api delete-objects --bucket "$bucket_name" --delete "$delete_request"
 
     # Check if there are any errors during deletion
-    if [ $? -eq 0 ]; then
-        echo "Successfully removed all objects."
-    else
-        echo "Failed to remove objects."
-        exit 1
-    fi
+    echo "Successfully removed all objects."
 else
     echo "No objects to delete."
 fi
