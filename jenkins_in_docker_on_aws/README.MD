@@ -1,50 +1,35 @@
 **Start Project**
 
-Use Jenkins playbook for this
-1. **terraform_s3**: `setup_s3_bucket.sh`
-2. **terraform**: `setup-project.sh`
-3. **ansible**: `deploy-docker.yml`
-4. **ansible**: `deploy-jenkins.yml`
+Use the following playbooks to set up the project:
 
-Run these scripts from the mapping folder on local host. 
-5. **ansible**: `/copy_jenkins_files_to_ec2.sh`
-6. **ansible**: `restart_jenkins.yml`
+1. **terraform_s3**: Run `setup_s3_bucket.sh`.
+2. **terraform**: Run `setup-project.sh`.
+3. **ansible**: Run `deploy-docker.yml`.
+4. **ansible**: Run `deploy-jenkins.yml`.
 
-A. Reload Configuration from Disk: 
-In the Jenkins dashboard, navigate to "Manage Jenkins" > "Reload Configuration from Disk". 
-This will force Jenkins to reload the job configurations from the filesystem.
+After running the playbooks, execute the following scripts from the mapping folder on the local host:
+5. **ansible**: Run `/copy_jenkins_files_to_ec2.sh`.
+6. **ansible**: Run `restart_jenkins.yml`.
 
-B. After login, update Jenkins login and password!!!
-
-C. Add SSH key from `id_ed25519` to the Github plugin.
+**Additional Instructions:**
+- **A. Reload Configuration from Disk:** Navigate to "Manage Jenkins" > "Reload Configuration from Disk" in the Jenkins dashboard to force a reload of job configurations from the filesystem.
+- **B. Update Jenkins Login:** After login, ensure to update Jenkins login and password.
+- **C. Add SSH Key:** Add the SSH key from `id_ed25519` to the Github plugin.
 
 **Destroy Project**
 
-1. **terraform**: `rm-jenkins-server-tfstate.sh`
-2. **terraform**: `rm-s3-jenkins-server-tfstate.sh`
-3. **terraform_s3**: `echo "y" | remove_s3_bucket.sh`
+To destroy the project, run the following scripts:
+1. **terraform**: `rm-jenkins-server-tfstate.sh`.
+2. **terraform**: `rm-s3-jenkins-server-tfstate.sh`.
+3. **terraform_s3**: `echo "y" | remove_s3_bucket.sh`.
 
-
-You can configure credentials by running "aws configure"
-
-An AWS configuration file, typically located at:
-
-`~/.aws/credentials`
-
-The file should look like this:
+Configure AWS credentials by running `aws configure`. Ensure the AWS configuration file (`~/.aws/credentials`) contains the necessary credentials:
 
 ```plaintext
 [default]
 aws_access_key_id = YOUR_ACCESS_KEY
 aws_secret_access_key = YOUR_SECRET_KEY
 ```
-
-Configuration file – The credentials and config file are updated when you run the command "aws configure" 
-The config file is located at ~/.aws/config   
-
-On Docker
-/root/.aws
-
 
 
 **rsync** is a powerful command-line utility used for syncing files and directories either locally or between two different systems. 

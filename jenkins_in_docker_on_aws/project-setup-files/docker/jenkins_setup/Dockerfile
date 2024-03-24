@@ -1,5 +1,8 @@
 FROM jenkins/jenkins:latest
 
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+ENV CASC_JENKINS_CONFIG /usr/share/jenkins/ref/casc.yml
+
 USER root
 
 # Install required packages and cleanup
@@ -8,7 +11,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Ansible
-RUN apt-add-repository --yes --update ppa:ansible/ansible && \
+RUN apt-get update && \
     apt-get install -y ansible && \
     rm -rf /var/lib/apt/lists/*
 
