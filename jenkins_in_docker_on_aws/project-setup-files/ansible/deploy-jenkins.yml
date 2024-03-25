@@ -47,11 +47,11 @@
       ignore_errors: yes
 
     - name: Build Docker container
-  		command: docker build -t jenkins-plugins:v1 /home/ubuntu/jenkins_setup/
-  		become: true
-  		become_user: ubuntu
-  		retries: 3  # Retry the command up to 3 times
-  		delay: 10   # Wait for 10 seconds between retries
+      command: docker build -t jenkins-plugins:v1 /home/ubuntu/jenkins_setup/
+      become: true
+      become_user: ubuntu
+      retries: 3  # Retry the command up to 3 times
+      delay: 10   # Wait for 10 seconds between retries
 
     - name: Read Jenkins admin credentials from file
       delegate_to: localhost
