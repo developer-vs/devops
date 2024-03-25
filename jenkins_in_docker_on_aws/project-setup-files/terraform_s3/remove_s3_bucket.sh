@@ -52,15 +52,16 @@ case "$choice" in
     [Yy]*)
         echo "Deleting the S3 bucket..."
         aws s3api delete-bucket --bucket "$bucket_name"
+        
+        # Remove backend.tf, Terraform configuration files, and state files
+		echo "Removing backend.tf, Terraform files, and state files..."
+		rm -rf *.tfvars *.tfstate* .terraform .terraform.lock.hcl terraform.tfplan
+
+echo "Cleanup completed."
         ;;
     *)
         echo "Bucket deletion aborted."
         ;;
 esac
 
-# Remove backend.tf, Terraform configuration files, and state files
-echo "Removing backend.tf, Terraform files, and state files..."
-rm -rf "$backend_file" *.tfvars *.tfstate* .terraform .terraform.lock.hcl terraform.tfplan
-
-echo "Cleanup completed."
 
