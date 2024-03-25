@@ -10,10 +10,14 @@ RUN apt-get update && \
     apt-get install -y wget less rsync && \
     rm -rf /var/lib/apt/lists/*
 
+RUN /bin/bash -c "sleep 10"
+
 # Install Ansible
 RUN apt-get update && \
     apt-get install -y ansible && \
     rm -rf /var/lib/apt/lists/*
+
+RUN /bin/bash -c "sleep 10"
 
 # Install Terraform
 RUN cd /tmp && \
@@ -23,6 +27,8 @@ RUN cd /tmp && \
     apt-get install -y terraform && \
     rm -rf /var/lib/apt/lists/*
 
+RUN /bin/bash -c "sleep 10"
+
 # Install AWS CLI
 RUN cd /tmp && \
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
@@ -30,13 +36,19 @@ RUN cd /tmp && \
     ./aws/install && \
     rm -rf /tmp/*
 
+RUN /bin/bash -c "sleep 10"
+
 # Copy Jenkins configurations
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt --verbose
 
+RUN /bin/bash -c "sleep 10"
+
 COPY casc.yml /usr/share/jenkins/ref/casc.yml
 COPY get-server-ip.sh /usr/share/jenkins/ref/get-server-ip.sh
 RUN chmod +x /usr/share/jenkins/ref/get-server-ip.sh
+
+RUN /bin/bash -c "sleep 10"
 
 # Set Jenkins user and entrypoint
 USER jenkins
