@@ -36,7 +36,9 @@ COPY get-server-ip.sh /usr/share/jenkins/ref/get-server-ip.sh
 RUN chmod +x /usr/share/jenkins/ref/get-server-ip.sh
 
 # Set Jenkins user and entrypoint
-USER jenkins
+
 WORKDIR /var/jenkins_home
 ENTRYPOINT ["/bin/bash", "/usr/share/jenkins/ref/get-server-ip.sh"]
+
+USER jenkins
 
