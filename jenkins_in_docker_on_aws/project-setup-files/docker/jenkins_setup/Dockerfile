@@ -29,7 +29,7 @@ RUN cd /tmp && \
 
 # Copy Jenkins configurations
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt --verbose
+RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
 
 COPY casc.yml /usr/share/jenkins/ref/casc.yml
 COPY get-server-ip.sh /usr/share/jenkins/ref/get-server-ip.sh
