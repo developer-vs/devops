@@ -1,5 +1,8 @@
-matrix-auth:latest
+git:latest
+pipeline-stage-view:latest
+pipeline-model-definition:latest
 terraform:latest # for Terraform integration.
 ansible:latest # for Ansible integration.
 ansicolor:latest # for ANSI color support in the Jenkins console output.
 configuration-as-code:latest
+matrix-auth:latest
