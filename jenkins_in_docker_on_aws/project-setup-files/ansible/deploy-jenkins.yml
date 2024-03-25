@@ -37,15 +37,18 @@
         mode: "0600"  # Set appropriate permissions for the known_hosts file
         
     - name: Stop and remove existing Jenkins container if it's running
+      become: true
       command: docker rm -f jenkins-plugins
       ignore_errors: yes
 
     - name: Remove jenkins-plugins Docker image if it exists
+      become: true
       command: docker rmi -f jenkins-plugins:v1
       ignore_errors: yes
 
     - name: Build Docker container
       command: docker build -t jenkins-plugins:v1 /home/ubuntu/jenkins_setup/
+      become: true
 
     - name: Read Jenkins admin credentials from file
       delegate_to: localhost
