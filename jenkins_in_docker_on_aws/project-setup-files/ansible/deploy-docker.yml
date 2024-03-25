@@ -2,6 +2,7 @@
 - name: Accept SSH key confirmation securely
   hosts: ec2
   gather_facts: no
+  become: yes
   tasks:
     - name: Confirm SSH key
       expect:
@@ -29,7 +30,6 @@
         name: ubuntu
         groups: docker
         append: yes
-      become: true
 
     - name: Enable Docker service
       systemd:
