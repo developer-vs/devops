@@ -49,6 +49,7 @@
     - name: Build Docker container
       command: docker build -t jenkins-plugins:v1 /home/ubuntu/jenkins_setup/
       become: true
+      become_user: ubuntu
 
     - name: Read Jenkins admin credentials from file
       delegate_to: localhost
