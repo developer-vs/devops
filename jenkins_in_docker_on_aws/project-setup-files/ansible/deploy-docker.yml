@@ -2,7 +2,6 @@
 - name: Accept SSH key confirmation securely
   hosts: ec2
   gather_facts: no
-  become: yes
   tasks:
     - name: Confirm SSH key
       expect:
@@ -14,11 +13,9 @@
       get_url:
         url: "https://get.docker.com"
         dest: "/tmp/get-docker.sh"
-      register: download_result
 
     - name: Execute Docker installation script
       command: sh /tmp/get-docker.sh
-      when: download_result.changed
 
     - name: Add docker group if not exists
       group:
@@ -30,6 +27,7 @@
         name: ubuntu
         groups: docker
         append: yes
+      become: true
 
     - name: Enable Docker service
       systemd:
@@ -37,9 +35,9 @@
         enabled: yes
         state: started
 
-    - name: Enable Docker service
+    - name: Enable Containerd service
       systemd:
-        name: docker
+        name: containerd.service
         enabled: yes
         state: started
 
