@@ -72,5 +72,7 @@ echo "[ec2]" >> "$hosts_file" || handle_error "Failed to update $hosts_file."
 instance_ip=$(sed 's/"//g' "$ansible_dir/instance_ip.txt")
 echo "$instance_ip" >> "$hosts_file" || handle_error "Failed to update $hosts_file."
 
+sleep 10
+
 echo "Terraform initialization completed."
 
