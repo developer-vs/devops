@@ -1,0 +1,21 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "vg-pc" do |machine|
+    # Specify the box
+    config.vm.box = "ubuntu/focal64"
+
+    # Use a private network with DHCP
+    machine.vm.network "private_network", type: "dhcp"
+
+    # Port forwarding for accessing services on the guest
+    # machine.vm.network "forwarded_port", guest: 81, host: 8081
+
+    # Memory allocation for the VM (for VirtualBox provider)
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+
+    # Share a folder between the host and guest VM
+    # machine.vm.synced_folder "./vg-data", "/vagrant/jenkins_data"
+  end
+end
+

@@ -1,0 +1,43 @@
+---
+- name: Accept SSH key confirmation securely
+  hosts: ec2
+  gather_facts: no
+  tasks:
+    - name: Confirm SSH key
+      expect:
+        command: ssh-keyscan -H {{ ansible_host }}
+        responses:
+          "(?i)Are you sure you want to continue connecting (yes/no/[fingerprint])? ": "yes\n"
+
+    - name: Download Docker installation script
+      get_url:
+        url: "https://get.docker.com"
+        dest: "/tmp/get-docker.sh"
+
+    - name: Execute Docker installation script
+      command: sh /tmp/get-docker.sh
+
+    - name: Add docker group if not exists
+      group:
+        name: docker
+        state: present
+
+    - name: Add vagrant user to docker group
+      user:
+        name: vagrant
+        groups: docker
+        append: yes
+      become: true
+
+    - name: Enable Docker service
+      systemd:
+        name: docker.service
+        enabled: yes
+        state: started
+
+    - name: Enable Containerd service
+      systemd:
+        name: containerd.service
+        enabled: yes
+        state: started
+

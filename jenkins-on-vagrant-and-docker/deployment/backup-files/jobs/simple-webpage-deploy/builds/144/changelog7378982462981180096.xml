@@ -1,0 +1,10 @@
+commit 7e858a8531349382ce5beeb06531429c9b0881e2
+tree d407c082a69847ee39bf902324672366d62d66f0
+parent 75c683c5aca9ff4dec9657e2886663b77b44c73b
+author Vlad <vladimirgdsr@gmail.com> 2024-03-01 21:26:04 -0800
+committer Vlad <vladimirgdsr@gmail.com> 2024-03-01 21:26:04 -0800
+
+    instance profile has been removed
+
+
+:100644 100644 32bb04fdcb2aae0675987ca2343750cad4ff72f9 6daaac8f85167164d6a69170b1185bbccb028ccd M	simple-webpage/terraform/instances.tf

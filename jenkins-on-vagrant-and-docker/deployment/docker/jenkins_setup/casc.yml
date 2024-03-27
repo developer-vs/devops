@@ -1,0 +1,26 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "${JENKINS_ADMIN_ID}"
+          password: "${JENKINS_ADMIN_PASSWORD}"
+  authorizationStrategy:
+    projectMatrix:
+      entries:
+        - group:
+            name: authenticated
+            permissions:
+              - Overall/Read
+        - user:
+            name: anonymous
+            permissions:
+              - View/Read
+        - user:
+            name: "${JENKINS_ADMIN_ID}"
+            permissions:
+              - Overall/Administer
+unclassified:
+  location:
+    url: "http://${SERVER_IP}:8080/"
+
