@@ -1,0 +1,32 @@
+services:
+  nodejs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pacman:v2
+    ports:
+      - "8080:8080"
+    environment:
+      MONGO_SERVICE_HOST: mongo
+      MONGO_AUTH_USER: pacman
+      MONGO_AUTH_PWD: pacman
+      MONGO_DATABASE: pacman
+    networks:
+      - pacman-network
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:4.0.4
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo-db:/data/db
+      - ./mongo-init-db/init_user_db.js:/docker-entrypoint-initdb.d/init_user_db.js:ro
+    networks:
+      - pacman-network
+    restart: unless-stopped
+
+networks:
+  pacman-network:
+    driver: bridge
+
