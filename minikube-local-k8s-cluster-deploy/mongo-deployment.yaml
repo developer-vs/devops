@@ -1,0 +1,111 @@
+# Service Definition for MongoDB
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: pacman
+  labels:
+    app: mongo
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    app: mongo
+  clusterIP: None # Headless service for StatefulSet
+  type: ClusterIP
+
+---
+
+# ConfigMap with MongoDB Initialization Script
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-init-script
+  namespace: pacman
+data:
+  setup.sh: |
+    #!/bin/bash
+    set -e
+
+    mongo -- "$MONGO_INITDB_DATABASE" <<EOF
+    db.createUser({user: "pacman", pwd: "pacman", roles: [{role: "readWrite", db: "admin" }]});
+    use pacman;
+    db.createCollection("init");
+    db.init.insert({name: "init"});
+    db.init.find();
+    db.createUser({user: "pacman", pwd: "pacman", roles: [{role: "readWrite", db: "pacman" }]});
+    EOF
+
+---
+
+# StatefulSet Definition for MongoDB
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+  namespace: pacman
+spec:
+  serviceName: "mongo"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:4.4.0
+          ports:
+            - name: mongo
+              containerPort: 27017
+          volumeMounts:
+            - name: mongo-init-script-volume
+              mountPath: /docker-entrypoint-initdb.d
+            - name: mongo-data
+              mountPath: /data/db
+      volumes:
+        - name: mongo-init-script-volume
+          configMap:
+            name: mongo-init-script
+        - name: mongo-data
+          persistentVolumeClaim:
+            claimName: mongo-data-pvc
+
+---
+
+# PersistentVolumeClaim for MongoDB Data
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-data-pvc
+  namespace: pacman
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: standard
+  volumeName: local-pv-mongo  # Specify the name of the PersistentVolume to bind to
+
+---
+
+# PersistentVolume for MongoDB Data
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-pv-mongo
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/mongo"  # A path that is accessible in Minikube
+  persistentVolumeReclaimPolicy: Retain  # Set to 'Delete' to not retain data
+  storageClassName: standard  # Use the 'standard' StorageClass provided by Minikube
+
