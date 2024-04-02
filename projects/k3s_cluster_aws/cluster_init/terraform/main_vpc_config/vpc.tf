@@ -1,6 +1,6 @@
 # Define the VPC
 resource "aws_vpc" "k3s_vpc" {
-  cidr_block           = "10.0.0.0/16" # 255.255.0.0 = 65,536 IPs
+  cidr_block           = "10.0.0.0/16" # 65,536 IPs
   enable_dns_hostnames = true
 
   tags = {
@@ -20,7 +20,7 @@ resource "aws_internet_gateway" "k3s_igw" {
 # Define a Public Subnet
 resource "aws_subnet" "k3s_public_subnet" {
   vpc_id                  = aws_vpc.k3s_vpc.id
-  cidr_block              = "10.0.1.0/24" # 255.255.255.0 = 256 IPs
+  cidr_block              = "10.0.1.0/24" # 256 IPs
   map_public_ip_on_launch = true
 
   tags = {
@@ -31,7 +31,7 @@ resource "aws_subnet" "k3s_public_subnet" {
 # Define a Private Subnet
 resource "aws_subnet" "k3s_private_subnet" {
   vpc_id     = aws_vpc.k3s_vpc.id
-  cidr_block = "10.0.2.0/24" # 255.255.255.0 = 256 IPs
+  cidr_block = "10.0.2.0/24" # 256 IPs
 
   tags = {
     Name = "K3s_Private_Subnet"
@@ -107,6 +107,7 @@ resource "aws_route_table" "k3s_private_route_table" {
   }
 }
 
+# Route table to route traffic from default VPC back to K3s VPC
 resource "aws_route_table" "default_back_to_k3s_peering" {
   vpc_id = data.aws_vpc.default.id
 
@@ -117,7 +118,7 @@ resource "aws_route_table" "default_back_to_k3s_peering" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = 	data.aws_internet_gateway.default.id
+    gateway_id = aws_internet_gateway.default.id
   }
 
   tags = {
@@ -130,8 +131,10 @@ resource "aws_route_table_association" "k3s_private_subnet_association" {
   route_table_id = aws_route_table.k3s_private_route_table.id
 }
 
+# Associate default route table with subnets in default VPC
 resource "aws_route_table_association" "default_back_to_k3s_peering" {
   for_each       = toset(data.aws_subnets.default.ids)
   subnet_id      = each.value
   route_table_id = aws_route_table.default_back_to_k3s_peering.id
 }
+

@@ -1,10 +1,9 @@
 pipeline {
+
+    agent any
+    
     options {
         ansiColor('xterm')
-    }
-    agent any
-    tools {
-        terraform 'tf1.6'
     }
     
     environment {
@@ -13,50 +12,21 @@ pipeline {
     }
 
     stages {
-    
-        stage('Sparse Checkout') {
-            steps {
-                deleteDir()
-                sh 'ssh-keyscan -H github.com >> $HOME/.ssh/known_hosts'
-                checkout([$class: 'GitSCM', 
-                          branches: [[name: 'main']],
-                          doGenerateSubmoduleConfigurations: false,
-                          extensions: [[
-                              $class: 'SparseCheckoutPaths', 
-                              sparseCheckoutPaths: [[path: 'projects/k3s_cluster_aws/cluster_init/']]
-                          ]],
-                          userRemoteConfigs: [[
-                              url: 'git@github.com:developer-vs/devops.git'
-                          ]]
-                ])
-            }
-        } 
-        
+       
         stage('Clone Git repo') {
             steps {
                 deleteDir()
                 sh 'ssh-keyscan -H github.com >> $HOME/.ssh/known_hosts'
                 checkout([$class: 'GitSCM',
-                  branches: [[name: 'main']],
+                  branches: [[name: 'dev']],
                         userRemoteConfigs: [[
                         credentialsId: "${GIT_CREDENTIALS}",
                         url: "${GIT_REPO}"]],
                         extensions: [[$class: 'SparseCheckoutPaths',
                                     sparseCheckoutPaths: [[path: 'projects/k3s_cluster_aws/cluster_init/']]]]])
             }
-        }  
-        
-        
-
-        
-        stage('Install JQ') {
-            steps {
-                sh '''
-                sudo apt-get update
-                sudo apt-get install jq -y
-                '''
-            }
         }
+        
         stage('Terraform Plan - Main VPC') {
             steps {
                 sh '''
@@ -66,6 +36,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Approval - Main VPC') {
             steps {
                 input(
@@ -74,6 +45,7 @@ pipeline {
                 )
             }
         }
+        
         stage('Terraform Apply - Main VPC') {
             steps {
                 sh '''
@@ -82,6 +54,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Terraform Plan - Master Node') {
             steps {
                 sh '''
@@ -91,6 +64,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Approval - Master Node') {
             steps {
                 input(
@@ -99,6 +73,7 @@ pipeline {
                 )
             }
         }
+        
         stage('Terraform Apply - Master Node') {
             steps {
                 sh '''
@@ -109,6 +84,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Terraform Plan - Worker Nodes') {
             steps {
                 sh '''
@@ -118,6 +94,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Approval - Worker Nodes') {
             steps {
                 input(
@@ -136,6 +113,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Install Ansible') {
             steps {
                 sh '''
@@ -145,6 +123,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Run Ansible Playbooks') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'access_for_new_node_js_app', keyFileVariable: 'SSH_KEY')]) {
