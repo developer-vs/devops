@@ -1,23 +1,13 @@
 terraform {
-  required_providers {
+  required_providers {  
     aws = {
-      source  = "hashicorp/aws"
-      version = "~>5"
+      source = "hashicorp/aws"	
     }
-    random = {
-      source  = "hashicorp/random"
-      version = "~>3.5"
-    }
-  }
-  backend "s3" {
-    bucket = "terraform-state-oleksii"
-    key    = "k3s_master/infra_setup.tfstate"
-    region = "us-east-1"
-  }
-  required_version = ">= 1.3"
+  }  
+  required_version = ">= 1.7"
 }
 
 provider "aws" {
-  region = "us-east-1"
+  profile = "default"
+  region  = "us-east-1"
 }
-

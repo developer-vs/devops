@@ -114,13 +114,9 @@ pipeline {
             }
         }
         
-        stage('Install Ansible') {
+        stage('Check Ansible') {
             steps {
-                sh '''
-                sudo apt-add-repository ppa:ansible/ansible -y
-                sudo apt-get update
-                sudo apt-get install ansible -y
-                '''
+                sh 'ansible --version'
             }
         }
         
