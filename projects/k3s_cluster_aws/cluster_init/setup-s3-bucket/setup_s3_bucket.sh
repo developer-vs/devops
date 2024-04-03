@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Extract bucket name from main.tf
 bucket_name=$(grep -E 'resource "aws_s3_bucket"' main.tf -A 2 | grep "bucket =" | awk -F '"' '{print $2}')
 
