@@ -1,8 +1,9 @@
 resource "aws_autoscaling_group" "k3s_master_asg" {
   launch_template {
-    id      = aws_instance.k3s_master.id
-    version = "$Latest"
+    id      = aws_launch_template.k3s_master.id
+    version = "$Latest"  # Assuming you want to use the latest version of the launch template
   }
+  
   name = "K3S Master ASG"
   min_size            = 1
   max_size            = 1
@@ -11,10 +12,10 @@ resource "aws_autoscaling_group" "k3s_master_asg" {
   health_check_type         = "EC2"
   health_check_grace_period = 300
   force_delete              = true
+  
   tag {
     key                 = "Name"
     value               = "K3s_Master"
     propagate_at_launch = true
   }
-
 }
