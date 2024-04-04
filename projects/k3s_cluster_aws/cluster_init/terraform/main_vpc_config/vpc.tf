@@ -118,7 +118,7 @@ resource "aws_route_table" "default_back_to_k3s_peering" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.k3s_igw.id
+    gateway_id = data.aws_internet_gateway.default.id
   }
 
   tags = {
