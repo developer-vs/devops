@@ -1,4 +1,4 @@
-resource "aws_instance" "k3s_worker" {
+resource "aws_launch_template" "k3s_worker" {
   name_prefix   = "k3s-worker-"
   image_id      = "ami-0c7217cdde317cfec"
   instance_type = "t2.micro"
