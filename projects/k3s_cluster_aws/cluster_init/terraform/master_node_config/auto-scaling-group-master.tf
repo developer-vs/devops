@@ -1,6 +1,6 @@
-resource "aws_instance" "k3s_master_asg" {
+resource "aws_autoscaling_group" "k3s_master_asg" {
   launch_template {
-    id      = aws_launch_template.k3s_master.id
+    id      = aws_instance.k3s_master.id
     version = "$Latest"
   }
   name = "K3S Master ASG"
