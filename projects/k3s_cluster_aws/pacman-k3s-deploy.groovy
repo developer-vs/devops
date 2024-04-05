@@ -13,6 +13,7 @@ pipeline {
         TF_DIRECTORY_MASTER = 'projects/k3s_cluster_aws/cluster_init/terraform/master_node_config'
         TF_DIRECTORY_WORKER = 'projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config'
         ANSIBLE_DIRECTORY   = 'projects/k3s_cluster_aws/cluster_init/ansible'
+        HOSTS_INI           = 'projects/k3s_cluster_aws/cluster_init/ansible/hosts.ini'
     }
 
     stages {
@@ -119,7 +120,7 @@ pipeline {
                         		echo ""
                         		echo "[master_public]"
                         		echo "$public_ip ssh_private_key=../terraform/master_node_config/k3s-master.pem"
-                    		} > ./hosts.ini
+                    		} > ${HOSTS_INI}
                 		'''
                     }
                 }
@@ -156,17 +157,17 @@ pipeline {
                             # Apply Terraform changes
                             terraform apply -input=false terraform.tfplan
 
-                            # Delay for stability
-                            sleep 60
+                            # Fetch private IP addresses of the worker nodes using AWS CLI
+                            worker_private_ips=$(aws ec2 describe-instances \
+                                                  --filters "Name=tag:Name,Values=k3s-worker" \
+                                                  --query 'Reservations[*].Instances[*].[PrivateIpAddress]' \
+                                                  --output json | jq -r '.[][]')
 
-                            # Run Terraform command to get private IP addresses for workers
-                            worker_private_ips=$(terraform output -json k3s_workers_instance_private_ip | jq -r 'if type == "array" then .[] else . end')
-
-                            # Create or update hosts.ini
-                            echo "" >> ./hosts.ini
-                            echo "[worker_private]" >> ./hosts.ini
+                            # Update hosts.ini with worker_private section
+                            echo "" >> ${HOSTS_INI}
+                            echo "[worker_private]" >> ${HOSTS_INI}
                             for ip in $worker_private_ips; do
-                                echo "$ip ssh_private_key=../terraform/worker_node_config/k3s-worker.pem" >> ./hosts.ini
+                                echo "$ip ssh_private_key=../terraform/worker_node_config/k3s-worker.pem" >> ${HOSTS_INI}
                             done
                         '''
                     }
@@ -184,10 +185,15 @@ pipeline {
             steps {
                 script {
                     dir("${ANSIBLE_DIRECTORY}") {
-                        sh '''
-                            ansible-playbook master_setup.yml
-                            ansible-playbook worker_setup.yml
-                        '''
+                        def result = sh(script: 'ansible-playbook master_setup.yml', returnStatus: true)
+                        if (result != 0) {
+                            error "Ansible playbook execution failed"
+                        }
+                        
+                        result = sh(script: 'ansible-playbook worker_setup.yml', returnStatus: true)
+                        if (result != 0) {
+                            error "Ansible playbook execution failed"
+                        }
                     }
                 }
             }
