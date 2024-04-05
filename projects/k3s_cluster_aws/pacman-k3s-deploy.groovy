@@ -7,8 +7,13 @@ pipeline {
     }
     
     environment {
-        GIT_REPO =          'git@github.com:developer-vs/devops.git'
-        GIT_CREDENTIALS =   'Github'
+        GIT_REPO =            'git@github.com:developer-vs/devops.git'
+        GIT_CREDENTIALS =     'Github'
+        TF_DIRECTORY_S3 =     'projects/k3s_cluster_aws/cluster_init/terraform/s3_bucket_config'
+        TF_DIRECTORY_VPC =    'projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config'
+        TF_DIRECTORY_MASTER = 'projects/k3s_cluster_aws/cluster_init/terraform/master_node_config'
+        TF_DIRECTORY_WORKER = 'projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config'
+        ANSIBLE_DIRECTORY =   'projects/k3s_cluster_aws/cluster_init/ansible'
     }
 
     stages {
@@ -27,13 +32,33 @@ pipeline {
             }
         }
         
+        stage('Check Terraform') {
+            steps {
+                sh 'terraform --version'
+            }
+        }
+        
+        stage('Terraform Setup S3 Bucket') {
+            steps {
+                script {
+                    dir("${TF_DIRECTORY_S3}") {
+                        sh 'chmod +x setup_s3_bucket.sh'
+                        sh './setup_s3_bucket.sh'
+                    }
+                }
+            }
+        }
+        
         stage('Terraform Plan - Main VPC') {
             steps {
-                sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config
-                terraform init -input=false
-                terraform plan -out=terraform.tfplan
-                '''
+                script {
+                    dir("${TF_DIRECTORY_VPC}") {
+                        sh '''
+                            terraform init -input=false
+                            terraform plan -out=terraform.tfplan
+                        '''
+                    }
+                }
             }
         }
         
@@ -48,20 +73,26 @@ pipeline {
         
         stage('Terraform Apply - Main VPC') {
             steps {
-                sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config
-                terraform apply -input=false terraform.tfplan
-                '''
+                script {
+                    dir("${TF_DIRECTORY_VPC}") {
+                        sh '''
+                            terraform apply -input=false terraform.tfplan
+                        '''
+                    }
+                }
             }
         }
         
         stage('Terraform Plan - Master Node') {
             steps {
-                sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/master_node_config
-                terraform init -input=false
-                terraform plan -out=terraform.tfplan
-                '''
+                script {
+                    dir("${TF_DIRECTORY_MASTER}") {
+                        sh '''
+                            terraform init -input=false
+                            terraform plan -out=terraform.tfplan
+                        '''
+                    }
+                }
             }
         }
         
@@ -74,24 +105,48 @@ pipeline {
             }
         }
         
+        stage('Check JQ') {
+            steps {
+                sh 'jq --version'
+            }
+        }
+        
         stage('Terraform Apply - Master Node') {
             steps {
-                sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/master_node_config
-                terraform apply -input=false terraform.tfplan
-                terraform output -json k3s_master_instance_private_ip | jq -r 'if type == "array" then .[] else . end' > ../../ansible/master_ip.txt
-                terraform output -json k3s_master_instance_public_ip | jq -r 'if type == "array" then .[] else . end' > ../../ansible/master_ip_public.txt
-                '''
+                script {
+                    dir("${TF_DIRECTORY_MASTER}") {
+                        sh '''
+                    		# Apply Terraform changes
+                    		terraform apply -input=false terraform.tfplan
+
+                    		# Retrieve private and public IP addresses
+                    		private_ip=$(terraform output -json k3s_master_instance_private_ip | jq -r '.[]')
+                    		public_ip=$(terraform output -json k3s_master_instance_public_ip | jq -r '.[]')
+
+                    		# Create or update hosts.ini
+                    		{
+                        		echo "[master_private]"
+                        		echo "$private_ip"
+                        		echo ""
+                        		echo "[master_public]"
+                        		echo "$public_ip ssh_private_key=../terraform/master_node_config/k3s-master.pem"
+                    		} > ./hosts.ini
+                		'''
+                    }
+                }
             }
         }
         
         stage('Terraform Plan - Worker Nodes') {
             steps {
-                sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config
-                terraform init -input=false
-                terraform plan -out=terraform.tfplan
-                '''
+                script {
+                    dir("${TF_DIRECTORY_WORKER}") {
+                        sh '''
+                            terraform init -input=false
+                            terraform plan -out=terraform.tfplan
+                        '''
+                    }
+                }
             }
         }
         
@@ -103,14 +158,30 @@ pipeline {
                 )
             }
         }
+        
         stage('Terraform Apply - Worker Nodes') {
             steps {
-                sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config
-                terraform apply -input=false terraform.tfplan
-                sleep 60
-                terraform output -json k3s_workers_instance_private_ip | jq -r '.[]' > ../../ansible/worker_ip.txt
-                '''
+                script {
+                    dir("${TF_DIRECTORY_WORKER}") {
+                        sh '''
+                    		# Apply Terraform changes
+                    		terraform apply -input=false terraform.tfplan
+                    
+                    		# Delay for stability
+                    		sleep 60
+
+                    		# Run Terraform command to get private IP addresses for workers
+                    		worker_private_ips=$(terraform output -json k3s_workers_instance_private_ip | jq -r '.[]')
+
+                    		# Update hosts.ini with worker_private section
+                    		echo "" >> ./hosts.ini
+                    		echo "[worker_private]" >> ./hosts.ini
+                    		for ip in $worker_private_ips; do
+                        		echo "$ip ssh_private_key=../terraform/worker_node_config/k3s-worker.pem" >> ./hosts.ini
+                    		done
+                		'''
+                    }
+                }
             }
         }
         
@@ -122,12 +193,13 @@ pipeline {
         
         stage('Run Ansible Playbooks') {
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'access_for_new_node_js_app', keyFileVariable: 'SSH_KEY')]) {
-                sh '''
-                cd ./projects/k3s_cluster_aws/cluster_init/ansible
-                ansible-playbook -i master_ip.txt master_setup.yml -u ubuntu --private-key=$SSH_KEY -e 'ansible_ssh_common_args="-o StrictHostKeyChecking=no"'
-                ansible-playbook -i worker_ip.txt worker_setup.yml -u ubuntu --private-key=$SSH_KEY -e 'ansible_ssh_common_args="-o StrictHostKeyChecking=no"'
-                '''
+                script {
+                    dir("${ANSIBLE_DIRECTORY}") {
+                        sh '''
+                            ansible-playbook master_setup.yml
+                            ansible-playbook worker_setup.yml
+                        '''
+                    }
                 }
             }
         }
