@@ -1,5 +1,4 @@
 pipeline {
-
     agent any
     
     options {
@@ -7,28 +6,24 @@ pipeline {
     }
     
     environment {
-        GIT_REPO =            'git@github.com:developer-vs/devops.git'
-        GIT_CREDENTIALS =     'Github'
-        TF_DIRECTORY_S3 =     'projects/k3s_cluster_aws/cluster_init/terraform/s3_bucket_config'
-        TF_DIRECTORY_VPC =    'projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config'
+        GIT_REPO            = 'git@github.com:developer-vs/devops.git'
+        GIT_CREDENTIALS     = 'Github'
+        TF_DIRECTORY_S3     = 'projects/k3s_cluster_aws/cluster_init/terraform/s3_bucket_config'
+        TF_DIRECTORY_VPC    = 'projects/k3s_cluster_aws/cluster_init/terraform/main_vpc_config'
         TF_DIRECTORY_MASTER = 'projects/k3s_cluster_aws/cluster_init/terraform/master_node_config'
         TF_DIRECTORY_WORKER = 'projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config'
-        ANSIBLE_DIRECTORY =   'projects/k3s_cluster_aws/cluster_init/ansible'
+        ANSIBLE_DIRECTORY   = 'projects/k3s_cluster_aws/cluster_init/ansible'
     }
 
     stages {
-       
         stage('Clone Git repo') {
             steps {
                 deleteDir()
                 sh 'ssh-keyscan -H github.com >> $HOME/.ssh/known_hosts'
                 checkout([$class: 'GitSCM',
-                  branches: [[name: 'dev']],
-                        userRemoteConfigs: [[
-                        credentialsId: "${GIT_CREDENTIALS}",
-                        url: "${GIT_REPO}"]],
-                        extensions: [[$class: 'SparseCheckoutPaths',
-                                    sparseCheckoutPaths: [[path: 'projects/k3s_cluster_aws/cluster_init/']]]]])
+                          branches: [[name: 'dev']],
+                          userRemoteConfigs: [[credentialsId: "${GIT_CREDENTIALS}", url: "${GIT_REPO}"]],
+                          extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'projects/k3s_cluster_aws/cluster_init/']]]]])
             }
         }
         
@@ -116,22 +111,22 @@ pipeline {
                 script {
                     dir("${TF_DIRECTORY_MASTER}") {
                         sh '''
-                    		# Apply Terraform changes
-                    		terraform apply -input=false terraform.tfplan
+                            # Apply Terraform changes
+                            terraform apply -input=false terraform.tfplan
 
-                    		# Retrieve private and public IP addresses
-                    		private_ip=$(terraform output -json k3s_master_instance_private_ip | jq -r '.[]')
-                    		public_ip=$(terraform output -json k3s_master_instance_public_ip | jq -r '.[]')
+                            # Retrieve private and public IP addresses
+                            private_ip=$(terraform output -json k3s_master_instance_private_ip | jq -r '.[]')
+                            public_ip=$(terraform output -json k3s_master_instance_public_ip | jq -r '.[]')
 
-                    		# Create or update hosts.ini
-                    		{
-                        		echo "[master_private]"
-                        		echo "$private_ip"
-                        		echo ""
-                        		echo "[master_public]"
-                        		echo "$public_ip ssh_private_key=../terraform/master_node_config/k3s-master.pem"
-                    		} > ./hosts.ini
-                		'''
+                            # Create or update hosts.ini
+                            {
+                                echo "[master_private]"
+                                echo "$private_ip"
+                                echo ""
+                                echo "[master_public]"
+                                echo "$public_ip ssh_private_key=../terraform/master_node_config/k3s-master.pem"
+                            } > ./hosts.ini
+                        '''
                     }
                 }
             }
@@ -164,22 +159,22 @@ pipeline {
                 script {
                     dir("${TF_DIRECTORY_WORKER}") {
                         sh '''
-                    		# Apply Terraform changes
-                    		terraform apply -input=false terraform.tfplan
+                            # Apply Terraform changes
+                            terraform apply -input=false terraform.tfplan
                     
-                    		# Delay for stability
-                    		sleep 60
+                            # Delay for stability
+                            sleep 60
 
-                    		# Run Terraform command to get private IP addresses for workers
-                    		worker_private_ips=$(terraform output -json k3s_workers_instance_private_ip | jq -r '.[]')
+                            # Run Terraform command to get private IP addresses for workers
+                            worker_private_ips=$(terraform output -json k3s_workers_instance_private_ip | jq -r '.[]')
 
-                    		# Update hosts.ini with worker_private section
-                    		echo "" >> ./hosts.ini
-                    		echo "[worker_private]" >> ./hosts.ini
-                    		for ip in $worker_private_ips; do
-                        		echo "$ip ssh_private_key=../terraform/worker_node_config/k3s-worker.pem" >> ./hosts.ini
-                    		done
-                		'''
+                            # Update hosts.ini with worker_private section
+                            echo "" >> ./hosts.ini
+                            echo "[worker_private]" >> ./hosts.ini
+                            for ip in $worker_private_ips; do
+                                echo "$ip ssh_private_key=../terraform/worker_node_config/k3s-worker.pem" >> ./hosts.ini
+                            done
+                        '''
                     }
                 }
             }
@@ -205,3 +200,4 @@ pipeline {
         }
     }
 }
+
