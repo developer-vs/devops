@@ -4,13 +4,27 @@
     
   tasks:
     - name: Read master IP from hosts.ini
-      ini_file:
-        path: hosts.ini
-        section: master_public
+      shell: "awk '/^\\[master_public\\]/{getline; print}' hosts.ini | cut -d ' ' -f 1"
       register: master_ip_result
 
     - set_fact:
-        master_ip_public: "{{ master_ip_result['']['hosts'][0] }}"
+        master_ip_public: "{{ master_ip_result.stdout.strip() }}"
+        
+    - name: Check if K3s service is running
+      command: systemctl is-active k3s
+      register: k3s_service_status
+      ignore_errors: true  # Ignore errors if the command fails
+      
+    - name: Stop K3s service if running
+      systemd:
+        name: k3s
+        state: stopped
+      when: k3s_service_status.stdout == "active"  # Only stop if the service is active
+      
+    - name: Delete K3s data directory # K3s server failed to start due to an issue with the bootstrap data, which appears to be already found and encrypted with a different token
+      file:
+        path: /var/lib/rancher/k3s
+        state: absent
 
     - name: Generate K3s token
       shell: openssl rand -hex 16

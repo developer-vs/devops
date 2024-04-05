@@ -118,7 +118,7 @@ pipeline {
                         		echo "$private_ip"
                         		echo ""
                         		echo "[master_public]"
-                        		echo "$public_ip ssh_private_key=../terraform/master_node_config/k3s-master.pem"
+                        		echo "$public_ip ansible_ssh_private_key_file=../terraform/master_node_config/k3s-master.pem
                     		} > ${ANSIBLE_DIRECTORY}/hosts.ini
                 		'''
                     }
