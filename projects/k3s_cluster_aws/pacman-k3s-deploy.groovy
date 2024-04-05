@@ -13,7 +13,6 @@ pipeline {
         TF_DIRECTORY_MASTER = 'projects/k3s_cluster_aws/cluster_init/terraform/master_node_config'
         TF_DIRECTORY_WORKER = 'projects/k3s_cluster_aws/cluster_init/terraform/worker_node_config'
         ANSIBLE_DIRECTORY   = 'projects/k3s_cluster_aws/cluster_init/ansible'
-        HOSTS_INI           = 'projects/k3s_cluster_aws/cluster_init/ansible/hosts.ini'
     }
 
     stages {
@@ -120,7 +119,7 @@ pipeline {
                         		echo ""
                         		echo "[master_public]"
                         		echo "$public_ip ssh_private_key=../terraform/master_node_config/k3s-master.pem"
-                    		} > ${HOSTS_INI}
+                    		} > ${ANSIBLE_DIRECTORY}/hosts.ini
                 		'''
                     }
                 }
@@ -164,10 +163,10 @@ pipeline {
                                                   --output json | jq -r '.[][]')
 
                             # Update hosts.ini with worker_private section
-                            echo "" >> ${HOSTS_INI}
-                            echo "[worker_private]" >> ${HOSTS_INI}
+                            echo "" >> ${ANSIBLE_DIRECTORY}/hosts.ini
+                            echo "[worker_private]" >> ${ANSIBLE_DIRECTORY}/hosts.ini
                             for ip in $worker_private_ips; do
-                                echo "$ip ssh_private_key=../terraform/worker_node_config/k3s-worker.pem" >> ${HOSTS_INI}
+                                echo "$ip ssh_private_key=../terraform/worker_node_config/k3s-worker.pem" >> ${ANSIBLE_DIRECTORY}/hosts.ini
                             done
                         '''
                     }
