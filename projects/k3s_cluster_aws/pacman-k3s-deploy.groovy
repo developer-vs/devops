@@ -100,33 +100,27 @@ pipeline {
             }
         }
         
-        stage('Check JQ') {
-            steps {
-                sh 'jq --version'
-            }
-        }
-        
         stage('Terraform Apply - Master Node') {
             steps {
                 script {
                     dir("${TF_DIRECTORY_MASTER}") {
                         sh '''
-                            # Apply Terraform changes
-                            terraform apply -input=false terraform.tfplan
+                    		# Apply Terraform changes
+                    		terraform apply -input=false terraform.tfplan
 
-                            # Retrieve private and public IP addresses
-                            private_ip=$(terraform output -json k3s_master_instance_private_ip | jq -r '.[]')
-                            public_ip=$(terraform output -json k3s_master_instance_public_ip | jq -r '.[]')
+                    		# Retrieve private and public IP addresses
+                    		private_ip=$(terraform output -json k3s_master_instance_private_ip | jq -r 'if type == "array" then .[] else . end')
+                    		public_ip=$(terraform output -json k3s_master_instance_public_ip | jq -r '.')
 
-                            # Create or update hosts.ini
-                            {
-                                echo "[master_private]"
-                                echo "$private_ip"
-                                echo ""
-                                echo "[master_public]"
-                                echo "$public_ip ssh_private_key=../terraform/master_node_config/k3s-master.pem"
-                            } > ./hosts.ini
-                        '''
+                    		# Create or update hosts.ini
+                    		{
+                       			echo "[master_private]"
+                        		echo "$private_ip"
+                        		echo ""
+                        		echo "[master_public]"
+                        		echo "$public_ip ssh_private_key=../terraform/master_node_config/k3s-master.pem"
+                    		} > ./hosts.ini
+                		'''
                     }
                 }
             }
@@ -161,14 +155,14 @@ pipeline {
                         sh '''
                             # Apply Terraform changes
                             terraform apply -input=false terraform.tfplan
-                    
+
                             # Delay for stability
                             sleep 60
 
                             # Run Terraform command to get private IP addresses for workers
-                            worker_private_ips=$(terraform output -json k3s_workers_instance_private_ip | jq -r '.[]')
+                            worker_private_ips=$(terraform output -json k3s_workers_instance_private_ip | jq -r 'if type == "array" then .[] else . end')
 
-                            # Update hosts.ini with worker_private section
+                            # Create or update hosts.ini
                             echo "" >> ./hosts.ini
                             echo "[worker_private]" >> ./hosts.ini
                             for ip in $worker_private_ips; do
