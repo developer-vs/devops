@@ -10,21 +10,13 @@
     - set_fact:
         master_ip_public: "{{ master_ip_result.stdout.strip() }}"
         
-    - name: Check if K3s service is running
-      command: systemctl is-active k3s
-      register: k3s_service_status
-      ignore_errors: true  # Ignore errors if the command fails
-      
-    - name: Stop K3s service if running
-      systemd:
-        name: k3s
-        state: stopped
-      when: k3s_service_status.stdout == "active"  # Only stop if the service is active
-      
-    - name: Delete K3s data directory # K3s server failed to start due to an issue with the bootstrap data, which appears to be already found and encrypted with a different token
-      file:
-        path: /var/lib/rancher/k3s
-        state: absent
+    - name: Stop K3s service
+      command: "systemctl stop k3s"
+      ignore_errors: true
+        
+    - name: Run k3s-killall.sh script
+      command: "/usr/local/bin/k3s-killall.sh"
+      ignore_errors: true
 
     - name: Generate K3s token
       shell: openssl rand -hex 16
@@ -37,7 +29,7 @@
     - name: Save K3s token
       copy:
         content: "{{ k3s_token }}"
-        dest: k3s_token.txt
+        dest: "{{ playbook_dir }}/k3s_token.txt"
 
     - name: Update apt and install dependencies
       apt:
@@ -48,18 +40,12 @@
           - curl
           - software-properties-common
 
-    - name: Download K3s binary
-      get_url:
-        url: "https://github.com/k3s-io/k3s/releases/latest/download/k3s"
-        dest: "/tmp/k3s"
-        mode: '0755'
+    - name: Run K3s installation script
+      shell: "curl -sfL https://get.k3s.io | sh -"
 
     - name: Install and configure K3s master node
-      command: >
-        /tmp/k3s server
-        --disable=traefik,servicelb
-        --tls-san={{ master_ip_public }}
-        --token={{ k3s_token }}
+      become: true
+      command: "k3s server --disable=traefik,servicelb --tls-san={{ master_ip_public }} --token={{ k3s_token }} &"
       args:
         creates: "/etc/systemd/system/k3s.service"
 
@@ -71,4 +57,28 @@
     - name: Print kubeconfig content
       debug:
         msg: "{{ kubeconfig_content.stdout }}"
+        
+    - name: Convert YAML content to JSON
+      set_fact:
+        kubeconfig_json: "{{ kubeconfig_content.stdout | from_yaml | to_json }}"    
+        
+    - name: Convert JSON back to formatted YAML
+      set_fact:
+        formatted_yaml: "{{ kubeconfig_json | from_json | to_yaml | replace(\"'\", '') }}"      
+        
+    - name: Write formatted YAML to remote-cluster.conf in current folder
+      copy:
+        content: "{{ formatted_yaml }}"
+        dest: remote-cluster.conf
+      delegate_to: localhost
+
+    - name: Save kubeconfig content to ~/.kube/remote-cluster.conf
+      copy:
+        content: "{{ formatted_yaml }}"
+        dest: "~/.kube/remote-cluster.conf"
+      delegate_to: localhost
+  		
+    - name: Export KUBECONFIG on local host
+      shell: export KUBECONFIG=~/.kube/remote-cluster.conf
+      delegate_to: localhost
 

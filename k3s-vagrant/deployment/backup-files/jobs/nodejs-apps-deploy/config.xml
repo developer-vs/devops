@@ -1,0 +1,183 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1400.v7fd111b_ec82f">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2175.v76a_fff0a_2618"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2175.v76a_fff0a_2618">
+      <jobProperties/>
+      <triggers/>
+      <parameters>
+        <string>SLEEP</string>
+        <string>ACTION</string>
+      </parameters>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>1</daysToKeep>
+        <numToKeep>1</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>ACTION</name>
+          <description>Action to take</description>
+          <defaultValue>abort</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>SLEEP</name>
+          <description>Sleep before Ansible Playbook?</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>yes</string>
+              <string>no</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@3867.v535458ce43fd">
+    <script>pipeline {
+    agent any
+
+    parameters {
+        string(name: &apos;ACTION&apos;, defaultValue: &apos;abort&apos;, description: &apos;Action to take&apos;)
+        choice(name: &apos;SLEEP&apos;, choices: [&apos;yes&apos;, &apos;no&apos;], description: &apos;Sleep before Ansible Playbook?&apos;)
+    }
+
+    environment {
+        GIT_REPO =          &apos;git@github.com:developer-vs/devops.git&apos;
+        GIT_CREDENTIALS =   &apos;Github&apos;
+        TF_DIRECTORY_S3 =   &apos;nodejs-apps-2/project-setup-files/setup-s3-bucket&apos;
+        TF_DIRECTORY =      &apos;nodejs-apps-2/project-setup-files/terraform&apos;
+        ANSIBLE_DIRECTORY = &apos;nodejs-apps-2/project-setup-files/ansible&apos;
+    }
+
+    stages {
+        stage(&apos;Clone Git repo&apos;) {
+            steps {
+                deleteDir()
+                checkout([$class: &apos;GitSCM&apos;,
+                  branches: [[name: &apos;main&apos;]],
+                        userRemoteConfigs: [[
+                        credentialsId: &quot;${GIT_CREDENTIALS}&quot;,
+                        url: &quot;${GIT_REPO}&quot;]],
+                        extensions: [[$class: &apos;SparseCheckoutPaths&apos;,
+                                    sparseCheckoutPaths: [[path: &apos;nodejs-apps-2&apos;]]]]])
+            }
+        }
+
+        stage(&apos;Check Terraform&apos;) {
+            steps {
+                sh &apos;terraform --version&apos;
+            }
+        }
+        
+        stage(&apos;Terraform Setup S3 Bucket&apos;) {
+            steps {
+                script {
+                    dir(&quot;${TF_DIRECTORY_S3}&quot;) {
+                        sh &apos;chmod +x setup_s3_bucket.sh&apos;
+                        sh &apos;./setup_s3_bucket.sh&apos;
+                    }
+                }
+            }
+        }
+        
+        stage(&apos;Terraform Setup NodeJS Apps Project&apos;) {
+            steps {
+                script {
+                    dir(&quot;${TF_DIRECTORY}&quot;) {
+                        sh &apos;terraform init&apos;
+                        sh &apos;terraform plan -out=terraform.tfplan&apos;
+                    }
+                }
+            }
+        }
+        
+        stage(&apos;User Approval for Terraform&apos;) {
+            steps {
+                script {
+                    timeout(time: 5, unit: &apos;MINUTES&apos;) {
+                        def userInput = input(
+                            id: &apos;userInput&apos;,
+                            message: &apos;Proceed with Terraform apply?&apos;,
+                            parameters: [choice(name: &apos;Proceed?&apos;, 
+                            choices: [&apos;yes&apos;, &apos;abort&apos;], 
+                            description: &apos;Proceed or Abort&apos;)]
+                        )
+                        if (userInput == &apos;abort&apos;) {
+                            error(&apos;Terraform apply was aborted by the user.&apos;)
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage(&apos;Terraform Apply&apos;) {
+            steps {
+                dir(&quot;${TF_DIRECTORY}&quot;) {
+                    sh &apos;terraform apply &quot;terraform.tfplan&quot;&apos;
+                }
+            }
+        }
+        
+        stage(&apos;Get Instance IP&apos;) {
+            steps {
+                dir(&quot;${TF_DIRECTORY}&quot;) {
+                    sh &apos;terraform output web-address-nodejs &gt; ../ansible/instance_ip.txt&apos;
+                    sh &apos;cat ../ansible/instance_ip.txt&apos;
+                }
+            }
+        }
+
+        stage(&apos;Check Ansible&apos;) {
+            steps {
+                sh &apos;ansible --version&apos;
+            }
+        }
+        
+        stage(&apos;User Approval for Ansible&apos;) {
+            steps {
+                script {
+                    timeout(time: 2, unit: &apos;MINUTES&apos;) {
+                        def userConfirmation = input(
+                            id: &apos;ConfirmAnsibleRun&apos;,
+                            message: &apos;Proceed with Ansible playbook execution?&apos;,
+                            parameters: [choice(name: &apos;Confirm&apos;, choices: [&apos;yes&apos;, &apos;no&apos;], 
+                            description: &apos;Confirm to run Ansible without timeout&apos;, 
+                            defaultValue: &apos;yes&apos;)]
+                        )
+                        if (userConfirmation == &apos;no&apos;) {
+                            error(&apos;Ansible playbook execution was aborted by the user.&apos;)
+                        }
+                    }
+                 }
+            }
+        }
+
+        stage(&apos;Run Ansible playbook for the NodeJS Apps&apos;) {
+            steps {
+                dir(&quot;${ANSIBLE_DIRECTORY}&quot;) {
+                    script {
+                        sh &apos;ansible-playbook playbook-nodejs-apps.yaml&apos;                        
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

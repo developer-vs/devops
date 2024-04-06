@@ -1,0 +1,12 @@
+commit 42a54fee8010725a2eb7cfa1494a8d1cd82ab6f9
+tree 07d6aa41fb62f6000102cf78c62fc58aeb6b0544
+parent 4e82588abbd67b93ee6083925d9498318350aa9b
+author Vlad <vladimirgdsr@gmail.com> 2024-03-09 18:25:16 -0800
+committer Vlad <vladimirgdsr@gmail.com> 2024-03-09 18:25:16 -0800
+
+    code refactoring
+
+
+:100644 100644 1a3a323c68e69ef9efbb559ea863aa60d0109402 1c5aa8df83c6efab5b798180604e78d707f598f8 M	nodejs-apps-2/README.md
+:100644 100644 01469bd9cdfd266c62419714200d1844498a70b2 01469bd9cdfd266c62419714200d1844498a70b2 R100	nodejs-apps-2/jenkins_pipeline/nodejs-apps-create.groovy	nodejs-apps-2/jenkins_pipeline/nodejs-apps-deploy.groovy
+:100644 100644 4fe96333c490ce911635d79953e4bc44f7e0d678 5878d5d9f61254e6f4cdaed855c3992ef7ce9ba1 M	nodejs-apps-2/project-setup-files/ansible/playbook-nodejs-apps.yaml

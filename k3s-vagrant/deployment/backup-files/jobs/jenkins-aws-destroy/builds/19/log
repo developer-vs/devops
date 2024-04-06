@@ -1,0 +1,437 @@
+Started by user [8mha:////4HR8SJsQYkPQpoN8FPu8iim4+9OAdWl+WEKTWEQBQgqmAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy2EgYu/dLi1CL9spzEFACDhRI9vwAAAA==[0mvlad s
+[8mha:////4H8frgfsuOh+PriZggPW2oQjw0+gq+olXPHRqugcEAa2AAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4BXLdENLp1Ueq4IXwGt/r52aqRqcmrRfLwoCspSF4GuuAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4Bq9YCqFM3bgzPFttUSG8QqqsNQa2hrS6yc7xGIhjG3mAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/jenkins_home/workspace/jenkins-aws-destroy
+[8mha:////4Bm86h+GoprOZQoTQVPLZ52UWT4+Yp5Y7kA529fTmV45AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4DCWgZhvcv/fzyjkS5zcxn2v4xLCxnpuDfvoFSJdi5uRAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] withEnv
+[8mha:////4NVPms3beE9bp/0IDAxtzLjz4WR9K+BqSzc9ONiEO3enAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] {
+[8mha:////4D4Y36NrkY3snUQi4oDGONknGuFaKA8VPDDi9WnKAPmfAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gwExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jcChmMxwAAAAA==[0m[Pipeline] stage
+[8mha:////4AkqlJRLM4LEFSlb+EP28zK8WVyHuRBHvDXzTpuyJ5tmAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0BAkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfpX/cvwAAAAA==[0m[Pipeline] { (Destroy Jenkins Terraform state)
+[8mha:////4Ce70oAks/R3ACaCStYfvjSQpvBoRTAuOon3zEqdJusDAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0BSEm1igLJwhJCGmj/9skpZ04EVfjDgQqMWHJkm3Jes8X1CnCkaLjrcXOY9Ke92F0JfGJYncNNPGWLlwTJgqWSztJMva0VEnZwiJWwUrA2qIOlDy6DBvRqrtqgkLXnHMs20FA5c0AD2CikLOK+VvmCNvbaBLhj/MXAHOfge2K959f/QbB16AVwAAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/jenkins-aws-deploy/jenkins_in_docker_on_aws/project-setup-files/terraform
+[8mha:////4H+/Dvd+eZJ67NyVW/N3G7bQ5/4n76Apzgb5F6+qTt8MAAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYQDJUJUtJYbXmBiY5xYd8G+kFS8iK/xBwKRqNhqZ6XVPF9Q5gQHSl42DtuAuQ6yi72fmhwotZdIg2zoLGvCTNFJ7QZN1h1n1MQO5ogCFgqWDutIOaBnWKnG3E0VDfrqxGna9gqKYG/wAKEmM5vEXxgTrK+9zYQ/z18BjB2D2DEU283nWL4Bsam+msEAAAA=[0m[Pipeline] {
+[8mha:////4FHLRvor8hwiAJsMnCWuK60DyFgW6PNou2SMv6SPQIfOAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCakRFa6XhBSYxxo5159gOTsWL+Bp/IBCJii1WO9vM8wXrGODIQaNV1BuKrUHvRj0vzBz6q+OMli/YMkV2ChuVG+7UacGGk4IlRQkrARtFreNoSCfYCivvsnKSdHVOYf4OAkrTDfCAQszmJEP6whRgdxu7yPTz/BXA5BOU9f5TtX8D0loxuL4AAAA=[0m[Pipeline] sh
++ ./rm-jenkins-server-tfstate.sh
+Destroying Terraform resources...
+[0m[1mtls_private_key.rsa: Refreshing state... [id=8e245ebb7b3d3397c0119320ebe1af95ce242b70][0m
+[0m[1mlocal_file.private_key_jenkins_server: Refreshing state... [id=ece93e9bd0f80d5f17572f1289592cd2d8d8e418][0m
+[0m[1mdata.aws_vpc.jenkins-server: Reading...[0m[0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1maws_key_pair.public_key_jenkins_server: Refreshing state... [id=jenkins-server.pub][0m
+[0m[1maws_security_group.jenkins_server_sg: Refreshing state... [id=sg-056702452be0d79aa][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 0s [id=851725449013][0m
+[0m[1mlocal_file.public_key_jenkins_server: Refreshing state... [id=685154d76f93a7fbdc4dd5de6cc7bb07e33706a9][0m
+[0m[1maws_instance.jenkins-server: Refreshing state... [id=i-0923240bac42fbe2d][0m
+[0m[1mdata.aws_vpc.jenkins-server: Read complete after 1s [id=vpc-0948b9f416c47f64f][0m
+[0m[1mdata.aws_subnets.jenkins-server-vpcsubnets: Reading...[0m[0m
+[0m[1mdata.aws_subnets.jenkins-server-vpcsubnets: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_subnet.vpcsubnet["3"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["5"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["0"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["1"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["2"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["4"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["3"]: Read complete after 0s [id=subnet-08f78f40a7ee2d7e7][0m
+[0m[1mdata.aws_subnet.vpcsubnet["1"]: Read complete after 1s [id=subnet-00110431dcfe96e49][0m
+[0m[1mdata.aws_subnet.vpcsubnet["2"]: Read complete after 1s [id=subnet-06baed03622d34dbe][0m
+[0m[1mdata.aws_subnet.vpcsubnet["4"]: Read complete after 1s [id=subnet-01713bf36b0f853a7][0m
+[0m[1mdata.aws_subnet.vpcsubnet["0"]: Read complete after 1s [id=subnet-0c536139a97e84b27][0m
+[0m[1mdata.aws_subnet.vpcsubnet["5"]: Read complete after 1s [id=subnet-0175351059a6ec28c][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_instance.jenkins-server[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_instance" "jenkins-server" {
+      [31m-[0m[0m ami                                  = "ami-0c7217cdde317cfec" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:851725449013:instance/i-0923240bac42fbe2d" [90m-> null[0m[0m
+      [31m-[0m[0m associate_public_ip_address          = true [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                    = "us-east-1d" [90m-> null[0m[0m
+      [31m-[0m[0m cpu_core_count                       = 1 [90m-> null[0m[0m
+      [31m-[0m[0m cpu_threads_per_core                 = 1 [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_stop                     = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_termination              = false [90m-> null[0m[0m
+      [31m-[0m[0m ebs_optimized                        = false [90m-> null[0m[0m
+      [31m-[0m[0m get_password_data                    = false [90m-> null[0m[0m
+      [31m-[0m[0m hibernation                          = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "i-0923240bac42fbe2d" [90m-> null[0m[0m
+      [31m-[0m[0m instance_initiated_shutdown_behavior = "stop" [90m-> null[0m[0m
+      [31m-[0m[0m instance_state                       = "running" [90m-> null[0m[0m
+      [31m-[0m[0m instance_type                        = "t2.micro" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_address_count                   = 0 [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_addresses                       = [] [90m-> null[0m[0m
+      [31m-[0m[0m key_name                             = "jenkins-server.pub" [90m-> null[0m[0m
+      [31m-[0m[0m monitoring                           = false [90m-> null[0m[0m
+      [31m-[0m[0m placement_partition_number           = 0 [90m-> null[0m[0m
+      [31m-[0m[0m primary_network_interface_id         = "eni-0925ae80e6703d848" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns                          = "ip-172-31-27-153.ec2.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                           = "172.31.27.153" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns                           = "ec2-54-163-55-121.compute-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                            = "54.163.55.121" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ips                = [] [90m-> null[0m[0m
+      [31m-[0m[0m security_groups                      = [
+          [31m-[0m[0m "jenkins-server-sg",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m source_dest_check                    = true [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                            = "subnet-08f78f40a7ee2d7e7" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Name"    = "Jenkins Server"
+          [31m-[0m[0m "Owner"   = ""
+          [31m-[0m[0m "Project" = "Jenkins Server running with Jenkins, Terraform, and Ansible."
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Name"    = "Jenkins Server"
+          [31m-[0m[0m "Owner"   = ""
+          [31m-[0m[0m "Project" = "Jenkins Server running with Jenkins, Terraform, and Ansible."
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tenancy                              = "default" [90m-> null[0m[0m
+      [31m-[0m[0m user_data_replace_on_change          = false [90m-> null[0m[0m
+      [31m-[0m[0m vpc_security_group_ids               = [
+          [31m-[0m[0m "sg-056702452be0d79aa",
+        ] [90m-> null[0m[0m
+
+      [31m-[0m[0m capacity_reservation_specification {
+          [31m-[0m[0m capacity_reservation_preference = "open" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m cpu_options {
+          [31m-[0m[0m core_count       = 1 [90m-> null[0m[0m
+          [31m-[0m[0m threads_per_core = 1 [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m credit_specification {
+          [31m-[0m[0m cpu_credits = "standard" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m enclave_options {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m maintenance_options {
+          [31m-[0m[0m auto_recovery = "default" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m metadata_options {
+          [31m-[0m[0m http_endpoint               = "enabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_protocol_ipv6          = "disabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_put_response_hop_limit = 1 [90m-> null[0m[0m
+          [31m-[0m[0m http_tokens                 = "optional" [90m-> null[0m[0m
+          [31m-[0m[0m instance_metadata_tags      = "disabled" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m private_dns_name_options {
+          [31m-[0m[0m enable_resource_name_dns_a_record    = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_resource_name_dns_aaaa_record = false [90m-> null[0m[0m
+          [31m-[0m[0m hostname_type                        = "ip-name" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m root_block_device {
+          [31m-[0m[0m delete_on_termination = true [90m-> null[0m[0m
+          [31m-[0m[0m device_name           = "/dev/sda1" [90m-> null[0m[0m
+          [31m-[0m[0m encrypted             = false [90m-> null[0m[0m
+          [31m-[0m[0m iops                  = 100 [90m-> null[0m[0m
+          [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+          [31m-[0m[0m tags_all              = {} [90m-> null[0m[0m
+          [31m-[0m[0m throughput            = 0 [90m-> null[0m[0m
+          [31m-[0m[0m volume_id             = "vol-010cb9198b6a0a05d" [90m-> null[0m[0m
+          [31m-[0m[0m volume_size           = 8 [90m-> null[0m[0m
+          [31m-[0m[0m volume_type           = "gp2" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_key_pair.public_key_jenkins_server[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_key_pair" "public_key_jenkins_server" {
+      [31m-[0m[0m arn         = "arn:aws:ec2:us-east-1:851725449013:key-pair/jenkins-server.pub" [90m-> null[0m[0m
+      [31m-[0m[0m fingerprint = "8e:5e:8b:1b:d5:26:c7:de:15:c1:5e:70:d7:30:99:72" [90m-> null[0m[0m
+      [31m-[0m[0m id          = "jenkins-server.pub" [90m-> null[0m[0m
+      [31m-[0m[0m key_name    = "jenkins-server.pub" [90m-> null[0m[0m
+      [31m-[0m[0m key_pair_id = "key-0311582306b91c912" [90m-> null[0m[0m
+      [31m-[0m[0m key_type    = "rsa" [90m-> null[0m[0m
+      [31m-[0m[0m public_key  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDenjgzl7ebY3UoWD3c2QPZzYWB2deEddFsOBaXKlhQIKvcdSAkOCsOCqrTVIMgYdx6DBDgo1ByojsV2QpoJw/qel5d/HwZXe9+H6pfDZjqxa+3W+HTrO9nJavW/YXYbpxiWEQGAbH22kNr3ksK1WmfUeo3k1ACrCdwTcGzyeIhOv67Wv2qaNjdccXpDuJVZhelv8nnr3egxIXCXwQmSloL+nYpZtMdtD5hsi86DtYfDsJvbZ3QlknJQe1htd+IVGm38VGnr0nr5Mxjf9mgQXs5eh9bJ+edaP8ad+A9jBje6a4ezyCh0k/NvMUPsbckvO0uABvbdPCygE0CgpudF+PLHYHbVMZwNAZpz3b67V9U4s7mWuu4EOx6lOpe/oACVkyxaNrBJS8vTz6ti2OwBpP/3LCtoQTlV5pE1tPTCk8ymp+Wn44JfHQRjeUHKeIRYz98mRdG5sYgLE9nWxt3wwOOflJVTqZdExEWlCgRUnU0wIoVY+CtZfdY6UBCvZYkL8BDtorJrocHK/2c/u6F5PSElFYqQOk5YFu9FSJFs70nn5OL/DneDSbaxVTtDJt85mCrcsDGLYgbCAfbQ1bte7XZkiuFlUPU5fUsRixOXJDGat1r0WpubGZ5fvT2mVruwvdTyRjcFmoLb15RpO6OtJXHgGiHNd5+5E1Ba4IA4y18PQ==" [90m-> null[0m[0m
+      [31m-[0m[0m tags        = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all    = {} [90m-> null[0m[0m
+    }
+
+[1m  # aws_security_group.jenkins_server_sg[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_security_group" "jenkins_server_sg" {
+      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:851725449013:security-group/sg-056702452be0d79aa" [90m-> null[0m[0m
+      [31m-[0m[0m description            = "Managed by Terraform" [90m-> null[0m[0m
+      [31m-[0m[0m egress                 = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m description      = ""
+              [31m-[0m[0m from_port        = 0
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 65000
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m id                     = "sg-056702452be0d79aa" [90m-> null[0m[0m
+      [31m-[0m[0m ingress                = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m description      = ""
+              [31m-[0m[0m from_port        = 22
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 22
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m description      = ""
+              [31m-[0m[0m from_port        = 50000
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 50000
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m description      = ""
+              [31m-[0m[0m from_port        = 8080
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 8080
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m name                   = "jenkins-server-sg" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id               = "851725449013" [90m-> null[0m[0m
+      [31m-[0m[0m revoke_rules_on_delete = false [90m-> null[0m[0m
+      [31m-[0m[0m tags                   = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all               = {} [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                 = "vpc-0948b9f416c47f64f" [90m-> null[0m[0m
+    }
+
+[1m  # local_file.private_key_jenkins_server[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "local_file" "private_key_jenkins_server" {
+      [31m-[0m[0m content              = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha256 = "Z77NvdLYX/eW0jDwf+EWTrSyWc9s1dLEoD6HjpJJfaE=" [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha512 = "A9TfP9mf8LWiGRTbt6rjDR1BulQd5wb5ktks05HLFHeIETbLiMp5s0tQrmuYpUo01jx8oBt14zlqN1WiSOw7UQ==" [90m-> null[0m[0m
+      [31m-[0m[0m content_md5          = "a15cdf1d19cc9bd670f0ed9c955ea8f7" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha1         = "ece93e9bd0f80d5f17572f1289592cd2d8d8e418" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha256       = "67becdbdd2d85ff796d230f07fe1164eb4b259cf6cd5d2c4a03e878e92497da1" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha512       = "03d4df3fd99ff0b5a21914dbb7aae30d1d41ba541de706f992d92cd391cb1477881136cb88ca79b34b50ae6b98a54a34d63c7ca01b75e3396a3755a248ec3b51" [90m-> null[0m[0m
+      [31m-[0m[0m directory_permission = "0777" [90m-> null[0m[0m
+      [31m-[0m[0m file_permission      = "0400" [90m-> null[0m[0m
+      [31m-[0m[0m filename             = "jenkins-server.pem" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "ece93e9bd0f80d5f17572f1289592cd2d8d8e418" [90m-> null[0m[0m
+    }
+
+[1m  # local_file.public_key_jenkins_server[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "local_file" "public_key_jenkins_server" {
+      [31m-[0m[0m content              = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDenjgzl7ebY3UoWD3c2QPZzYWB2deEddFsOBaXKlhQIKvcdSAkOCsOCqrTVIMgYdx6DBDgo1ByojsV2QpoJw/qel5d/HwZXe9+H6pfDZjqxa+3W+HTrO9nJavW/YXYbpxiWEQGAbH22kNr3ksK1WmfUeo3k1ACrCdwTcGzyeIhOv67Wv2qaNjdccXpDuJVZhelv8nnr3egxIXCXwQmSloL+nYpZtMdtD5hsi86DtYfDsJvbZ3QlknJQe1htd+IVGm38VGnr0nr5Mxjf9mgQXs5eh9bJ+edaP8ad+A9jBje6a4ezyCh0k/NvMUPsbckvO0uABvbdPCygE0CgpudF+PLHYHbVMZwNAZpz3b67V9U4s7mWuu4EOx6lOpe/oACVkyxaNrBJS8vTz6ti2OwBpP/3LCtoQTlV5pE1tPTCk8ymp+Wn44JfHQRjeUHKeIRYz98mRdG5sYgLE9nWxt3wwOOflJVTqZdExEWlCgRUnU0wIoVY+CtZfdY6UBCvZYkL8BDtorJrocHK/2c/u6F5PSElFYqQOk5YFu9FSJFs70nn5OL/DneDSbaxVTtDJt85mCrcsDGLYgbCAfbQ1bte7XZkiuFlUPU5fUsRixOXJDGat1r0WpubGZ5fvT2mVruwvdTyRjcFmoLb15RpO6OtJXHgGiHNd5+5E1Ba4IA4y18PQ==" [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha256 = "OvOcMHwaeaR8HgJLwQgINDpfz2acE6qFaMzvf2fMowE=" [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha512 = "vFrs+FlVh2+nFOnKzuCU3ieYnp2SEK+S+CGdrkvF7Mrr9HJC9BdmUpgMvZfldjMLwLFQnXXvhijKZGqNhJcCWA==" [90m-> null[0m[0m
+      [31m-[0m[0m content_md5          = "9e8ec0ba9792e65a649bbdedfa26eb9e" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha1         = "685154d76f93a7fbdc4dd5de6cc7bb07e33706a9" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha256       = "3af39c307c1a79a47c1e024bc10808343a5fcf669c13aa8568ccef7f67cca301" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha512       = "bc5aecf85955876fa714e9cacee094de27989e9d9210af92f8219dae4bc5eccaebf47242f4176652980cbd97e576330bc0b1509d75ef8628ca646a8d84970258" [90m-> null[0m[0m
+      [31m-[0m[0m directory_permission = "0777" [90m-> null[0m[0m
+      [31m-[0m[0m file_permission      = "0777" [90m-> null[0m[0m
+      [31m-[0m[0m filename             = "jenkins-server.pub" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "685154d76f93a7fbdc4dd5de6cc7bb07e33706a9" [90m-> null[0m[0m
+    }
+
+[1m  # tls_private_key.rsa[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "tls_private_key" "rsa" {
+      [31m-[0m[0m algorithm                     = "RSA" [90m-> null[0m[0m
+      [31m-[0m[0m ecdsa_curve                   = "P224" [90m-> null[0m[0m
+      [31m-[0m[0m id                            = "8e245ebb7b3d3397c0119320ebe1af95ce242b70" [90m-> null[0m[0m
+      [31m-[0m[0m private_key_openssh           = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m private_key_pem               = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m private_key_pem_pkcs8         = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m public_key_fingerprint_md5    = "b3:cd:2b:10:ab:5c:5c:33:c0:47:4a:06:82:d1:cf:63" [90m-> null[0m[0m
+      [31m-[0m[0m public_key_fingerprint_sha256 = "SHA256:IcLsg/cWqO+ADWJ8/dc8/eHC64smRZsh/cRPDP/kW44" [90m-> null[0m[0m
+      [31m-[0m[0m public_key_openssh            = <<-EOT
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDenjgzl7ebY3UoWD3c2QPZzYWB2deEddFsOBaXKlhQIKvcdSAkOCsOCqrTVIMgYdx6DBDgo1ByojsV2QpoJw/qel5d/HwZXe9+H6pfDZjqxa+3W+HTrO9nJavW/YXYbpxiWEQGAbH22kNr3ksK1WmfUeo3k1ACrCdwTcGzyeIhOv67Wv2qaNjdccXpDuJVZhelv8nnr3egxIXCXwQmSloL+nYpZtMdtD5hsi86DtYfDsJvbZ3QlknJQe1htd+IVGm38VGnr0nr5Mxjf9mgQXs5eh9bJ+edaP8ad+A9jBje6a4ezyCh0k/NvMUPsbckvO0uABvbdPCygE0CgpudF+PLHYHbVMZwNAZpz3b67V9U4s7mWuu4EOx6lOpe/oACVkyxaNrBJS8vTz6ti2OwBpP/3LCtoQTlV5pE1tPTCk8ymp+Wn44JfHQRjeUHKeIRYz98mRdG5sYgLE9nWxt3wwOOflJVTqZdExEWlCgRUnU0wIoVY+CtZfdY6UBCvZYkL8BDtorJrocHK/2c/u6F5PSElFYqQOk5YFu9FSJFs70nn5OL/DneDSbaxVTtDJt85mCrcsDGLYgbCAfbQ1bte7XZkiuFlUPU5fUsRixOXJDGat1r0WpubGZ5fvT2mVruwvdTyRjcFmoLb15RpO6OtJXHgGiHNd5+5E1Ba4IA4y18PQ==
+        EOT [90m-> null[0m[0m
+      [31m-[0m[0m public_key_pem                = <<-EOT
+            -----BEGIN PUBLIC KEY-----
+            MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA3p44M5e3m2N1KFg93NkD
+            2c2FgdnXhHXRbDgWlypYUCCr3HUgJDgrDgqq01SDIGHcegwQ4KNQcqI7FdkKaCcP
+            6npeXfx8GV3vfh+qXw2Y6sWvt1vh06zvZyWr1v2F2G6cYlhEBgGx9tpDa95LCtVp
+            n1HqN5NQAqwncE3Bs8niITr+u1r9qmjY3XHF6Q7iVWYXpb/J5693oMSFwl8EJkpa
+            C/p2KWbTHbQ+YbIvOg7WHw7Cb22d0JZJyUHtYbXfiFRpt/FRp69J6+TMY3/ZoEF7
+            OXofWyfnnWj/GnfgPYwY3umuHs8godJPzbzFD7G3JLztLgAb23TwsoBNAoKbnRfj
+            yx2B21TGcDQGac92+u1fVOLO5lrruBDsepTqXv6AAlZMsWjawSUvL08+rYtjsAaT
+            /9ywraEE5VeaRNbT0wpPMpqflp+OCXx0EY3lByniEWM/fJkXRubGICxPZ1sbd8MD
+            jn5SVU6mXRMRFpQoEVJ1NMCKFWPgrWX3WOlAQr2WJC/AQ7aKya6HByv9nP7uheT0
+            hJRWKkDpOWBbvRUiRbO9J5+Ti/w53g0m2sVU7QybfOZgq3LAxi2IGwgH20NW7Xu1
+            2ZIrhZVD1OX1LEYsTlyQxmrda9FqbmxmeX709pla7sL3U8kY3BZqC29eUaTujrSV
+            x4BohzXefuRNQWuCAOMtfD0CAwEAAQ==
+            -----END PUBLIC KEY-----
+        EOT [90m-> null[0m[0m
+      [31m-[0m[0m rsa_bits                      = 4096 [90m-> null[0m[0m
+    }
+
+[1mPlan:[0m 0 to add, 0 to change, 6 to destroy.
+[0m
+Changes to Outputs:
+  [31m-[0m[0m account_id                 = "851725449013" [90m-> null[0m[0m
+  [31m-[0m[0m caller_arn                 = "arn:aws:iam::851725449013:user/userTerraform" [90m-> null[0m[0m
+  [31m-[0m[0m web-address-jenkins-server = "54.163.55.121" [90m-> null[0m[0m
+[0m[1mlocal_file.public_key_jenkins_server: Destroying... [id=685154d76f93a7fbdc4dd5de6cc7bb07e33706a9][0m[0m
+[0m[1mlocal_file.private_key_jenkins_server: Destroying... [id=ece93e9bd0f80d5f17572f1289592cd2d8d8e418][0m[0m
+[0m[1mlocal_file.public_key_jenkins_server: Destruction complete after 0s[0m
+[0m[1mlocal_file.private_key_jenkins_server: Destruction complete after 0s[0m
+[0m[1maws_instance.jenkins-server: Destroying... [id=i-0923240bac42fbe2d][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 40s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 50s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 1m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 1m10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 1m20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 1m30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 1m40s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 1m50s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 2m0s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 2m10s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 2m20s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 2m30s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Still destroying... [id=i-0923240bac42fbe2d, 2m40s elapsed][0m[0m
+[0m[1maws_instance.jenkins-server: Destruction complete after 2m44s[0m
+[0m[1maws_key_pair.public_key_jenkins_server: Destroying... [id=jenkins-server.pub][0m[0m
+[0m[1maws_security_group.jenkins_server_sg: Destroying... [id=sg-056702452be0d79aa][0m[0m
+[0m[1maws_key_pair.public_key_jenkins_server: Destruction complete after 0s[0m
+[0m[1mtls_private_key.rsa: Destroying... [id=8e245ebb7b3d3397c0119320ebe1af95ce242b70][0m[0m
+[0m[1mtls_private_key.rsa: Destruction complete after 0s[0m
+[0m[1maws_security_group.jenkins_server_sg: Destruction complete after 1s[0m
+[0m[1m[32m
+Destroy complete! Resources: 6 destroyed.
+[0mRemoving Terraform files and state files...
+Changing directory to Ansible directory...
+Removing Ansible-related files...
+Cleanup completed successfully.
+[8mha:////4IAFgzVk0gc4EWANhsvWcOeC4V89z2AXO8RoUTkW5tJRAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICtIgqreWGF5jYGCfWnbEdkooX8TX+QCASFVusdraZ5wuWKcKRo8XWUOcoNQ6D7+20cODYXTwP2PIZG6bE3qA0g2Rt6hklZwNzihIWAlaGGs/Jkc2wFq26q8orstUpx+k7CCidvsEDCjGZs4r5C2OEzbXXienn+SuAMYQM5W7/qe0bsgYiW74AAAA=[0m[Pipeline] }
+[8mha:////4P6P9hvLF+G46eoz2ZRh4JDKpyZGXtN9RXFn2WsyAK4BAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRokKIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLsTZPsP6C1U670AAAA=[0m[Pipeline] // dir
+[8mha:////4HDJVXa4E+YkehtxtBuacNTC0e+IQsM9O1aG/4RkM8bYAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIREgUSoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/uBNn+A27Bcy69AAAA[0m[Pipeline] }
+[8mha:////4DzPRQw6p2ZweXb8g2kyOPJbpYIWatHgg2kUEAQL1gYjAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRBaJAVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axq4T5NudINt/AE/1rIO9AAAA[0m[Pipeline] // stage
+[8mha:////4GZU3i1qPvRAztKxUsGCLXhVexX1lljX91cDqv7xegw7AAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYQjmjSIitZywwtMYowT6y7YF5KKF/E1/oAhEhVb7ay0mucLyhThQNHJzmLvMTVeDmF0ucmJYn8JNMmOzrIhTBSs1HbS1NrjgprYwhJRwErB2mITKHl0DBvVmbupgkFXnTjmba+g8O0NHiBUNrOJ/IU5wvY6tonw5/krgHlgEDVDsas/x/INar4f38EAAAA=[0m[Pipeline] stage
+[8mha:////4JAGcyvRwBYPkWPGgLMvlOojsWJzXQ9PyMKWJI+oYrVHAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohULDAgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD1+IXOLCAAAA[0m[Pipeline] { (Remove Jenkins Terraform state from S3 bucket)
+[8mha:////4DWbl5dFfMMY9pDhDdREnOBDCH53PUHZgbBykvda6bZbAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUTCAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0rlhNLCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/jenkins-aws-deploy/jenkins_in_docker_on_aws/project-setup-files/terraform
+[8mha:////4G4Vq/HqzSjOENcHsy/09oXoi6SpJf6FHOe2/YpS1TTOAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUbCDE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxASnCIIrCAAAA[0m[Pipeline] {
+[8mha:////4OI++1rT3lGu6292SetQOOO4QkQdZBGusPt3SD9J8i1RAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICdAilorXc8AKTGOPEugu2g1PxIr7GH7CIRMUWq51t5vWGZfBQszfYaeothcbi4EaTFyb2/dVxwo4v2DAFdhqlTpJbfZpRctQwpyhhIWClqXEcLJkIa9Gph6qcIlOdo8/fUUBp2zs8oRDZHJWPX5g8bG5jG5h+nr8CmIYI5e6Qa78dPhmQ9Da+AAAA[0m[Pipeline] sh
++ ./rm-s3-jenkins-server-tfstate.sh
+Bucket Name: jenkins-server-terraform-bucket
+Key Value: jenkins-server/terraform.tfstate
+{
+    "Deleted": [
+        {
+            "Key": "jenkins-server/terraform.tfstate",
+            "VersionId": "t6.s.Iu8t4..akyAHFkpgyEp24a56_5B"
+        },
+        {
+            "Key": "jenkins-server/terraform.tfstate",
+            "VersionId": "3uPfhZ6uxSsEov2mYWeldfV1lLFeFDwi"
+        },
+        {
+            "Key": "jenkins-server/terraform.tfstate",
+            "VersionId": "3QECyMUvWdDgv40oBmGrgk..M4eOcm9a"
+        },
+        {
+            "Key": "jenkins-server/terraform.tfstate",
+            "VersionId": "SfNOpsifiOSRKEtXDfWLVm0dFRWYn1uT"
+        },
+        {
+            "Key": "jenkins-server/terraform.tfstate",
+            "VersionId": "kAm8U8JdXGTSRLIUIE.jmJhvx8PuyDrG"
+        }
+    ]
+}
+Successfully removed all objects.
+Checking if the S3 bucket is empty...
+Bucket is not empty. Remaining objects:
+                           PRE setup_s3/
+[8mha:////4J2kl+tc7kIuvDSgzXZ7G+xxFt36cv1mogL3fMB0Koz7AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKi0CFEldZKwwtMbIwT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYPBXtNgKXYWvRtNXjhxGK6OJ+z5gh1TZKex1VPLSjcLtpw0LClKWAnYaOocR0smwVb08iErJ8lU5xTydxRQWnWHJxQim5MM6QtzgN1tVJHp5/krgNn7BOW+zlUfPiXWgpW+AAAA[0m[Pipeline] }
+[8mha:////4MN7x3/L4oh6yg2xk9eGJsBQMp2swnuH2X9ziZdQGr0rAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIRqZAQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJyjrOtf+8AEdlBFkvgAAAA==[0m[Pipeline] // dir
+[8mha:////4PB9NsrczeUR41o3zGVQ2zjA9/LMRW7rKszKVZLwBbPJAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioKBAqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDu9rm2hw8pWvI/vgAAAA==[0m[Pipeline] }
+[8mha:////4D9M0ip6srr9y5LMLrC5uqkmiKo+y3gsCxX0TJ6EJYgoAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiEKJBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDu9rm2hw8HWvBVvgAAAA==[0m[Pipeline] // stage
+[8mha:////4MC9DTYH1igk3FKudnvaC1QAehDXMhIz2ZfcLUb3aJUiAAAApx+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYQjIUGDqGgtN7zAxMY4se6CfSGpeBFf4w8EIlGx1c5Kq3m+oMwJDpS8bBy2AXMdZBd7PzU5UGovkQbZ0FnWhJmik9oNmqw7zqiJHcwRBSwULB3WkXJAz7BSjbmbKhr01YnTtO0VFMHe4AFCTWY2ib8wJlhfe5sJf56/Ahg7BrFjKDbbz7F8A1nWY2jBAAAA[0m[Pipeline] stage
+[8mha:////4NmLBx1G3GBJjEvvQ7W2Qk0e2CddmQCTfP1EBg7kZNA6AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQoIFMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfACW9ZT2wgAAAA==[0m[Pipeline] { (Remove S3 Bucket)
+[8mha:////4Io6RZ3O7iT9MoUHK6IoHv7WPz8u7X38GUyR+Fi4ngRhAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYoABMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfAAyQCqkwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/jenkins-aws-deploy/jenkins_in_docker_on_aws/project-setup-files/terraform_s3
+[8mha:////4GcHzB5RBUtTiEk7D7nRUT+QUsxpecJAaINrCt+gocR+AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYgEJMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfAAnLfKUwgAAAA==[0m[Pipeline] {
+[8mha:////4C5UYfVrNTsydyoJJLS3qxoCzgY306Udl3H1YJj5SCO5AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUYEQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHNwcnzs++AAAA[0m[Pipeline] sh
++ echo y
++ ./remove_s3_bucket.sh
+Bucket Name: jenkins-server-terraform-bucket
+Key Value: setup_s3/terraform.tfstate
+{
+    "Deleted": [
+        {
+            "Key": "setup_s3/terraform.tfstate",
+            "VersionId": "SfNOpsifiOSRKEtXDfWLVm0dFRWYn1uT"
+        }
+    ]
+}
+Successfully removed all objects.
+Deleting the S3 bucket...
+Removing backend.tf, Terraform files, and state files...
+Cleanup completed.
+[8mha:////4Gwgm5A6C6XijI65M9zDJbj4uPLWWCZQpZESS0XLgL3QAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCoEFCqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDut7l2hw9hbYOkvgAAAA==[0m[Pipeline] }
+[8mha:////4EGLEwvBzFcacWWe8HNKj0hLeOV30gWKgtiSfRLcpUy8AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioKBAqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDut7l2hw9Vo2D/vgAAAA==[0m[Pipeline] // dir
+[8mha:////4K1LGFZScQJWk2T14MoROSUnzdYyo9l0V6nKSCfQkNWVAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiBYkGUaW10vACExvjxLoztkNS8SK+xh+wiETFFqudbeb1hnUMcOJgsNc0WIqdRe9GkxdOHIar4wl7vmDHFNlpbPXUstLNgi0nDUuKElYCNpo6x9GSSbAVvXzIykky1TmF/B0FlFbd4QmFyOYkQ/rCHGB3G1Vk+nn+CmD2PkG5r3PVhw9t4fMOvgAAAA==[0m[Pipeline] }
+[8mha:////4Pff82NOkDLs2XGo3kqrybeeOZR/GctVKGkmggZulA5GAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKRiKgQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJyjrOtf+8AFyY6ZcvgAAAA==[0m[Pipeline] // stage
+[8mha:////4OyYcWL1sjtnxEYTgtTYd9HoS+Ki/X5xG69XahsYdYufAAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYRTgGgQFa3lhheY2Bgn1l2wLyQVL+Jr/IFAJCq22llpNc8XlDnBgZKXjcM2YK6D7GLvpyYHSu0l0iAbOsuaMFN0UrtBk3XHGTWxgzmigIWCpcM6Ug7oGVaqMXdTRYO+OnGatr2CItgbPECoycwm8RfGBOtrbzPhz/NXAGPHIHYMxWb7OZZvSA5IBcEAAAA=[0m[Pipeline] stage
+[8mha:////4JYnRyjVC87itb6E0qJR6Xc7s5AW4dpeAZ69cNh5f9ZmAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0ACbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxASMfXIzCAAAA[0m[Pipeline] { (Clean Up "jenkins-aws-deploy" project)
+[8mha:////4P0Z7cbiLu11lBfi12gmcSEEXa/399BBWLs5+S5RzWEWAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0QLAgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD02yRsvCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/jenkins-aws-deploy
+[8mha:////4LQM6wjOr9+Rk0Gcg5c8u5VrQrs/O7sQCpomy9khMXzHAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0QIIBMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfADpB/iZwgAAAA==[0m[Pipeline] {
+[8mha:////4OpGPS9tHCpjAqHuyKB4XP+JI//M3ycNG/NHFFB6FMbdAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSUICEqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEGDPXtvgAAAA==[0m[Pipeline] deleteDir
+[8mha:////4GJa7oYPAP4ecezxn5YMkfoKxAJ4HNyvAScBLlu1SgiXAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSUCCEqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFBu95/avQF5ECgKvgAAAA==[0m[Pipeline] }
+[8mha:////4ENL6/MNzf0ebKBQtLd5Mra8B43YlE839xbXDSE8yR2HAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCBKJBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDut7l2hw+pT4efvgAAAA==[0m[Pipeline] // dir
+[8mha:////4NqtPYEHwA96i64HgVztrPFuOo4Qtrl0V2x3AG//9/rRAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUCJhQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3+2y7zedZvQF7vOQTwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/jenkins-aws-deploy@tmp
+[8mha:////4CfAqV4iNVmtgsQymcNdcr1FiEeKKKOc83IJwlAJfj5hAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUIDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAdhUMVHCAAAA[0m[Pipeline] {
+[8mha:////4HgrA0/gelN3SC1wJLsPFICoLi0hQCzGz82CokdTBCoPAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAR2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBvbls1O+AAAA[0m[Pipeline] deleteDir
+[8mha:////4NfQMxXL13qcP+KR9Toqie1biQ1HSAIRXYK7uTd1ALl9AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioXSIitZKwwtMYowd686xHZyKF/E1/kAgEhVbrHa2mecL1jHAkYNGq6g3FFuD3o16Xpg59FfHGS1fsGWK7BQ2KjfcqdOCDScFS4oSVgI2ilrH0ZBOsBVW3mXlJOnqnML8HQSUphvgAYWYzUmG9IUpwO42dpHp5/krgMn7BGVdf2r/BmFfOky+AAAA[0m[Pipeline] }
+[8mha:////4LRtDcEqWru7IUdt8+idkI4B56kN+uGZKv8sJwwoNUbCAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrd/lPbN37dbx6+AAAA[0m[Pipeline] // dir
+[8mha:////4BQhg9d4JM6V2iA2cD+f2LsXFasuxjZfLLxks4hPHoOPAAAApR+LCAAAAAAAAP9tjTsOwjAQRDdBFLSUHGJT8GlQKlrLDScwiTFOrN1gOzgVJ+Jq3AGLSFRMMZo3zXu9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDuDrm2+w8O/dfQvgAAAA==[0m[Pipeline] }
+[8mha:////4ERxjvnph8zAJ712TNDIBr+RkJjMTXDY/+qYbGwFh0s2AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIpiESBqNJaaXiBiQ/jxLoztkNS8SK+xh+wiETFFqudbeb1hnUMcOJgRI80WIqdFd6NJi8xcRiujifR80V0TJEdihanljU2C7acEJYUJawkbJA6x9GSSbCVvXqoyiky1TmF/B0llFbf4QmFzOakQvrCHGB3G3Vk+nn+CmD2PkFZH3Lt6w89HoxsvgAAAA==[0m[Pipeline] // stage
+[8mha:////4F1CrAjfajy6bpPp3IUA0DHrDjOfRaWWkf3YxHmm0uPWAAAApx+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYTTIISEqGgtN7zAxMY4se6CfSGpeBFf4w8EIlGx1c5Kq3m+oMwJDpS8bBy2AXMdZBd7PzU5UGovkQbZ0FnWhJmik9oNmqw7zqiJHcwRBSwULB3WkXJAz7BSjbmbKhr01YnTtO0VFMHe4AFCTWY2ib8wJlhfe5sJf56/Ahg7BrFlKDa7z7F8A73wLbfBAAAA[0m[Pipeline] stage
+[8mha:////4PcixFzfsmzT03f2A2lrWVK/BhA83gRuezQssiSgWtApAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0YQAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD56au0DCAAAA[0m[Pipeline] { (Clean Up "jenkins-aws-destroy" project)
+[8mha:////4MKk+Bz7/IB2GkEykKdPNj7jLlpNDI7oT4iK3xYxiEUAAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoiUAQaEOrFGXThBaEJIGv1fkpR04kRcjTsQqMSEB8u2ZL3nC6rgoSGvmVXYGwydYYMbdU4ske8vjhKzdGYdYSCnWKtSS1Id59pSVDCrKGHBYamwcxQM6ggrbsVd1E6grk/R5+3AoTTyBg8oeCZH4eO3TB7W11EGwh/nLwCmIUK53WfbbT7P6g0iH00AwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/jenkins-aws-destroy
+[8mha:////4KKJH7PVIx3vsYyajTEfLhIiH0zaFIOPGUiKP4RZPk8LAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUBibE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAW2++SvCAAAA[0m[Pipeline] {
+[8mha:////4DNtPkZJYFJ2PxXwsgXiie/sd/aW139fSOHg0KuzamvGAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIikKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO63n9qFN4OkKLa+AAAA[0m[Pipeline] deleteDir
+[8mha:////4LyU3haLDdY2h5aMu6uJR/igpUd9GSsudupShQAX5+eoAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIihKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcr97lPbN5YEWne+AAAA[0m[Pipeline] }
+[8mha:////4Bjnnl1tqwnUkGLdlS2dPDAInIjlQqOCztJOuvz1vwW3AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCARWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nffWr7BrgEWB2+AAAA[0m[Pipeline] // dir
+[8mha:////4Azd8TFkB+j2db3QReWP6Qxvp9itpwZkatTdRFBMe/S/AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0oQNCTF2jLJwgJCGkjf4vSUo7cSKuxh0IVGLCg2Vbst7zBVUMcKRgWWewdxiVY4MfbU5sotBfPE2sozNThJG8YcJMgrRplyooGVhUlLDisDaoPEWHNsGGd/Iuay/R1qcU8nbgUDp9gwcUPJOTDOlb5gDb66gj4Y/zFwDzkKDc7bM1zedZvQGRjoBQwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/jenkins-aws-destroy@tmp
+[8mha:////4FBLRI1013qQfE1UCI5kwHl5MUGCMXnIqZ1xToBVncrFAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0KgtiYo2ycILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMUAJwqGOY2dxdha1vvRzIllCt3NU2aOrqwljOQ1EzoLUvq8VkFJw6qihA2HrcbWU7RoEuy4kw9Ze4mmvqQwb0cOpVUDPKHgMznJkL5lCrC/jyoS/jh/ATD1CcqmWeywPKsPlyKrR8IAAAA=[0m[Pipeline] {
+[8mha:////4JBIMkf4niOOQItkxjAjosvHu+Z4A8he+NHUtHkRPDQ4AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSAQWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBkhu+A6+AAAA[0m[Pipeline] deleteDir
+[8mha:////4J3sBHcwQG2RzgiFU8LMTFR2W5cydkFrffzy04xgp2H3AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgZAQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrt/lO7N/Zh+YO+AAAA[0m[Pipeline] }
+[8mha:////4KDtdnGzFXO7wjQDGwPAVBvseEbSrU6UOpr8Zn3hN2cMAAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaeghSpXAcK1uGxhNggghh/idAJJUn8mreQTQzVm6xs2+b93zBOgY4UtDMKhwMxs4w7yZdFssUhqujzCxdWEcYySkmVBbUq9OCgpKCJVUNKw4bhZ2jaFAn2HIr77JxEnVzTqF8Bw616Ud4QMWLOcmQvjAH2N2mPhL+PH8FMHufoG73n2rf6eOs0b4AAAA=[0m[Pipeline] // dir
+[8mha:////4OI5/Y4QIpwVNruu0a6f3ZJXvqf1Ijd7pjyZP51YXTqBAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCgZAQSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryv821O3wA1tXm174AAAA=[0m[Pipeline] }
+[8mha:////4KnqDv2j8JaV5vgs6C5YBtzpzj2UH9a7KTlhAYPBxgs5AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJISQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKU+22u3eED5Ta9a74AAAA=[0m[Pipeline] // stage
+[8mha:////4HpKh9y1/550QDtC8JMTTA36cSmmywaPBXG8OTe2gkSjAAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkDizGybVh8Qsq1Fpo3sP2IUx+kb/mP0gkcfJO95zlvN5Yp4gjR6daS52nVHvVh8HNT40cu2vgUbV8UTVT4mBVZceKG3tasGKxWJblWGlsLNWBkycn2OrWPEwRDLniLHF2B43cN3c8kem5LCbKF6aI3W1oEtOv8zeAqe8FebkXZOUHcSmOW70AAAA=[0m[Pipeline] }
+[8mha:////4KOCudJWApsaCRySQhRhmI+416Gtr26G31cx90fNHgQeAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpEDSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfL8VZLsPe1Hn/70AAAA=[0m[Pipeline] // withEnv
+[8mha:////4G3YCmUFGfyN/vpy6e4+dxmKxXc8wcf6k1DTdO83A8zZAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiI0jI1jZZuh8QQRYgxkdjFZhMoTeTXvICMzVv7qv9e81xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9b0g35eCrPwA/b3AOr0AAAA=[0m[Pipeline] }
+[8mha:////4KR3VmukN31OSDop/fkLEujLAK+CumUZYCDz3ugESgplAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpEDSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfL8TZNsP7gHEmb0AAAA=[0m[Pipeline] // node
+[8mha:////4KSkux1EZ4JEA/3LV5zGLWgJxx6L3ZyIXpzsQ5yZ6IHIAAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkDizGybVh8Qsq1Fpo3sP2IUx+kb/mP0gkcfJO95zlvN5Yp4gjR6daS52nVHvVh8HNT40cu2vgUbV8UTVT4mBVZceKG3tasGKxWJblWGlsLNWBkycn2OrWPEwRDLniLHF2B43cN3c8kem5LCbKF6aI3W1oEtOv8zeAqe8FeVkKsv0HqEtjqb0AAAA=[0m[Pipeline] End of Pipeline
+Finished: SUCCESS

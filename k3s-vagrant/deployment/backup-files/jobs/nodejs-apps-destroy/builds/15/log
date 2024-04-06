@@ -1,0 +1,551 @@
+Started by user [8mha:////4HR8SJsQYkPQpoN8FPu8iim4+9OAdWl+WEKTWEQBQgqmAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy2EgYu/dLi1CL9spzEFACDhRI9vwAAAA==[0mvlad s
+[8mha:////4H8frgfsuOh+PriZggPW2oQjw0+gq+olXPHRqugcEAa2AAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4BXLdENLp1Ueq4IXwGt/r52aqRqcmrRfLwoCspSF4GuuAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4Bq9YCqFM3bgzPFttUSG8QqqsNQa2hrS6yc7xGIhjG3mAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/jenkins_home/workspace/nodejs-apps-destroy
+[8mha:////4Bm86h+GoprOZQoTQVPLZ52UWT4+Yp5Y7kA529fTmV45AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4DCWgZhvcv/fzyjkS5zcxn2v4xLCxnpuDfvoFSJdi5uRAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4NVPms3beE9bp/0IDAxtzLjz4WR9K+BqSzc9ONiEO3enAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Destroy Nodejs Apps Terraform state)
+[8mha:////4D4Y36NrkY3snUQi4oDGONknGuFaKA8VPDDi9WnKAPmfAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gwExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jcChmMxwAAAAA==[0m[Pipeline] script
+[8mha:////4AkqlJRLM4LEFSlb+EP28zK8WVyHuRBHvDXzTpuyJ5tmAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0BAkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfpX/cvwAAAAA==[0m[Pipeline] {
+[8mha:////4Ce70oAks/R3ACaCStYfvjSQpvBoRTAuOon3zEqdJusDAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0BSEm1igLJwhJCGmj/9skpZ04EVfjDgQqMWHJkm3Jes8X1CnCkaLjrcXOY9Ke92F0JfGJYncNNPGWLlwTJgqWSztJMva0VEnZwiJWwUrA2qIOlDy6DBvRqrtqgkLXnHMs20FA5c0AD2CikLOK+VvmCNvbaBLhj/MXAHOfge2K959f/QbB16AVwAAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/nodejs-apps-deploy/nodejs-apps-2/project-setup-files/terraform
+[8mha:////4H+/Dvd+eZJ67NyVW/N3G7bQ5/4n76Apzgb5F6+qTt8MAAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYQDJUJUtJYbXmBiY5xYd8G+kFS8iK/xBwKRqNhqZ6XVPF9Q5gQHSl42DtuAuQ6yi72fmhwotZdIg2zoLGvCTNFJ7QZN1h1n1MQO5ogCFgqWDutIOaBnWKnG3E0VDfrqxGna9gqKYG/wAKEmM5vEXxgTrK+9zYQ/z18BjB2D2DEU283nWL4Bsam+msEAAAA=[0m[Pipeline] {
+[8mha:////4FHLRvor8hwiAJsMnCWuK60DyFgW6PNou2SMv6SPQIfOAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCakRFa6XhBSYxxo5159gOTsWL+Bp/IBCJii1WO9vM8wXrGODIQaNV1BuKrUHvRj0vzBz6q+OMli/YMkV2ChuVG+7UacGGk4IlRQkrARtFreNoSCfYCivvsnKSdHVOYf4OAkrTDfCAQszmJEP6whRgdxu7yPTz/BXA5BOU9f5TtX8D0loxuL4AAAA=[0m[Pipeline] sh
++ ls -l
+total 60
+-rw-r--r-- 1 jenkins jenkins  148 Mar 10 05:05 backend.tf
+-rw-r--r-- 1 jenkins jenkins  511 Mar 10 05:05 data.tf
+-rw-r--r-- 1 jenkins jenkins  621 Mar 10 05:05 instances.tf
+-rw-r--r-- 1 jenkins jenkins  192 Mar 10 05:05 main.tf
+-r-------- 1 jenkins jenkins 3243 Mar 10 05:07 nodejs-apps.pem
+-rwxr-xr-x 1 jenkins jenkins  724 Mar 10 05:07 nodejs-apps.pub
+-rw-r--r-- 1 jenkins jenkins  235 Mar 10 05:05 outputs.tf
+-rwxr-xr-x 1 jenkins jenkins 1815 Mar 10 05:05 rm-nodejs-apps-tfstate-from-s3.sh
+-rw-r--r-- 1 jenkins jenkins  463 Mar 10 05:05 sg.tf
+-rw-r--r-- 1 jenkins jenkins  534 Mar 10 05:05 ssh_keys.tf
+-rw-r--r-- 1 jenkins jenkins 8806 Mar 10 05:06 terraform.tfplan
+-rwxr-xr-x 1 jenkins jenkins  527 Mar 10 05:05 tf-cleanup.sh
+-rwxr-xr-x 1 jenkins jenkins  400 Mar 10 05:05 update_hosts.sh
+[8mha:////4Ee4szkJshheO3t5AGbICkFS1crtCmSURAguhnYYg+6hAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICtIgqreWGF5jYGCfWnbEdkooX8TX+QCASFVusdraZ5wuWKcKRo8XWUOcoNQ6D7+20cODYXTwP2PIZG6bE3qA0g2Rt6hklZwNzihIWAlaGGs/Jkc2wFq26q8orstUpx+k7CCidvsEDCjGZs4r5C2OEzbXXienn+SuAMWQod9tP7cMbEQkck74AAAA=[0m[Pipeline] fileExists
+[8mha:////4BfU9HINAJ5CI4/syebA+45D+lQB9NvURAjnaqM6KCIuAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICokRUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDudt+ah/eUDgHir4AAAA=[0m[Pipeline] sh
++ chmod +x tf-cleanup.sh
+[8mha:////4JcosKq2yQehasKNs3SLI93NeOuj8guhgXRFs3kCQA12AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICEh2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyt32U/vwBpeuRsW+AAAA[0m[Pipeline] sh
++ ./tf-cleanup.sh
+[0m[1mtls_private_key.rsa: Refreshing state... [id=c5fcce2b0de97e5eb929a12e78f55be58176bd0b][0m
+[0m[1mlocal_file.private_key_nodejs_apps: Refreshing state... [id=9e3241d50025912c5652b8c4b56a5b36111087ff][0m
+[0m[1mdata.aws_vpc.nodejs-apps: Reading...[0m[0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1maws_key_pair.public_key_nodejs_apps: Refreshing state... [id=nodejs-apps.pub][0m
+[0m[1maws_security_group.nodejs_apps_sg: Refreshing state... [id=sg-0f83f10736dfa496c][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 0s [id=851725449013][0m
+[0m[1mlocal_file.public_key_nodejs_apps: Refreshing state... [id=e8de8be44a845309708b3d204fe833be1f6df8d8][0m
+[0m[1maws_instance.nodejs-apps-server: Refreshing state... [id=i-094972e3df0ea39b6][0m
+[0m[1mdata.aws_vpc.nodejs-apps: Read complete after 1s [id=vpc-0948b9f416c47f64f][0m
+[0m[1mdata.aws_subnets.nodejs-apps-vpcsubnets: Reading...[0m[0m
+[0m[1mdata.aws_subnets.nodejs-apps-vpcsubnets: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_subnet.vpcsubnet["5"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["4"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["1"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["2"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["0"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["3"]: Reading...[0m[0m
+[0m[1mdata.aws_subnet.vpcsubnet["5"]: Read complete after 0s [id=subnet-0175351059a6ec28c][0m
+[0m[1mdata.aws_subnet.vpcsubnet["1"]: Read complete after 0s [id=subnet-00110431dcfe96e49][0m
+[0m[1mdata.aws_subnet.vpcsubnet["2"]: Read complete after 0s [id=subnet-06baed03622d34dbe][0m
+[0m[1mdata.aws_subnet.vpcsubnet["0"]: Read complete after 0s [id=subnet-0c536139a97e84b27][0m
+[0m[1mdata.aws_subnet.vpcsubnet["4"]: Read complete after 0s [id=subnet-01713bf36b0f853a7][0m
+[0m[1mdata.aws_subnet.vpcsubnet["3"]: Read complete after 1s [id=subnet-08f78f40a7ee2d7e7][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_instance.nodejs-apps-server[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_instance" "nodejs-apps-server" {
+      [31m-[0m[0m ami                                  = "ami-0c7217cdde317cfec" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:851725449013:instance/i-094972e3df0ea39b6" [90m-> null[0m[0m
+      [31m-[0m[0m associate_public_ip_address          = true [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                    = "us-east-1c" [90m-> null[0m[0m
+      [31m-[0m[0m cpu_core_count                       = 1 [90m-> null[0m[0m
+      [31m-[0m[0m cpu_threads_per_core                 = 1 [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_stop                     = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_termination              = false [90m-> null[0m[0m
+      [31m-[0m[0m ebs_optimized                        = false [90m-> null[0m[0m
+      [31m-[0m[0m get_password_data                    = false [90m-> null[0m[0m
+      [31m-[0m[0m hibernation                          = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "i-094972e3df0ea39b6" [90m-> null[0m[0m
+      [31m-[0m[0m instance_initiated_shutdown_behavior = "stop" [90m-> null[0m[0m
+      [31m-[0m[0m instance_state                       = "running" [90m-> null[0m[0m
+      [31m-[0m[0m instance_type                        = "t2.micro" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_address_count                   = 0 [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_addresses                       = [] [90m-> null[0m[0m
+      [31m-[0m[0m key_name                             = "nodejs-apps.pub" [90m-> null[0m[0m
+      [31m-[0m[0m monitoring                           = false [90m-> null[0m[0m
+      [31m-[0m[0m placement_partition_number           = 0 [90m-> null[0m[0m
+      [31m-[0m[0m primary_network_interface_id         = "eni-0bef51d81adc9d988" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns                          = "ip-172-31-89-13.ec2.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                           = "172.31.89.13" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns                           = "ec2-54-87-130-29.compute-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                            = "54.87.130.29" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ips                = [] [90m-> null[0m[0m
+      [31m-[0m[0m security_groups                      = [
+          [31m-[0m[0m "nodejs-apps-sg",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m source_dest_check                    = true [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                            = "subnet-00110431dcfe96e49" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Name"    = "Node_JS_Apps"
+          [31m-[0m[0m "Owner"   = ""
+          [31m-[0m[0m "Project" = "Node_JS_Apps running with Jenkins, Terraform, and Ansible"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Name"    = "Node_JS_Apps"
+          [31m-[0m[0m "Owner"   = ""
+          [31m-[0m[0m "Project" = "Node_JS_Apps running with Jenkins, Terraform, and Ansible"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tenancy                              = "default" [90m-> null[0m[0m
+      [31m-[0m[0m user_data_replace_on_change          = false [90m-> null[0m[0m
+      [31m-[0m[0m vpc_security_group_ids               = [
+          [31m-[0m[0m "sg-0f83f10736dfa496c",
+        ] [90m-> null[0m[0m
+
+      [31m-[0m[0m capacity_reservation_specification {
+          [31m-[0m[0m capacity_reservation_preference = "open" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m cpu_options {
+          [31m-[0m[0m core_count       = 1 [90m-> null[0m[0m
+          [31m-[0m[0m threads_per_core = 1 [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m credit_specification {
+          [31m-[0m[0m cpu_credits = "standard" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m enclave_options {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m maintenance_options {
+          [31m-[0m[0m auto_recovery = "default" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m metadata_options {
+          [31m-[0m[0m http_endpoint               = "enabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_protocol_ipv6          = "disabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_put_response_hop_limit = 1 [90m-> null[0m[0m
+          [31m-[0m[0m http_tokens                 = "optional" [90m-> null[0m[0m
+          [31m-[0m[0m instance_metadata_tags      = "disabled" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m private_dns_name_options {
+          [31m-[0m[0m enable_resource_name_dns_a_record    = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_resource_name_dns_aaaa_record = false [90m-> null[0m[0m
+          [31m-[0m[0m hostname_type                        = "ip-name" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m root_block_device {
+          [31m-[0m[0m delete_on_termination = true [90m-> null[0m[0m
+          [31m-[0m[0m device_name           = "/dev/sda1" [90m-> null[0m[0m
+          [31m-[0m[0m encrypted             = false [90m-> null[0m[0m
+          [31m-[0m[0m iops                  = 100 [90m-> null[0m[0m
+          [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+          [31m-[0m[0m tags_all              = {} [90m-> null[0m[0m
+          [31m-[0m[0m throughput            = 0 [90m-> null[0m[0m
+          [31m-[0m[0m volume_id             = "vol-0fe289ff9f6065b5d" [90m-> null[0m[0m
+          [31m-[0m[0m volume_size           = 8 [90m-> null[0m[0m
+          [31m-[0m[0m volume_type           = "gp2" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_key_pair.public_key_nodejs_apps[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_key_pair" "public_key_nodejs_apps" {
+      [31m-[0m[0m arn         = "arn:aws:ec2:us-east-1:851725449013:key-pair/nodejs-apps.pub" [90m-> null[0m[0m
+      [31m-[0m[0m fingerprint = "8e:e6:66:f0:ac:55:28:9f:47:ee:b5:be:4f:9f:b6:bb" [90m-> null[0m[0m
+      [31m-[0m[0m id          = "nodejs-apps.pub" [90m-> null[0m[0m
+      [31m-[0m[0m key_name    = "nodejs-apps.pub" [90m-> null[0m[0m
+      [31m-[0m[0m key_pair_id = "key-0491e2a5f9f957cf8" [90m-> null[0m[0m
+      [31m-[0m[0m key_type    = "rsa" [90m-> null[0m[0m
+      [31m-[0m[0m public_key  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDfmUBins8a7uU3e3SJ4nrEXVPVJkBfnbk7XkPgT150qU/sr6yk4+P8oCUVCdtzcv71V6st6PlWqjbs8WKRnCus0zb7zEzCWpWrcgoE3UDVVtxLbU99NXXz0zmC2eyaXsMdb30zJjSzeHJdq4UUruOtpegazuIqYrcVi911XP/mYRj8PjTc11ky5f2XMrKot9WkhH0TJw/EAAiosOiwgm39qbWshbalD6sKxflbB+u3yyBw/RDh2nzxjB/jiZ4heuCZrCG3GVTF+S/iMvxyL8tnO1vSmfpGy7plKqVL4+eLxxix4HB4qLGAfXTgCTzblOV2bkBFBHZ3KpHbWlTox5l5KH8DqQm3bQRdQXRUuRosvHi9nKb03EoyvK2BuckTt1rwxrxSfX9XQUF4J3lP4WSZqjLERLJhfjADYhzOjmJTbc2rx978I660bQxXDs+UsWnYJhHFo73jDQiPUAN1c++VKtgphIL0r1G8M9xMEWQ8qzzT4CJosdriMhL5rAzEf5XDbMe1rCGwBPpaylpNnmgw3yniu5aVmpjoqONFmJaqQLOEdn7S6B/+cMqwwpWOAyFdb2cEEtsVBKlUTnS5YWol2B+tzXC1QiSpGvOmepl4L9KnKl1t4iccr4ILuGsoYjbIbNVBSFrVbm8OFf8Yvfb7tUErveHFOsqdGji91bC9fw==" [90m-> null[0m[0m
+      [31m-[0m[0m tags        = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all    = {} [90m-> null[0m[0m
+    }
+
+[1m  # aws_security_group.nodejs_apps_sg[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_security_group" "nodejs_apps_sg" {
+      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:851725449013:security-group/sg-0f83f10736dfa496c" [90m-> null[0m[0m
+      [31m-[0m[0m description            = "Managed by Terraform" [90m-> null[0m[0m
+      [31m-[0m[0m egress                 = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m description      = ""
+              [31m-[0m[0m from_port        = 0
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 65000
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m id                     = "sg-0f83f10736dfa496c" [90m-> null[0m[0m
+      [31m-[0m[0m ingress                = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m description      = ""
+              [31m-[0m[0m from_port        = 22
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 22
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m description      = ""
+              [31m-[0m[0m from_port        = 3000
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 3000
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m description      = ""
+              [31m-[0m[0m from_port        = 3001
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 3001
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m name                   = "nodejs-apps-sg" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id               = "851725449013" [90m-> null[0m[0m
+      [31m-[0m[0m revoke_rules_on_delete = false [90m-> null[0m[0m
+      [31m-[0m[0m tags                   = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all               = {} [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                 = "vpc-0948b9f416c47f64f" [90m-> null[0m[0m
+    }
+
+[1m  # local_file.private_key_nodejs_apps[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "local_file" "private_key_nodejs_apps" {
+      [31m-[0m[0m content              = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha256 = "1fwY/Brn1AHSOoVpLVUmtAC1ZjkARJEGfcPC50dTvzM=" [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha512 = "m3I1r7w6xoJRVvp9TIfi7zyar8HI2JV+tNeP24P0iShYGa14BqVNO0X/+YmVwwa1O1LPSnq+6wX/LjOVjqJIWw==" [90m-> null[0m[0m
+      [31m-[0m[0m content_md5          = "f325c4444c968fc0ab3e3d9eaf49041a" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha1         = "9e3241d50025912c5652b8c4b56a5b36111087ff" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha256       = "d5fc18fc1ae7d401d23a85692d5526b400b56639004491067dc3c2e74753bf33" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha512       = "9b7235afbc3ac6825156fa7d4c87e2ef3c9aafc1c8d8957eb4d78fdb83f489285819ad7806a54d3b45fff98995c306b53b52cf4a7abeeb05ff2e33958ea2485b" [90m-> null[0m[0m
+      [31m-[0m[0m directory_permission = "0777" [90m-> null[0m[0m
+      [31m-[0m[0m file_permission      = "0400" [90m-> null[0m[0m
+      [31m-[0m[0m filename             = "nodejs-apps.pem" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "9e3241d50025912c5652b8c4b56a5b36111087ff" [90m-> null[0m[0m
+    }
+
+[1m  # local_file.public_key_nodejs_apps[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "local_file" "public_key_nodejs_apps" {
+      [31m-[0m[0m content              = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDfmUBins8a7uU3e3SJ4nrEXVPVJkBfnbk7XkPgT150qU/sr6yk4+P8oCUVCdtzcv71V6st6PlWqjbs8WKRnCus0zb7zEzCWpWrcgoE3UDVVtxLbU99NXXz0zmC2eyaXsMdb30zJjSzeHJdq4UUruOtpegazuIqYrcVi911XP/mYRj8PjTc11ky5f2XMrKot9WkhH0TJw/EAAiosOiwgm39qbWshbalD6sKxflbB+u3yyBw/RDh2nzxjB/jiZ4heuCZrCG3GVTF+S/iMvxyL8tnO1vSmfpGy7plKqVL4+eLxxix4HB4qLGAfXTgCTzblOV2bkBFBHZ3KpHbWlTox5l5KH8DqQm3bQRdQXRUuRosvHi9nKb03EoyvK2BuckTt1rwxrxSfX9XQUF4J3lP4WSZqjLERLJhfjADYhzOjmJTbc2rx978I660bQxXDs+UsWnYJhHFo73jDQiPUAN1c++VKtgphIL0r1G8M9xMEWQ8qzzT4CJosdriMhL5rAzEf5XDbMe1rCGwBPpaylpNnmgw3yniu5aVmpjoqONFmJaqQLOEdn7S6B/+cMqwwpWOAyFdb2cEEtsVBKlUTnS5YWol2B+tzXC1QiSpGvOmepl4L9KnKl1t4iccr4ILuGsoYjbIbNVBSFrVbm8OFf8Yvfb7tUErveHFOsqdGji91bC9fw==" [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha256 = "bgK+YJTTt8/P09rBD/wHJqsCtRxTFDpSzFmdhtJJ9NE=" [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha512 = "uuQJT/W3h7HK0YYtpKX/1gJEMRRVjfK3Gu9wDjIX106aAPSSOwK8O7v52VUxMzDSxRT1ovnjdc22ade3ZJZUKw==" [90m-> null[0m[0m
+      [31m-[0m[0m content_md5          = "6b9fd06380f33e348bedf09aae8fa1e0" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha1         = "e8de8be44a845309708b3d204fe833be1f6df8d8" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha256       = "6e02be6094d3b7cfcfd3dac10ffc0726ab02b51c53143a52cc599d86d249f4d1" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha512       = "bae4094ff5b787b1cad1862da4a5ffd602443114558df2b71aef700e3217d74e9a00f4923b02bc3bbbf9d955313330d2c514f5a2f9e375cdb669d7b76496542b" [90m-> null[0m[0m
+      [31m-[0m[0m directory_permission = "0777" [90m-> null[0m[0m
+      [31m-[0m[0m file_permission      = "0777" [90m-> null[0m[0m
+      [31m-[0m[0m filename             = "nodejs-apps.pub" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "e8de8be44a845309708b3d204fe833be1f6df8d8" [90m-> null[0m[0m
+    }
+
+[1m  # tls_private_key.rsa[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "tls_private_key" "rsa" {
+      [31m-[0m[0m algorithm                     = "RSA" [90m-> null[0m[0m
+      [31m-[0m[0m ecdsa_curve                   = "P224" [90m-> null[0m[0m
+      [31m-[0m[0m id                            = "c5fcce2b0de97e5eb929a12e78f55be58176bd0b" [90m-> null[0m[0m
+      [31m-[0m[0m private_key_openssh           = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m private_key_pem               = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m private_key_pem_pkcs8         = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m public_key_fingerprint_md5    = "37:98:3d:2f:12:da:6c:32:c9:6e:dc:89:ca:f9:9c:d7" [90m-> null[0m[0m
+      [31m-[0m[0m public_key_fingerprint_sha256 = "SHA256:7q/vCPtAY719aE1+4Mz2TOnG3TDLBvXCvWntytAJA94" [90m-> null[0m[0m
+      [31m-[0m[0m public_key_openssh            = <<-EOT
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDfmUBins8a7uU3e3SJ4nrEXVPVJkBfnbk7XkPgT150qU/sr6yk4+P8oCUVCdtzcv71V6st6PlWqjbs8WKRnCus0zb7zEzCWpWrcgoE3UDVVtxLbU99NXXz0zmC2eyaXsMdb30zJjSzeHJdq4UUruOtpegazuIqYrcVi911XP/mYRj8PjTc11ky5f2XMrKot9WkhH0TJw/EAAiosOiwgm39qbWshbalD6sKxflbB+u3yyBw/RDh2nzxjB/jiZ4heuCZrCG3GVTF+S/iMvxyL8tnO1vSmfpGy7plKqVL4+eLxxix4HB4qLGAfXTgCTzblOV2bkBFBHZ3KpHbWlTox5l5KH8DqQm3bQRdQXRUuRosvHi9nKb03EoyvK2BuckTt1rwxrxSfX9XQUF4J3lP4WSZqjLERLJhfjADYhzOjmJTbc2rx978I660bQxXDs+UsWnYJhHFo73jDQiPUAN1c++VKtgphIL0r1G8M9xMEWQ8qzzT4CJosdriMhL5rAzEf5XDbMe1rCGwBPpaylpNnmgw3yniu5aVmpjoqONFmJaqQLOEdn7S6B/+cMqwwpWOAyFdb2cEEtsVBKlUTnS5YWol2B+tzXC1QiSpGvOmepl4L9KnKl1t4iccr4ILuGsoYjbIbNVBSFrVbm8OFf8Yvfb7tUErveHFOsqdGji91bC9fw==
+        EOT [90m-> null[0m[0m
+      [31m-[0m[0m public_key_pem                = <<-EOT
+            -----BEGIN PUBLIC KEY-----
+            MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA35lAYp7PGu7lN3t0ieJ6
+            xF1T1SZAX525O15D4E9edKlP7K+spOPj/KAlFQnbc3L+9VerLej5Vqo27PFikZwr
+            rNM2+8xMwlqVq3IKBN1A1VbcS21PfTV189M5gtnsml7DHW99MyY0s3hyXauFFK7j
+            raXoGs7iKmK3FYvddVz/5mEY/D403NdZMuX9lzKyqLfVpIR9EycPxAAIqLDosIJt
+            /am1rIW2pQ+rCsX5Wwfrt8sgcP0Q4dp88Ywf44meIXrgmawhtxlUxfkv4jL8ci/L
+            Zztb0pn6Rsu6ZSqlS+Pni8cYseBweKixgH104Ak825Tldm5ARQR2dyqR21pU6MeZ
+            eSh/A6kJt20EXUF0VLkaLLx4vZym9NxKMrytgbnJE7da8Ma8Un1/V0FBeCd5T+Fk
+            maoyxESyYX4wA2Iczo5iU23Nq8fe/COutG0MVw7PlLFp2CYRxaO94w0Ij1ADdXPv
+            lSrYKYSC9K9RvDPcTBFkPKs80+AiaLHa4jIS+awMxH+Vw2zHtawhsAT6WspaTZ5o
+            MN8p4ruWlZqY6KjjRZiWqkCzhHZ+0ugf/nDKsMKVjgMhXW9nBBLbFQSpVE50uWFq
+            Jdgfrc1wtUIkqRrzpnqZeC/SpypdbeInHK+CC7hrKGI2yGzVQUha1W5vDhX/GL32
+            +7VBK73hxTrKnRo4vdWwvX8CAwEAAQ==
+            -----END PUBLIC KEY-----
+        EOT [90m-> null[0m[0m
+      [31m-[0m[0m rsa_bits                      = 4096 [90m-> null[0m[0m
+    }
+
+[1mPlan:[0m 0 to add, 0 to change, 6 to destroy.
+[0m
+Changes to Outputs:
+  [31m-[0m[0m account_id         = "851725449013" [90m-> null[0m[0m
+  [31m-[0m[0m caller_arn         = "arn:aws:iam::851725449013:user/userTerraform" [90m-> null[0m[0m
+  [31m-[0m[0m web-address-nodejs = "54.87.130.29" [90m-> null[0m[0m
+[0m[1mlocal_file.public_key_nodejs_apps: Destroying... [id=e8de8be44a845309708b3d204fe833be1f6df8d8][0m[0m
+[0m[1mlocal_file.private_key_nodejs_apps: Destroying... [id=9e3241d50025912c5652b8c4b56a5b36111087ff][0m[0m
+[0m[1mlocal_file.public_key_nodejs_apps: Destruction complete after 0s[0m
+[0m[1mlocal_file.private_key_nodejs_apps: Destruction complete after 0s[0m
+[0m[1maws_instance.nodejs-apps-server: Destroying... [id=i-094972e3df0ea39b6][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 10s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 20s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 30s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 40s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 50s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 1m0s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 1m10s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 1m20s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 1m30s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Still destroying... [id=i-094972e3df0ea39b6, 1m40s elapsed][0m[0m
+[0m[1maws_instance.nodejs-apps-server: Destruction complete after 1m42s[0m
+[0m[1maws_key_pair.public_key_nodejs_apps: Destroying... [id=nodejs-apps.pub][0m[0m
+[0m[1maws_security_group.nodejs_apps_sg: Destroying... [id=sg-0f83f10736dfa496c][0m[0m
+[0m[1maws_key_pair.public_key_nodejs_apps: Destruction complete after 0s[0m
+[0m[1mtls_private_key.rsa: Destroying... [id=c5fcce2b0de97e5eb929a12e78f55be58176bd0b][0m[0m
+[0m[1mtls_private_key.rsa: Destruction complete after 0s[0m
+[0m[1maws_security_group.nodejs_apps_sg: Destruction complete after 1s[0m
+[0m[1m[32m
+Destroy complete! Resources: 6 destroyed.
+[0mRemoving Terraform-related files...
+Removing Ansible-related files...
+[8mha:////4L3Fb6Rz3zn9g4HQS2ljasJTWal3ipFR+c7eOadhEoDaAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICBRWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nbf2r7Bgo2J0a+AAAA[0m[Pipeline] }
+[8mha:////4PVOCttwiRWG5fFd6vkp9U3OBYCEwW7eOmY7wUFACuxbAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRDRJCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axq4T5NudINt/AJiitCO9AAAA[0m[Pipeline] // dir
+[8mha:////4LqTJaUTYR2BiU92J5DnI+mg/ur4Ij/I34sAcfJA2mOSAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRFUiIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLsTZPsPvrvTab0AAAA=[0m[Pipeline] }
+[8mha:////4F/hszGrbH7bBk2N6xKfATKT9LVDChvt+hekAyL0vBvXAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRFUiIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLsXZLsP/jE8e70AAAA=[0m[Pipeline] // script
+[8mha:////4BS9C6sU2WAjAdBknXiSmxvkswuB20naqWvOYy4HtphiAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRDRJCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axq4T5Nu9INt9ANgoWzG9AAAA[0m[Pipeline] }
+[8mha:////4JzEdKHGP+Soik8YNNqBGJVqIN4Wqcd8m/DyDkBxtSHuAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMJBSFSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLcVZPsPvWnWI70AAAA=[0m[Pipeline] // stage
+[8mha:////4Fpk7XaHYDWp1WpBddPXJtbu+9Y2/Bx/MLOgYcePz9l8AAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYQjEB2iorXc8AITG+PEugv2haTiRXyNPxCIRMVWOyut5vmCMic4UPKycdgGzHWQXez91ORAqb1EGmRDZ1kTZopOajdosu44oyZ2MEcUsFCwdFhHygE9w0o15m6qaNBXJ07TtldQBHuDBwg1mdkk/sKYYH3tbSb8ef4KYOwYxI6h2G4+x/INji2eq8EAAAA=[0m[Pipeline] stage
+[8mha:////4HrDq58KL/yONmwIkD7+piFHGOpUi0BIqrgbFIZEXM9vAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycohUdEVMrFEXThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbyhjgRMFwp7GzGFvLez+aOfFMobt5ytzRlbeEkbzmjc4NKX1ea0NJw6qCwUbAVmPrKVo0CXbCyYesvERTXVKYt6MAZtUATyjETE4ypG+ZAuzvo4qEP85fAEx9AlYfFquXZ/kBAsTc3cIAAAA=[0m[Pipeline] { (Remove saved Nodejs Apps Terraform state from S3 bucket)
+[8mha:////4GZb2CcGKakY63daYm6BjBA2neel86KjMKHZK/zkJRXeAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUKiNiYo2ycILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMUAJwqGOY2dxdha1vvRzIllCt3NU2aOrqwljOQ1EzoLUvq8VkFJw6qihA2HrcbWU7RoEuy4kw9Ze4mmvqQwb0cOpVUDPKHgMznJkL5lCrC/jyoS/jh/ATD1CcqmWeywPKsPpnFij8IAAAA=[0m[Pipeline] script
+[8mha:////4BN18NV8KTWuFhal+dpw63c060lHG/NoirIUzo4dzpOmAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUAjbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxAd6e6VPCAAAA[0m[Pipeline] {
+[8mha:////4FJ+vwf54+1lp0YeRbfNi91q+SESm1x0FAmPIsBWiqLqAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQjAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD/hYjrHCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/nodejs-apps-deploy/nodejs-apps-2/project-setup-files/terraform
+[8mha:////4NmLBx1G3GBJjEvvQ7W2Qk0e2CddmQCTfP1EBg7kZNA6AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQoIFMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfACW9ZT2wgAAAA==[0m[Pipeline] {
+[8mha:////4F2WITrI3MDrxjZin11JxBQEF0YUUYB0pPiGokX/sj0hAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUUCBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAHUcXIBvgAAAA==[0m[Pipeline] sh
++ ls -l
+total 40
+-rw-r--r-- 1 jenkins jenkins  148 Mar 10 05:05 backend.tf
+-rw-r--r-- 1 jenkins jenkins  511 Mar 10 05:05 data.tf
+-rw-r--r-- 1 jenkins jenkins  621 Mar 10 05:05 instances.tf
+-rw-r--r-- 1 jenkins jenkins  192 Mar 10 05:05 main.tf
+-rw-r--r-- 1 jenkins jenkins  235 Mar 10 05:05 outputs.tf
+-rwxr-xr-x 1 jenkins jenkins 1815 Mar 10 05:05 rm-nodejs-apps-tfstate-from-s3.sh
+-rw-r--r-- 1 jenkins jenkins  463 Mar 10 05:05 sg.tf
+-rw-r--r-- 1 jenkins jenkins  534 Mar 10 05:05 ssh_keys.tf
+-rwxr-xr-x 1 jenkins jenkins  527 Mar 10 05:05 tf-cleanup.sh
+-rwxr-xr-x 1 jenkins jenkins  400 Mar 10 05:05 update_hosts.sh
+[8mha:////4O4Tw2fdMq8SBWaWZGlyFZvoFnNFKvZaOW0Iefe+K0C4AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUSAkRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYMpTb3af24Q0bbeqGvgAAAA==[0m[Pipeline] fileExists
+[8mha:////4KP4UvupFTR9u7dGhomFg5Ipswwa5gsL9nwbcsNCFGdkAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUSAhRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYMpTb3af24Q1aXPGfvgAAAA==[0m[Pipeline] sh
++ chmod +x rm-nodejs-apps-tfstate-from-s3.sh
+[8mha:////4DrmcmNc19DwzURvLHxHInpZmiv0P6tNrioNPW+33tJ8AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCQKJBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKYhQrk75Npvhw8kjfFPvgAAAA==[0m[Pipeline] sh
++ ./rm-nodejs-apps-tfstate-from-s3.sh
+Bucket Name: nodejs-apps-terraform-bucket
+Key Value: nodejs-apps/terraform.tfstate
+Removing VersionId: Y9hcS.YrUAnwaapCdSd5rxOKuM7JXMQc
+{
+    "VersionId": "Y9hcS.YrUAnwaapCdSd5rxOKuM7JXMQc"
+}
+Removing VersionId: uwCGUyx3YUYE8YKSOLnoUMcQ7blaHMdz
+{
+    "VersionId": "uwCGUyx3YUYE8YKSOLnoUMcQ7blaHMdz"
+}
+Removing VersionId: 3pKahA5uMEeX9q.Up_eBab8yQnBztqvJ
+{
+    "VersionId": "3pKahA5uMEeX9q.Up_eBab8yQnBztqvJ"
+}
+Removing VersionId: QdBUda__WH2Z1t0TEGXIA0CaMQO0HtIL
+{
+    "VersionId": "QdBUda__WH2Z1t0TEGXIA0CaMQO0HtIL"
+}
+Removing VersionId: zarVYiCOs_MXHcEpwTGK2hmQNvl1BD7S
+{
+    "VersionId": "zarVYiCOs_MXHcEpwTGK2hmQNvl1BD7S"
+}
+Checking if the S3 bucket is empty...
+Bucket is not empty. Remaining objects:
+                           PRE setup_s3/
+Deleting the S3 bucket...
+Removing backend.tf, Terraform files, and state files...
+[8mha:////4OfaYADJSHjwoTcoW40c4nl2Zjf/FWoiO5gFAkSKRhSuAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiQKJBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDut7l2hw/Dk2eIvgAAAA==[0m[Pipeline] }
+[8mha:////4OCHAEybSBa3NaT5j6ogWBELtcKZiJKBnJZp2FQ+DNY2AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiBVEhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3da768AHXsPqXvgAAAA==[0m[Pipeline] // dir
+[8mha:////4FEjZF+kEf5Plcf0pzHgYTNtkDNgPMxfBBMpLuDZgW/1AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKRCB2iSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGVd59ofPuRToSu+AAAA[0m[Pipeline] }
+[8mha:////4MjM0Ia+qaAsExh6Iv9u5RTkJol16CAei2i6zsgGo8fJAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKRCB2iSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGV9yLWvP//2wKi+AAAA[0m[Pipeline] // script
+[8mha:////4BB9ndV1O2gcnPIdX5s1LTJ4jolCaMhvdYM+7fgJaeFiAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiBVEhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3h1x1/QHMFZsUvgAAAA==[0m[Pipeline] }
+[8mha:////4Fe6ZTcjLGD4uXPL5ozWKOf9VBOmgm0yXyZvyGQC6c0mAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiQKJBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDuD7l22w/YNgYLvgAAAA==[0m[Pipeline] // stage
+[8mha:////4HMw6GK1g8Bmhx8HgmYDrcfwBRrCz3EbrKVDel3ITRl5AAAApx+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYRTgESBqGgtN7zAxMY4se6CfSGpeBFf4w8EIlGx1c5Kq3m+oMwJDpS8bBy2AXMdZBd7PzU5UGovkQbZ0FnWhJmik9oNmqw7zqiJHcwRBSwULB3WkXJAz7BSjbmbKhr01YnTtO0VFMHe4AFCTWY2ib8wJlhfe5sJf56/Ahg7BrFlKDa7z7F8AyfFsNvBAAAA[0m[Pipeline] stage
+[8mha:////4DJrt4N3x3KwhCQF99/432HhDjiYeLia9R1FRokCcROFAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0YAAJMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfAD8aiCpwgAAAA==[0m[Pipeline] { (Remove saved S3 Setup Bucket state from S3 bucket)
+[8mha:////4Pw2m6qfM43fvsduUMRKdG8WUo53yaPe5XAp/LNShySIAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0YAEhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD59NhPHCAAAA[0m[Pipeline] script
+[8mha:////4B6g6T4tpoIWymtINX4DW6dQLiVdQy7FPSa/iYoNWh8KAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUCRaEOrFGXThBaEJIGv1fkpR04kRcjTsQqMSEB8u2ZL3nC6rgoSGvmVXYGwydYYMbdU4ske8vjhKzdGYdYSCnWKtSS1Id59pSVDCrKGHBYamwcxQM6ggrbsVd1E6grk/R5+3AoTTyBg8oeCZH4eO3TB7W11EGwh/nLwCmIUK53WfbbT7P6g0Z/aLSwgAAAA==[0m[Pipeline] {
+[8mha:////4JxFelrYbyFuthK/vNStjwIP17rEcr7xqg7e8KviR7CpAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUJDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAbb5KxbCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/nodejs-apps-deploy/nodejs-apps-2/project-setup-files/setup-s3-bucket
+[8mha:////4CfAqV4iNVmtgsQymcNdcr1FiEeKKKOc83IJwlAJfj5hAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUIDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAdhUMVHCAAAA[0m[Pipeline] {
+[8mha:////4HgrA0/gelN3SC1wJLsPFICoLi0hQCzGz82CokdTBCoPAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAR2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBvbls1O+AAAA[0m[Pipeline] sh
++ ls -l
+total 32
+-rw-r--r-- 1 jenkins jenkins  146 Mar 10 05:06 backend.tf
+-rw-r--r-- 1 jenkins jenkins 2287 Mar 10 05:05 main.tf
+-rwxr-xr-x 1 jenkins jenkins 1876 Mar 10 05:05 remove_s3_bucket.sh
+-rwxr-xr-x 1 jenkins jenkins 1214 Mar 10 05:05 setup_s3_bucket.sh
+-rw-r--r-- 1 jenkins jenkins 4194 Mar 10 05:06 terraform.tfplan
+-rw-r--r-- 1 jenkins jenkins    0 Mar 10 05:06 terraform.tfstate
+-rw-r--r-- 1 jenkins jenkins 5406 Mar 10 05:06 terraform.tfstate.backup
+[8mha:////4Nq2cDKtCxJlNK7kXhXz/kKQa05keXIV0idlBJMSLMiOAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioXSIitZKwwtMYowd686xHZyKF/E1/kAgEhVbrHa2mecL1jHAkYNGq6g3FFuD3o16Xpg59FfHGS1fsGWK7BQ2KjfcqdOCDScFS4oSVgI2ilrH0ZBOsBVW3mXlJOnqnML8HQSUphvgAYWYzUmG9IUpwO42dpHp5/krgMknKOv9p2r/BjFz8hy+AAAA[0m[Pipeline] fileExists
+[8mha:////4Dqr+i8EYGpPsMHl3BZiEtwc+SIUd8VcD4kWGJ2/vG5ZAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIagQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO62n9qHN3BC6QW+AAAA[0m[Pipeline] sh
++ chmod +x remove_s3_bucket.sh
+[8mha:////4By4chT6pecdavLYfmqEYdRaPsqud8awCaMKNSCmGRrWAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIUSDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK3/dQ+vAGzEcQuvgAAAA==[0m[Pipeline] sh
++ ./remove_s3_bucket.sh
+Bucket Name: nodejs-apps-terraform-bucket
+Key Value: setup_s3/terraform.tfstate
+Removing VersionId: zarVYiCOs_MXHcEpwTGK2hmQNvl1BD7S
+{
+    "VersionId": "zarVYiCOs_MXHcEpwTGK2hmQNvl1BD7S"
+}
+Checking if the S3 bucket is empty...
+Bucket is empty.
+Deleting the S3 bucket...
+Removing backend.tf, Terraform files, and state files...
+[8mha:////4D8ymcvU5z6o9C7pWpZmXkl21mKsqquAKX+q10dWq2dPAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiISQKRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYQoZyt//U9g3PLa7KvgAAAA==[0m[Pipeline] }
+[8mha:////4L641hqtaTIUMpG+YGtIFYtF3VAYwz11Dmt9ozKLGNqSAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJAokRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYQoZyt//U9g2gzvGivgAAAA==[0m[Pipeline] // dir
+[8mha:////4IYgg1i8RoHKqlyGfTl0shnAWPEw5ldI83Z3B8PjYtpPAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCQYMQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrd/lPbN5Mtqh6+AAAA[0m[Pipeline] }
+[8mha:////4N/VpC9W9jUPp/xFOqMQeWAJ7dyzMyWXPlnOUFSyRNRaAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKChCgQSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryv821O3wAjFlPqb4AAAA=[0m[Pipeline] // script
+[8mha:////4KP7J2XjWByWFypyrxtVABgIviQtQ/b+wRjdjjEEDCFQAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIihJCQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKU+22u3eEDv7oUFb4AAAA=[0m[Pipeline] }
+[8mha:////4HdykwfcKhpz3MUIKoqaNdYMEz7Sp3ZRJ1tdaEpdX0q5AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigRAFSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryv821O3wAgNU/A74AAAA=[0m[Pipeline] // stage
+[8mha:////4OycHRvrXK2HGn38+E64O30ZqRAsRsEig83L1x/g/FBmAAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYRTABWiorXc8AITG+PEugv2haTiRXyNPxCIRMVWOyut5vmCMic4UPKycdgGzHWQXez91ORAqb1EGmRDZ1kTZopOajdosu44oyZ2MEcUsFCwdFhHygE9w0o15m6qaNBXJ07TtldQBHuDBwg1mdkk/sKYYH3tbSb8ef4KYOwYxJah2G0+x/INC7LxI8EAAAA=[0m[Pipeline] stage
+[8mha:////4J+3gqXIIuE6gajHJDKNc4gvGUW+ViqJau5J5ekwFxlTAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0ACbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAd9J1uLCAAAA[0m[Pipeline] { (Destroy S3 Setup Terraform state)
+[8mha:////4KrjUAtu49v5wolUBaDDRHZSNmAV9R3nQ4qWi13Q7rSnAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycoh0oRNiYo26cILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMYAJwqGO42dxdha3vvRzIlnCt3NU+aOrrwljOQ1b3RuSOnzWhtKGlYVDDYCthpbT9GiSbATTj5k5SWa6pLCvB0FMKsGeEIhZnKSIX3LFGB/H1Uk/HH+AmDqE7D6sFi9PMsP+Y+xAMIAAAA=[0m[Pipeline] script
+[8mha:////4FBLRI1013qQfE1UCI5kwHl5MUGCMXnIqZ1xToBVncrFAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0KgtiYo2ycILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMUAJwqGOY2dxdha1vvRzIllCt3NU2aOrqwljOQ1EzoLUvq8VkFJw6qihA2HrcbWU7RoEuy4kw9Ze4mmvqQwb0cOpVUDPKHgMznJkL5lCrC/jyoS/jh/ATD1CcqmWeywPKsPlyKrR8IAAAA=[0m[Pipeline] {
+[8mha:////4PqUU6Wr34DcGPM4g32JrNqhnSqjEGs49n0S4EfuWsVPAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0AgbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxATOXFRXCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/nodejs-apps-deploy/nodejs-apps-2/project-setup-files/setup-s3-bucket
+[8mha:////4NTEBWtECYD6BwmnxGnqEoS5l4Jv1W3hFT7NVf4jeSJ8AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0QiAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LDyb6zSXCAAAA[0m[Pipeline] {
+[8mha:////4N1PtNuVMyIX65cnZatqgOysQ5td4BE6lB5s3l9dpEPLAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSIYEQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHN5s4RMC+AAAA[0m[Pipeline] sh
++ ls -l
+total 12
+-rw-r--r-- 1 jenkins jenkins 2287 Mar 10 05:05 main.tf
+-rwxr-xr-x 1 jenkins jenkins 1876 Mar 10 05:05 remove_s3_bucket.sh
+-rwxr-xr-x 1 jenkins jenkins 1214 Mar 10 05:05 setup_s3_bucket.sh
+[8mha:////4Ics/A14b6nZITaQQCW0sHgZH809TRPGvT76Nxk6sceVAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCA0JCqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKYhQrk75Npvhw+LPcATvgAAAA==[0m[Pipeline] sh
++ terraform init
+
+[0m[1mInitializing the backend...[0m
+
+[0m[1mInitializing provider plugins...[0m
+- Finding latest version of hashicorp/aws...
+- Finding latest version of hashicorp/null...
+- Installing hashicorp/null v3.2.2...
+- Installed hashicorp/null v3.2.2 (signed by HashiCorp)
+- Installing hashicorp/aws v5.40.0...
+- Installed hashicorp/aws v5.40.0 (signed by HashiCorp)
+
+Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.[0m
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+[8mha:////4J2zFj2K4eIgI1JRExcJZB/1q/tODqQo1tGN59ne2H/QAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiChASSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANEcrdIdd+O3wAygzbCr4AAAA=[0m[Pipeline] sh
++ terraform destroy -auto-approve
+
+[0m[1m[32mNo changes.[0m[1m No objects need to be destroyed.[0m
+
+[0mEither you have not created any objects yet or the existing objects were
+already deleted outside of Terraform.
+[0m[1m[32m
+Destroy complete! Resources: 0 destroyed.
+[0m
+[8mha:////4LkioBm85AorU4aRD9R1R8PhPM8f+um7IFV9LMmQ3h19AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIYGQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpiFDuDrn22+EDCV/2Ib4AAAA=[0m[Pipeline] echo
+Removing Terraform-related files...
+[8mha:////4IAno6Bhr+ZF6V9NPQ07W9+j/9VpgNuG9cDU1h8UIensAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSIBASSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANEcrdIdd+O3wASG7tOL4AAAA=[0m[Pipeline] sh
++ rm -f terraform.tfstate terraform.tfstate.backup .terraform.lock.hcl tfplan terraform.tfplan
+[8mha:////4FEXz+52j4BikEeP+Ueyhu3hIB+zZrIZyi+KPCQ3Xz6kAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOLSAEJCqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKYhQrk75Npvhw+P+Kx3vgAAAA==[0m[Pipeline] sh
++ rm -rf .terraform/
+[8mha:////4C8FlAFz8Mh/jczPz2O9qT9PUtEg638DSzE+7iWbGj/AAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSBSEhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3da768AGyRTfpvgAAAA==[0m[Pipeline] }
+[8mha:////4NJnMlgF4W6Rc1ZcIlADni/Zc6yINQzp/ssYh2GLeluyAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKpCAWiSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGVd59ofPo0qHP++AAAA[0m[Pipeline] // dir
+[8mha:////4MWd9HoppcFXql3AVhtsKiknbMbEXFrNw9Mz0+fo34mcAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKpCAWiSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGV9yLWvP77JR0O+AAAA[0m[Pipeline] }
+[8mha:////4OjV1Yrl4Z1FrKHTqntPEv81x4q70tr0Ag+P9yQ26Ym8AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSBSEhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3h1x1/QHRKhgrvgAAAA==[0m[Pipeline] // script
+[8mha:////4K90GRdeZwqrqKyPVKpDQtMyDd/Yp7V79E6/lz4p7WQVAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOLSABJCqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDuD7l22w/iyUOXvgAAAA==[0m[Pipeline] }
+[8mha:////4A8+XQV6YTbL9XuiefBbgptmTFFwg9nC3gYDoPhTt6lWAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKChBAFSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4TysM21330APQZfiL4AAAA=[0m[Pipeline] // stage
+[8mha:////4FhEsyI4zvC4yoRPJNQH0aPmc+Xfwnizr3hS3TOC3bMCAAAApx+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYQjJCQKREVrueEFJjbGiXUX7AtJxYv4Gn8gEImKrXZWWs3zBWVOcKDkZeOwDZjrILvY+6nJgVJ7iTTIhs6yJswUndRu0GTdcUZN7GCOKGChYOmwjpQDeoaVaszdVNGgr06cpm2voAj2Bg8QajKzSfyFMcH62ttM+PP8FcDYMYgtQ7HbfI7lGykCpvnBAAAA[0m[Pipeline] stage
+[8mha:////4MxneXj/wAhZ7wxOPowCiwOSCic+w1wDQOsy60tKlXUyAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUsDAgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYL8sJttPz+LD7WcRxfCAAAA[0m[Pipeline] { (Destroy S3 bucket)
+[8mha:////4GkAfmxXIdO3ulcIrOfmh0rupEI/Q6ejSF2DyCnMpjMIAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUgoEBMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLkh91s+/lZfAARKflFwgAAAA==[0m[Pipeline] script
+[8mha:////4BGfNi+bV+aRvP4bCv+aumq8J+IFC2wKja5AzFZPZxP/AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0AIkBMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLkh91s+/lZfABpxnKZwgAAAA==[0m[Pipeline] {
+[8mha:////4JbnQyaoB/y5J/hz+4cya/njf/XZiAoum0Bnb2NmJTR2AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0ATEgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYL8sJttPz+LD08AFXvCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/nodejs-apps-deploy/nodejs-apps-2/project-setup-files/setup-s3-bucket
+[8mha:////4I1Rjl4h7M+rqEmgDzGNkqEsqZYAeVTOIeOLSu98O3lnAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0AgbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxASGtDzzCAAAA[0m[Pipeline] {
+[8mha:////4Haohpxtv7bHMP5ExIDA9AJQbMN5BG/NAk4Yv78Vi5G2AAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOLSkQJR0VppeIFJjLFj3Tm2g1PxIr7GHwhEomKL1c4283zBOgY4ctBoFfWGYmvQu1HPCzOH/uo4o+ULtkyRncJG5YY7dVqw4aRgSVHCSsBGUes4GtIJtsLKu6ycJF2dU5i/g4DSdAM8oBCzOcmQvjAF2N3GLjL9PH8FMPkEZb3/VO3fW71ZT74AAAA=[0m[Pipeline] sh
++ grep -E resource "aws_s3_bucket" "nodejs_apps_bucket" main.tf -A 2
++ grep bucket =
++ awk -F " {print $2}
+[8mha:////4BqgT3NsDsm6YR2nfXQMPakS7VfmktKp0XqsRc2Y28OrAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOLSARKiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyt32U/vwBpShwci+AAAA[0m[Pipeline] sh
++ aws s3api delete-bucket --bucket nodejs-apps-terraform-bucket
+[8mha:////4JKfshvyZm/wipRXK8G6LdbhJKoxhJmA1nZ0yK8B8tCPAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOLSgRCiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nbf2r7BvjBDO2+AAAA[0m[Pipeline] }
+[8mha:////4K9x6tB5hGAsjqTx+LqIqPv8uGkFGrz3i8ZbydCdfgv/AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCg0BCqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFAetrn2uw9jsUKlvgAAAA==[0m[Pipeline] // dir
+[8mha:////4N3DuyJfWLlEB5U0hXe53bmBg//Uov1AH+eRUioBGKHXAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJCSQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKUh22u/e4DUFIZGb4AAAA=[0m[Pipeline] }
+[8mha:////4KtYrHl9dlYflJIKBvEP9LiMlWFTMM3YiEZz1u1MlGWoAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiQQESSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4TysM21330AXbXpAb4AAAA=[0m[Pipeline] // script
+[8mha:////4MKUcugNUf/7j9Fn7sKokUhPFyyGxAcmb30tcW4yYELFAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiQQESSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4TysMu1334Ablayvb4AAAA=[0m[Pipeline] }
+[8mha:////4AtORClHFCB1haXjHCsuk6RMQFv+BF59PthCD8j39Nx1AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJCSQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKUh12u/fYDbDe+Ob4AAAA=[0m[Pipeline] // stage
+[8mha:////4PyTo5UtV97eeexOtyJE0xrAtEv6JOy8/iL/iGd8zu1rAAAApx+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYTTgISEqGgtN7zAxMY4se6CfSGpeBFf4w8EIlGx1c5Kq3m+oMwJDpS8bBy2AXMdZBd7PzU5UGovkQbZ0FnWhJmik9oNmqw7zqiJHcwRBSwULB3WkXJAz7BSjbmbKhr01YnTtO0VFMHe4AFCTWY2ib8wJlhfe5sJf56/Ahg7BrFhKHbbz7F8A9Ywf5TBAAAA[0m[Pipeline] stage
+[8mha:////4KsWuoRpafpnqsKljiBe5XwbaKgPnXAqDVhelsX3+qi6AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0AiEhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYL8sJttPz+LD7lC07jCAAAA[0m[Pipeline] { (Clean Up "nodejs-apps-deploy" project)
+[8mha:////4LO6h3689qbddx5Jbxgmd+ZLDuOQr15k8zi0npMSBY5PAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0AyTE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAR33berCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/nodejs-apps-deploy
+[8mha:////4OfEl7xkglWMWlD6kCNeP8WxmKIJUCtxIDTRGjbeaYglAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycoh0pBJiYo26cILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMYAJwqGO42dxdha3vvRzIlnCt3NU+aOrrwljOQ1b3RuSOnzWhtKGlYVDDYCthpbT9GiSbATTj5k5SWa6pLCvB0FMKsGeEIhZnKSIX3LFGB/H1Uk/HH+AmDqE7D6sFi9PMsPCJq12sIAAAA=[0m[Pipeline] {
+[8mha:////4I2Ie+JsVbItFcGzu5WMXHttywqcsmol6wDrkQMatOp/AAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSxnGsbBkaT4AJIoT5nwCRVJ7Iq3kH0cxYucXOvm3e8wXrGOBIQTOrcDAYO8O8m3RZLFMYro4ys3RhHWEkp5hQWVCvTgsKSgqWVDWsOGwUdo6iQZ1gy628y8ZJ1M05hfIdONSmH+EBFS/mJEP6whxgd5v6SPjz/BXA7BPUbfupvX8DGb6ZU74AAAA=[0m[Pipeline] deleteDir
+[8mha:////4Mg8SqPVvfAP2hOK7PYnpqmUw0BrJQCpsBv/gcPBdnxEAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKhDEJUaa00vMDEh3Fi3RnbIal4EV/jD1hEomKL1c4283rDOgY4cTCiRxosxc4K70aTl5g4DFfHk+j5IjqmyA5Fi1PLGpsFW04IS4oSVhI2SJ3jaMkk2MpePVTlFJnqnEL+jhJKq+/whEJmc1IhfWEOsLuNOjL9PH8FMHufoDzsc9X1B6XaHPq+AAAA[0m[Pipeline] }
+[8mha:////4Gei53OzR/0YP6Dic6PtoKuik/Bq9IF+5lrb3p4NM6E3AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiKkAoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcrDNtd+9wGRFP+hvgAAAA==[0m[Pipeline] // dir
+[8mha:////4J306w55+LxuqK6tHOCRT9+TRYO/PLLd5zld5Dc+d1fhAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYkAg1Ik16sIJQhNC0uj/kqSkEyfiatyBQCUmPFi2Jes9X1AFDw15zazC3mDoDBvcqHNiiXx/cZSYpTPrCAM5xVqVWpLqONeWooJZRQkLDkuFnaNgUEdYcSvuonYCdX2KPm8HDqWRN3hAwTM5Ch+/ZfKwvo4yEP44fwEwDRHK3TbbfvN5Vm8abdccwgAAAA==[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/nodejs-apps-deploy@tmp
+[8mha:////4J7g1drvjIdfCwGsW6UCIQWlLR6Ec9++xugD3eUhaGFfAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUggkhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYL8sJttPz+LD1KB9/zCAAAA[0m[Pipeline] {
+[8mha:////4JR+ephPsaUYJQLDpBiESGFpsscXI5JxP3o1//aEDDUSAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSQIMQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO63n9qFNwf+WCm+AAAA[0m[Pipeline] deleteDir
+[8mha:////4GPFduTLN2EqN0jDrgBic95AjBZ/5uvXu9svGg1KKjtIAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSIAqEqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDud5/avgHfoxgkvgAAAA==[0m[Pipeline] }
+[8mha:////4BnFi3g5hPGOhiDVgvvxhixWHkPUAOSM9lJNc+mpNX1RAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUSAhRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYQoZyv/vU9g3n4YvVvgAAAA==[0m[Pipeline] // dir
+[8mha:////4Khv6HPXjciZq7kVgvzfeAskqL7JPdUlYwBHa0UKm7phAAAApR+LCAAAAAAAAP9tjTsOwjAQRDdBFLSUHGLT8RFKRWu54QQmMcaJtRtsB6fiRFyNO2ARiYopRvOmea83LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcrDLtd++wEax6EAvgAAAA==[0m[Pipeline] }
+[8mha:////4C/YNCQTqo7RGwfh7Uzs9LShCVKmVcWz32kUeZVKWjl4AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKpkIIQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJygPda56/wF1JP5ovgAAAA==[0m[Pipeline] // stage
+[8mha:////4CsFvQvY/q9R3GTy4jUzO7g58uRLAL0FkjL8B1nlYMN4AAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYTT0ESIitZywwtMYowT6y7YF5KKF/E1/oAhEhVb7ay0mucLyhThQNHJzmLvMTVeDmF0ucmJYn8JNMmOzrIhTBSs1HbS1NrjgprYwhJRwErB2mITKHl0DBvVmbupgkFXnTjmba+g8O0NHiBUNrOJ/IU5wvY6tonw5/krgHlgEDuGoq4/x/INGfvKRcEAAAA=[0m[Pipeline] stage
+[8mha:////4E2I13FpQpkjUTBtiGfIzAmh6J279TQyRm+9shPmqYvQAAAApx+LCAAAAAAAAP9tjbEOgjAURR8QBldHP6LgSIwTa8PiF9RSa6F5D9uHMPlF/pr/IEri5J3uucnNeb4gjwGOFKzoDPYOo3Zi8KNdmpgo9BdPk+joLDRhJG9EY6aGWlOv2BAbWJOkkEnYGNSeokPLsJWduqvCK7TFicOyHSSkrr3BAxK5mFkF/sIcYHcd20j48/wVwDwwpFXFkO3L8nPN3zgbWwvDAAAA[0m[Pipeline] { (Clean Up "nodejs-apps-destroy" project)
+[8mha:////4IIALlyahC9xSW88XX91VX+FY0BdBQd+rmhtQfg6+VewAAAAph+LCAAAAAAAAP9tjbEOgjAYhH8gDK6OPkSB2Ti5Nl18gkprbWn+H9oiTD6Rr+Y7iJA4ecPl7pLL93pDGQOcKBjmNHYWY2tZ70ezJDZR6G6eJuboylrCSF4zoSdBSp+3Kihp2JTlUHDYaWw9RYsmwZ47+ZCVl2iqSwrLduSQWzXAEzK+kJMMaS1zgMN9VJHwx/kLgLlPUDR1vXrz/ZYfJWyAvsQAAAA=[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/nodejs-apps-destroy
+[8mha:////4FUmX6JKAY003UPzwJMdDfeVvvNQ5i0VGxpIdTVqgTVaAAAApx+LCAAAAAAAAP9tjbEOgjAYhH8gDK6OPkQRV+PE2rD4BLXUWmj+H9timXwiX813sELi5A2Xu0su3+sNpXdwIqdZr3Aw6KVho510SiySG66WIuvpwiShJ6tYq2JLnWrW2lJQsCrLoeCwUSgteYM6wJb34iEqK1BX5+DSduSQm+4OT8h4IgfhwlJmB7vb1HnCH+cvAOYxQFHv68UP32/5AeRSsaPEAAAA[0m[Pipeline] {
+[8mha:////4KTX4M0sIYRxPxufI5zN99RoH+p7qe5vaJNIe4encweEAAAApR+LCAAAAAAAAP9tjTsOwjAQRDeJKGgpOYTDp0SpaK00nMDYxtixdoPt4FSciKtxB6JEomKK0bxp3vsDqxigoWCY09hZjNKy3g9mWixT6G6eMnN0ZZIwktes1bklpc8LtpQ0LClKqDisNUpP0aJJsOFOPEXtBZr6ksL0nTiUVj3gBQWfzEmENMMYYHsfVCT8ef4KYOwTVPvdYe5j/wUKhu8NwAAAAA==[0m[Pipeline] deleteDir
+[8mha:////4E7PxVdokpFnwF+kne6YjxQpMI/OVMZXLrkaSYuNYvoEAAAApR+LCAAAAAAAAP9tjTEOwjAQBC+JKGgpeYQDiA6lorXS8AJjG2PHugu2g1PxIr7GH4gSiYotVjvbzPsDqxigoWCY09hZjNKy3g9mWixT6G6eMnN0ZZIwktes1bklpc8LtpQ0LClKqDisNUpP0aJJsOFOPEXtBZr6ksL0nTiUVj3gBQWfzEmENMMYYHsfVCT8ef4KYOz7BNV+d5z78AUxGKcxwAAAAA==[0m[Pipeline] }
+[8mha:////4JZDNiD4+rCrvW3EC0BPlqwhVbDNH1HaKJ8qsLLunnaVAAAApR+LCAAAAAAAAP9tjTESgjAQRRcYC1tLD7FIYeVY0WbSeIIYYgxkdjEJQuWJvJp3kIEZK3/x57/fvPcHNjHAmYPF1lDnKGqHvR/svHDk0N08j9jyFTVTZG9QmlFyY+oVJScDa7IcCgFbQ9pzdGQT7ESrnqr0imx5SWH+TgJy1zzgBZmYzUmFtMAUYH8fmsj08/wVwNT3CYrqcFy6+gI/QtkOwAAAAA==[0m[Pipeline] // dir
+[8mha:////4CDtVbm3fbTGbi9ooBBYxCbhyrZOnBUlzEc9KiGjzWVdAAAApR+LCAAAAAAAAP9tjTESgjAURD8wFraWHiJgY+NY0WZoPEEkMSZk/o9JECpP5NW8gxmYsXKLnX3bvPcHNjHAmYJmVuFgMPaGeTfqvNhEYbg5mpilK+sJIznFOjV1JFW7YkdJwZqihIrDVmHvKBrUCXbciqeonUBdX1LI34lDaeQDXlDwbE4ipAXmAPv7KCPhz/NXALP3CapDc1y6+QI0aDZIwAAAAA==[0m[Pipeline] }
+[8mha:////4Hh0hJjtMsXziCQCVIpCjtDZoWeQrEfoE9TIA64+BWJhAAAApR+LCAAAAAAAAP9tjTESgjAQRZcwFraWHiJo5TAOlW2GxhPEEGMgs4vJIlSeyKt5BxmZsfJX/73mvd6wShEqik62FjuPyXjZh8HNT44Uu2ugUbZ0kYYwUbCytmNNjT0tWBNbWJYJyBWsLZpAyaNj2KhWP3QRNLrizHF2RwXCN3d4QqbmMuvIX5gibG9Dkwh/nb8BmPqeId/vDgyiLD+PhK/wvwAAAA==[0m[Pipeline] // stage
+[8mha:////4BKIFW6s8ib7dk8o6X2iLmw8fimV1tzxczM5ITR4MkBHAAAApR+LCAAAAAAAAP9tjTEOwjAQBM+JKGgpeYQDEgUSoqK10vAC4xjjxLoL9gWn4kV8jT8QEYmKrXammdcbFinCkaKTrcXOYzJe9mFw05OZYncNlGVLF2kIEwUra5trauxpxprYwjxRQKlgadEESh4dw0q1+qGroNFVZ46TOygofHOHJwg1lVlH/sIYYX0bmkT46/wNwNj3DOV2s2cQuw8gA7F4vgAAAA==[0m[Pipeline] }
+[8mha:////4ACGcZYnZkRbLdQcptyWhb9mJSvIyJceTtz8JPE14s49AAAApB+LCAAAAAAAAP9tjTEOwjAQBM+JKGgpeYQDokKIitZKwwuMY4wT6y7YF5yKF/E1/kBEJCq22plmXm9YpAhHik62FjuPyXjZh8FNT2aK3TVQli1dpCFMFKysba6psacZa2IL80QBpYKlRRMoeXQMK9Xqh66CRledOU7uoKDwzR2eINRUZh35C2OE9W1oEuGv8zcAY98zlNvNnkHsPjO/tdu+AAAA[0m[Pipeline] // node
+[8mha:////4FzJP2/Lada1bGCe2YXPsPw9uO4QwX73bVlIVAL1/6ywAAAAox+LCAAAAAAAAP9tjTESgjAQRRcYC1tLDxHE1rGyzdB4gkhiDGR2Y7IYKk/k1byDjMxY+av/XvNeb1ilCEeKVvQGB4epcyL40c5PZIrD1VMWPV1ER5jIG9Ga3JI2pwVbYgPLihIqCWuDnafk0DJsZK8eqvYKbX3mOLuDhNLpOzyhkHOZVeQvTBG2t1Enwl/nbwCmEBiqptkxFPsPcT7+ar4AAAA=[0m[Pipeline] End of Pipeline
+Finished: SUCCESS

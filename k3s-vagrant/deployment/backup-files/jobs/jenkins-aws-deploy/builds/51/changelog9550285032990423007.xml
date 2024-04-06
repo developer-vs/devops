@@ -1,0 +1,10 @@
+commit 90b0c807bf8ac801b994771b3f1e8467f644a4ac
+tree e97a5eab8e64970f82fdcf9c274a8d4104cd2ffb
+parent d7f54682ab2c4ebac1a521fcbf42ce5cfa52ed6a
+author Vlad <vladimirgdsr@gmail.com> 2024-03-25 12:03:32 -0700
+committer Vlad <vladimirgdsr@gmail.com> 2024-03-25 12:03:32 -0700
+
+    code refactoring
+
+
+:100644 100644 23006eae9845c7c07352b9128a579eac9341f49e 527d9c8bfb1102480e8948a669ecda92f4fc5c00 M	jenkins_in_docker_on_aws/project-setup-files/docker/jenkins_setup/plugins.txt
